@@ -1,0 +1,27 @@
+How to Run:
+
+	1) Install Wampserver and put this folder in 'www' directory.
+
+	2) Run wampserver and confirm it by typing 'localhost' in the web browser's url box.
+
+	3) To See webpage, type localhost/folder_name/login.php and press Enter. 
+  	   In this case folder_name is "Research  publication" (Rename this folder if you want
+	   shorter name e.g. 'rpac' ).
+
+	4) After pressing enter, a login page will be visible, check username and password in the
+           PBAS database.
+
+	5) Type Username and password and then hit "sign in" Button.
+
+	6) Now explore "Research, publication And Academic Contribution" Area.
+
+TO DO:
+
+	1) Validation on the form's fields using javascript.
+	
+	2) Code for 'Delete' tested successfully, need to implement for some forms
+
+	4) Code for 'Reset' Button.
+
+	3) Code for 'show' button done successfully but need to implement for some forms.
+
