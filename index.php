@@ -20,12 +20,11 @@
 		</title>
 		<style>
 		.header{
-		min-height:75px;background-image:url('images/LightGreyBackground.jpg');padding:0px 0px 0px 50px;text-align:left;
+		min-height:75px;background-image:url('images/LightGreyBackground.jpg');padding:0px 0px 0px 0px;text-align:left;
 		width:100%;
 		}
 		.box{
-		margin-left:800px;
-		margin-right:80px;
+		float:right;
 		margin-top:50px;
 		padding:25px;
 		}
@@ -46,8 +45,8 @@
 			<table width="100%">
 			<tr>
 				<td width="100px"><a href="www.iips.edu.in"><img src="images/iipslogo.jpg" height="100px" width="100px"/> </a></td>
-				<td style="padding:0px 0px 0px 750px"> Not Yet Registered??</td>
-				<td style="padding:0px 0px 0px 10px"><a href="signup.php"> <img src="images/createaccount.jpg"/> </a></td>
+				<td style="float:right;"> Not Yet Registered??</br>
+				<a href="signup.php"> <img src="images/createaccount.jpg"/> </a></td>
 			</tr>
 		</table>
 		</div>
