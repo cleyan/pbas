@@ -11,15 +11,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>Research, publication And Academic Contribution</title>
 <link rel="stylesheet" href="CSS/RPAC_css.css" type="text/css" />
-<style type="text/css">
 
-.logout{
-	position:relative;
-	float:left;
-	margin-left:500px;
-	color:#FF0000;
-}
-</style>
 <script type="text/javascript"src="JS/jquery.js"></script>
 <script type="text/javascript">
 
@@ -309,8 +301,7 @@ $(document).ready(function() {
         </div>
     </div>
 </div>
-<?php echo '<p class="logout"><a href="logout.php"><h4>LOG OUT</h4></a></p>'; ?>
-<?php echo '<p class="cp"><a href="changePass.php"><h4>CHANGE PASSWORD</h4></a></p>'; ?>
+
 <?php
 }
 	else{
