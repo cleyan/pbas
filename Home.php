@@ -27,7 +27,7 @@
 		<li><h3>Teaching Learing and Evalution Related Activities</h3> (Work in Progress)</li>
 		<li><h3>Co-Curricular, Extension,Professional Development Related Activity</h3> (Work in Progress)</li>
 	    <li><a href="Research Publication.php"> <h3>Research Publiaction & Academic Contribution</h3></a> (80-90% Completed)</li>
-		<li><h3>Summary Of API Score</h3></li> (Work in Progress)
+		<li><a href="API_Summary.php"><h3>Summary Of API Score</h3></a></li> (90% completed)
 		<li><h3>Other Relevent Information And Closures</h3></li> (Work in Progress)
 	 </ul>
 </div>
