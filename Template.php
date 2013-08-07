@@ -35,7 +35,16 @@
 	h1{
 		color:#009900;
 	}
-</style> 
+
+.logout{
+	position:relative;
+	float:right;
+	color:#FF0000;
+	font-size:10px;
+}
+
+</style>
+
 
 
 <body>
@@ -59,7 +68,7 @@
 	</tr>
 </table>
 <div  class="pictab">
-<table border=0 width="20">
+<table border=0 width="10%" align="right">
   <tr>
 	<td >
 	<?php echo "<img class ='propic' src='images/".$row['path']."' width='120' height='180'/>"; ?>
@@ -71,13 +80,16 @@ Settings
 About
 Log Out</pre>
  </div>
- </div>
+ 
  </td></tr>
+ 	
  </table>
-
 </div>
+<div class="logout">
+ <?php echo '<p ><a href="logout.php"><h4>LOG OUT</h4></a></p>'; ?>
+<?php echo '<p class="cp"><a href="changePass.php"><h4>CHANGE PASSWORD</h4></a></p>';?>
 	<br /><br />
-	
+</div>	
 	
 </body>
 </html>
