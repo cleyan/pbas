@@ -17,7 +17,7 @@
 <body>
 <?php 
 	if(isset($_SESSION['username'])){
-		include('template.php');
+		include('Template.php');
 ?>
   <div class="index">
      <ul type="square">
