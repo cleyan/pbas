@@ -10,9 +10,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>Research, publication And Academic Contribution</title>
-<link rel="stylesheet" href="CSS/RPAC_css.css" type="text/css" />
+<link rel="stylesheet" href="css/RPAC_css.css" type="text/css" />
 
-<script type="text/javascript"src="JS/jquery.js"></script>
+<script type="text/javascript"src="js/jquery.js"></script>
 <script type="text/javascript">
 
 $(document).ready(function() {
@@ -39,7 +39,7 @@ $(document).ready(function() {
 <body>
 <?php
 	if(isset($_SESSION['username'])){
-		include('template.php');
+		include('Template.php');
 ?>
 <h2>Research, publication And Academic Contribution</h2>
 
