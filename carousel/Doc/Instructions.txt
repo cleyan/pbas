@@ -1,0 +1,31 @@
+How to Run:
+
+	1) Download and install WampServer on your machine.
+		
+	2) After clone, put this repository in 'www' directory in C:drive
+
+	2) Run wampserver and confirm it by typing 'localhost' in the web browser's
+           url box.
+
+	3) To See webpage, type localhost/pbas/index.php and press Enter. 
+
+	4) After pressing enter, a login page will be visible, check username and
+           password in the PBAS database.
+
+	5) Type Username and password and then hit "sign in" Button.
+
+	6) Now explore "Research, publication And Academic Contribution" Area
+	   for improvements.
+
+TO DO:  In Research Publication & Academic Contribution Section :
+
+	1) Validation on the form's fields using javscript.
+	
+	2) Code for 'Delete' has been done successfuly but need to
+	   implement for some forms.
+
+	3) Code for 'Reset' Button.
+
+	4) Code for 'show' button done successfully but need to 
+	   implement for some forms.
+
