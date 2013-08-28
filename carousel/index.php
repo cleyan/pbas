@@ -1,3 +1,4 @@
+<?php ob_start(); ?>
 <?php
 	session_start();
 	if(isset($_POST['username']) and isset($_POST['password'])){
@@ -37,6 +38,9 @@
 	<body>
 		<?php
 			if(isset($_SESSION['username'])){
+				// The below two lines code is to check the output sent before headers. Enable it to and comment header line to see results.
+				//$var1 = ob_get_contents();
+				//var_dump($var1);
 			header('Location:Home.php');
 		}
 		else{
