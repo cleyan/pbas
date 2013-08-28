@@ -1,8 +1,7 @@
+<?php ob_start(); ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<?php
-	session_start();
-	//store to test if they 'were' logged in
-	$old_user = $_SESSION['username'];
+<?php session_start();
+	$old_user = $_SESSION['username']; //store to test if they 'were' logged in
 	unset($_SESSION['username']);
 	session_destroy();
 	header('location:index.php');
