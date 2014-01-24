@@ -37,15 +37,17 @@ $sqlacad="SELECT * FROM acad_act where user_id='$user' and year='$year'";
                 {
                 	$acno="No";
                 }	
-            //   $acadrow = mysqli_fetch_array($acadresult);
-               /* $aq = $acadrow['Gen_Info_AQ'];
-                $courseName = $acadrow['Gen_Info_Noc'];
-            $acPlace = $acadrow['Gen_Info_Place'];
-                $acDuration = $acadrow['Gen_Info_Duration'];
-                $sponsorAgency = $acadrow['Gen_Info_SA'];
-                $aqyear = $acadrow['Gen_Info_Aqyear'];
-                $asc = $acadrow['Gen_Info_ASC'];*/
-   
+
+//Select query for Lectures, Seminar,Tutorial, Practical, Contact Hours
+$sqllstp="SELECT * from teach_lstp where user_id='$user' and year='$year'";
+				$lstpresult=mysqli_query($con , $sqllstp) or die('Error'.mysqli_error($con));
+				$lstpapi=mysqli_fetch_array($lstpresult);
+				if($lstpapi>0)
+				{
+					$sample="hii";
+				}
+				else{
+					$sample="bye";}
 
   
   $html =
@@ -74,8 +76,22 @@ $sqlacad="SELECT * FROM acad_act where user_id='$user' and year='$year'";
     '<br><table width="100%" border="1px">'.
     '<tr><th>Name of Course</th><th>Place</th><th>Duration</th><th>Sponsoring Agency</th>';
    while($acadrow = mysqli_fetch_array($acadresult)){
-    $html .='<tr><td>'.$acadrow['Gen_Info_Noc'].'</th><th>'.$acadrow['Gen_Info_Place'].'</th><th>'.$acadrow['Gen_Info_Duration'].'</th><th>'.$acadrow['Gen_Info_SA'].'</th>';}
-    $html.='</body></html>';
+    $html .='<tr><th>'.$acadrow['Gen_Info_Noc'].'</th><th>'.$acadrow['Gen_Info_Place'].'</th><th>'.$acadrow['Gen_Info_Duration'].'</th><th>'.$acadrow['Gen_Info_SA'].'</th>';}
+
+    $html.='<h3><b><center>PART B : ACADEMIC PERFORMACE INDICATORS</center></b></h3><br/>'.
+    '</table><h3><center><b>CATEGORY  I : TEACHING LEARNING AND EVALUATION RELATED ACTIVITES</b> </center></h3><br/>'.
+    '<h4><center>(i) Lecture, Seminar, Tutorial, Practical, Contact Hours (Semester Wise)</center></h4><br/>'.
+    '<br><table width="100%" border="1px">'.
+    '<tr><th>Course/Paper</th><th>Level</th><th>Mode of Teaching</th> <th>No. of classes/per week allocated</th> <th>Total no. of classes conducted</th> <th>Practicals</th> <th>% of classes taken as per documented record</th>';
+   while($lstprow=mysqli_fetch_array($lstpresult)){
+    $html .='<tr><td>'.$lstprow['Teach_LSTP_Course'].'</td> <td>'.$lstprow['Teach_LSTP_Level'].'</td><td>'.$lstprow['Teach_LSTP_MOT'].'</td><td>'.$sample.'</td> <td>'.$lstprow['Teach_LSTP_NOCC'].'</td> <td>'.$lstprow['Teach_LSTP_Practicals'].'</td> <td>'.$lstprow['Teach_LSTP_CTDR'].'</td> ';}
+
+    $html .='</table><br/><b><h4>Lecture (L), Seminars (S), Tutorials (T), Practical (P), Contact Hours (C)</h4></b><br/>'.
+    	'<table border="1px" width="100%">'.
+    	'<tr><th></th> <th></th> <th>API Score</th></tr>'.
+    	'<tr><th>(a)</th><th>Classes Taken (max 50 for 100% performance & Proportionate Score upto 80% performance, below which no score may be given) </th><td>'.$lstpapi['Teach_LSTP_CTAPI'].'</td></tr>'.
+    	'<tr><th>(b)</th><th>Teaching Load in excess of UGC norm (max score:10)</th><td>'.$lstpapi['Teach_LSTP_TLAPI'].'</td></tr>'.
+		'</table></body></html>';
 
 $dompdf = new DOMPDF();
 $dompdf->load_html($html);
