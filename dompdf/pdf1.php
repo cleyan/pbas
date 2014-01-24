@@ -29,22 +29,11 @@ $sqlacad="SELECT * FROM acad_act where user_id='$user' and year='$year'";
                 
                 if($acrw>0)
                 {
-
-                    $acno="No";
-
-
+                    $acno="Yes";
                 }
-            //   $acadrow = mysqli_fetch_array($acadresult);
-               /* $aq = $acadrow['Gen_Info_AQ'];
-                $courseName = $acadrow['Gen_Info_Noc'];
-            $acPlace = $acadrow['Gen_Info_Place'];
-                $acDuration = $acadrow['Gen_Info_Duration'];
-                $sponsorAgency = $acadrow['Gen_Info_SA'];
-                $aqyear = $acadrow['Gen_Info_Aqyear'];
-                $asc = $acadrow['Gen_Info_ASC'];*/
-   
+                else{$acno="NO";}
 
-  
+  //$html variable contains all the html code to be rendered as pdf which contains data
   $html =
     '<html><body>'.
     '<h3><center>University of Indore</center></h3><br/>'.
@@ -67,11 +56,12 @@ $sqlacad="SELECT * FROM acad_act where user_id='$user' and year='$year'";
     $acrow = mysqli_fetch_array($acresult);
     $html.=
     '<br><B>Whether acquired any degree or fresh academic qualification during the year : '.$acrow['Gen_Info_AQ'].''.
-    '<br><B>Whether acquired any degree or fresh academic qualification during the year: '.$acno.''.
+    '<br><B>9.	Academic Staff College Orientation/Refresher Course attended during the year: '.$acno.''.
     '<br><table width="100%" border="1px">'.
     '<tr><th>Name of Course</th><th>Place</th><th>Duration</th><th>Sponsoring Agency</th>';
    while($acadrow = mysqli_fetch_array($acadresult)){
     $html .='<tr><td>'.$acadrow['Gen_Info_Noc'].'</th><th>'.$acadrow['Gen_Info_Place'].'</th><th>'.$acadrow['Gen_Info_Duration'].'</th><th>'.$acadrow['Gen_Info_SA'].'</th>';}
+
     $html.='</body></html>';
 
 $dompdf = new DOMPDF();
