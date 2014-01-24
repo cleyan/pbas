@@ -30,10 +30,13 @@ $sqlacad="SELECT * FROM acad_act where user_id='$user' and year='$year'";
                 if($acrw>0)
                 {
 
-                    $acno="No";
-
+                    $acno="Yes";
 
                 }
+                else
+                {
+                	$acno="No";
+                }	
             //   $acadrow = mysqli_fetch_array($acadresult);
                /* $aq = $acadrow['Gen_Info_AQ'];
                 $courseName = $acadrow['Gen_Info_Noc'];
@@ -78,6 +81,6 @@ $dompdf = new DOMPDF();
 $dompdf->load_html($html);
 
 $dompdf->render();
-$dompdf->stream("hello_world.pdf");
+$dompdf->stream("PBAS.pdf");
 
 ?>
