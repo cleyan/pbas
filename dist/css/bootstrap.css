@@ -750,6 +750,7 @@ pre code {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+
 }
 
 .container:before,
@@ -4492,6 +4493,8 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .navbar-inverse {
   background-color: #222222;
   border-color: #080808;
+  width: 100%;
+  position: fixed;
 }
 
 .navbar-inverse .navbar-brand {

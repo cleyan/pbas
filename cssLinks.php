@@ -46,4 +46,7 @@
 		position: fixed;
 		box-shadow: 5px 5px 5px #888888;
 	  }
+	  .quicklinks{
+	  	position: fixed;
+	  }
 	</style>

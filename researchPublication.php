@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	include('DBConnect.php');
-	include('form_process/rpac_form.php');
+	include('form_process/rpacProcess.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
