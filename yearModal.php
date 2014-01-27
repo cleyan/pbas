@@ -1,6 +1,7 @@
 <?php
 	if(isset($_SESSION['username'])){
 ?>
+
 	<!-- Modal Window For Getting PBAS Year -->
 		<div class="modal fade" id="yearModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
 			 <div class="modal-dialog">
@@ -15,7 +16,7 @@
 						</div><br><br>
 						<form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" class="form-inline text-center" method="post">
 							<label>Enter The Year &nbsp</label>
-							<input type="text" class="form-control inputSmall" name="pbasYear" title="Please Enter the Year" placeholder="Ex. 2010, 2013."/><br><br><br>
+							<input type="text" autofocus="autofocus"  placeholder="Ex. 2013-14" class="form-control inputSmall" name="pbasYear" title="Please Enter the Year" autofocus><br><br><br>
 							
 							<div class="modal-footer">
 							<button type="submit" name="yearButton" class="btn btn-md btn-primary">Submit</button>

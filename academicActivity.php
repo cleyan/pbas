@@ -15,6 +15,23 @@
         <?php
 			include('cssLinks.php');
 		?>
+		<!--  javascript for disabling the textfields on click of 'No' radio button -->
+		<script type="text/javascript">
+		window.onload = function() {
+document.getElementById('optionsRadios2').checked = true;
+//document.getElementById('optionsRadios2').onchange = disablefield();
+document.getElementById('nametxt').disabled='Click on the Yes above';
+		 	document.getElementById('nametxt').placeholder='Click on the Yes above';
+		 		document.getElementById('placetxt').disabled='Click on the Yes above';
+		 		document.getElementById('placetxt').placeholder='Click on the Yes above';
+		 		document.getElementById('durationtxt').disabled='Click on the Yes above';
+		 		document.getElementById('durationtxt').placeholder='Click on the Yes above';
+		 		document.getElementById('satxt').disabled='Click on the Yes above';
+		 		document.getElementById('satxt').placeholder='Click on the Yes above';
+		      document.getElementById('yeartxt').disabled='Click on the Yes above to enter';
+		      document.getElementById('yeartxt').placeholder='Click on the Yes above'; 
+}</script>
+
 </head>
 
 <body>
@@ -32,24 +49,26 @@
 					<form role="form" name="academic" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post" id="acadActivity">
 			    		<div class="form-group" >
 						   <div id="academic">
-		          			<label>Whether acquired any degree or fresh academic
+		          			
+							<br /><label>Academic Staff College Orientation / Refresher
+Course Attended During The Year : </label> 
+				    			Yes  <input type="radio" name="course" id="optionsRadios1" onChange="disablefield();"  value="yes">
+								No  <input type="radio" name="course" id="optionsRadios2" onChange="disablefield();" value="no"><br><br>
+                  			<br /><label>Name Of Course</label>
+				    			<input type="text" id="nametxt" data- class="form-control required"  name="nameOfCourse" title="Please Enter Course Name" />
+		          			<br /><label>Place</label>
+				   		   		<input type="text" id="placetxt" data- class="form-control required" name="Place" title="Please Enter Place"/>
+		      	  			<br /><label>Duration</label>
+				    			<input type="text" id="durationtxt" class="form-control required" name="duration" title="Please Enter Duration"/>
+							<br /><label>Sponsoring Agency</label>
+				    	    	<input type="text" id="satxt" class="form-control required" name="sponsor" title="Please Enter Name of Sponsoring Agency"/>
+		          			<br /><label>Year</label><br>
+		          			<input type="text" id="yeartxt" class="form-control required date" name="Year" title="Please Enter The Date"/>
+				    	    	
+								<label>Whether acquired any degree or fresh academic
  qualification during the year : </label> 
 				    			Yes<input type="radio" name="degree" id="optionsRadios1" value="yes">
 								No<input type="radio" name="degree" id="optionsRadios2" value="no"><br>
-                  			<br /><label>Name Of Course</label>
-				    			<input type="text" class="form-control required" name="nameOfCourse" title="Please Enter Course Name"/>
-		          			<br /><label>Place</label>
-				   		   		<input type="text" class="form-control required" name="Place" title="Please Enter Place"/>
-		      	  			<br /><label>Duration</label>
-				    			<input type="text" class="form-control required" name="duration" title="Please Enter Duration"/>
-							<br /><label>Sponsoring Agency</label>
-				    	    	<input type="text" class="form-control required" name="sponsor" title="Please Enter Name of Sponsoring Agency"/>
-		          			<br /><label>Year</label>
-				    	    	<input type="text" class="form-control required date" name="Year" title="Please Enter The Date"/>
-							<br /><label>Academic Staff College Orientation / Refresher
-Course Attended During The Year : </label> 
-				    			Yes<input type="radio" name="course" id="optionsRadios1" value="yes">
-								No<input type="radio" name="course" id="optionsRadios2" value="no"><br><br>
 							</div><!--End of id academic for ajax -->
 			      			<button class="btn btn-primary icon-save" type="submit" name="activitySave"> Save</button>
 							<select name="activity" style="width:200px;" onChange="showUser(this.value, this.name)">
@@ -70,13 +89,13 @@ Course Attended During The Year : </label>
 				 </div><!--End of col-sm6 class -->
 			 
 			 	<div class="col-sm-3">
-					<div class="panel panel-primary">
+					<div class="panel panel-primary" class="quicklinks">
       		 			<div class="panel-heading">
          					<h3 class="panel-title">QuickLinks</h3>
  	  			 		</div>
  	   					<div class="panel-body">
 						 	<a href="general_Information.php">General Category</a><br><br>		 
-							<a href="teachingLearning.php">Teaching Learning and Evalution Related Activities</a> <br><br>
+							<a href="teachingLearningActivities.php">Teaching Learning and Evalution Related Activities</a> <br><br>
 							<a href="curricularActivities.php">Co-Curricular, Extension,Professional Development Related Activity</a><br><br>
 							<a href="researchPublication.php">Research, publication And Academic Contribution</a><br><br>
    			 				<a href="API_Summary.php">API Summary</a><br><br>
@@ -89,6 +108,8 @@ Course Attended During The Year : </label>
 			</div> <!--End of row class -->
 		</div><!--End of container class -->
 	</div><!--end of wrap id -->
+
+	
 	<?php
  		include('footer.php');
  		include('jsLinks.php');
@@ -98,6 +119,33 @@ Course Attended During The Year : </label>
  			$('#acadActivity').validate();
  		}); // end ready()
 	</script>
+	<script type="text/javascript">
+
+		 function disablefield()
+		 { if (document.getElementById('optionsRadios2').checked == 1){ 
+		 	document.getElementById('nametxt').disabled='Click on the Yes above';
+		 	document.getElementById('nametxt').placeholder='Click on the Yes above';
+		 		document.getElementById('placetxt').disabled='Click on the Yes above';
+		 		document.getElementById('placetxt').placeholder='Click on the Yes above';
+		 		document.getElementById('durationtxt').disabled='Click on the Yes above';
+		 		document.getElementById('durationtxt').placeholder='Click on the Yes above';
+		 		document.getElementById('satxt').disabled='Click on the Yes above';
+		 		document.getElementById('satxt').placeholder='Click on the Yes above';
+		      document.getElementById('yeartxt').disabled='Click on the Yes above to enter';
+		      document.getElementById('yeartxt').placeholder='Click on the Yes above'; }
+		      else{ 
+		      	document.getElementById('nametxt').disabled='';
+		       document.getElementById('nametxt').placeholder='Name of Course';
+		       document.getElementById('placetxt').disabled=''
+		       document.getElementById('placetxt').placeholder='Place';
+		       document.getElementById('durationtxt').disabled=''
+		       document.getElementById('durationtxt').placeholder='Duration';
+		       document.getElementById('satxt').disabled=''
+		       document.getElementById('satxt').placeholder='Sponsoring Agency';
+		       document.getElementById('yeartxt').disabled=''
+		       document.getElementById('yeartxt').placeholder='Year'; } 
+		   } 
+		        </script> 
 	<script><!--Ajax script for showing information on the basis of combobox value -->
 		function showUser(value, name)
 		{
@@ -125,6 +173,29 @@ Course Attended During The Year : </label>
 			xmlhttp.send();
 		}
 </script>
+<script type="text/javascript">
+	$(document).ready(function () {
+
+    $('#academic').validate({
+        rules: {
+            nametxt: {
+                minlength: 2,
+                required: true
+            },
+            
+            
+        },
+        highlight: function (element) {
+            $(element).closest('.form-group').removeClass('success').addClass('error');
+        },
+        success: function (element) {
+            element.text('OK!').addClass('valid')
+                .closest('.form-group').removeClass('error').addClass('success');
+        }
+    });
+
+});
+</script>
 	<?php
 		}
 		else{
@@ -132,4 +203,8 @@ Course Attended During The Year : </label>
 		}
 	?>
 </body>
+ <script src="js/jquery-1.7.2.min.js"></script>
+ 
+<!-- Validate Plugin -->
+  <script src="js/jquery.validate.min.js"></script>
 </html>

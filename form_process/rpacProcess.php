@@ -4,7 +4,7 @@
 include('DBConnect.php');
 
 //Query for clicking on 'SAVE' button in 'Published Papers' form.
-if(!empty($_POST['ppij_save'])){
+if(isset($_POST['ppij_save'])){
 	$user = $_SESSION['username'];
 	$year = $_SESSION['pbasYear'];
 	 $PPIJ_TNO = $_POST['PPIJ_TNO'];
@@ -19,8 +19,9 @@ if(!empty($_POST['ppij_save'])){
 		$result = mysqli_query($con,$sql) or die('Error'.mysqli_error($con));
 		 $row = mysqli_fetch_array($result);
 
-		if(!empty($row['User_Id']) and !empty($row['Teach_PPIJ_TNO'])){
-			$updateQuery = "UPDATE teach_ppij SET Teach_PPIJ_Journal='$PPIJ_Journal', Teach_PPIJ_ISBN='$PPIJ_ISBN', Teach_PPIJ_PR='$PPIJ_PR', Teach_PPIJ_NCA='$PPIJ_NCA', Teach_PPIJ_MA='$PPIJ_YN', Teach_PPIJ_API='$PPIJ_API' where User_Id='$user_id' and year='$year' and Teach_PPIJ_TNO='$PPIJ_TNO'" ;
+		if($row>0){
+
+			$updateQuery = "UPDATE teach_ppij SET Teach_PPIJ_Journal='$PPIJ_Journal', Teach_PPIJ_ISBN='$PPIJ_ISBN', Teach_PPIJ_PR='$PPIJ_PR', Teach_PPIJ_NCA='$PPIJ_NCA', Teach_PPIJ_MA='$PPIJ_YN', Teach_PPIJ_API='$PPIJ_API' where User_Id='$user' and year='$year' and Teach_PPIJ_TNO='$PPIJ_TNO'" ;
 			$result1 = mysqli_query($con,$updateQuery);
 			if($result1){
 				header('location:ppij.php');
@@ -44,7 +45,7 @@ if(!empty($_POST['ppij_save'])){
 
 //Query for clicking on "Save" Button in 'Article/Chapetrs' form
 if(!empty($_POST['acpb_save'])){
-	$uname=$_SESSION['username'];
+	$user=$_SESSION['username'];
 	$year=$_SESSION['pbasYear'];
 	$APB_TNO = $_POST['APB_TNO'];
 	$APB_BEP = $_POST['APB_BEP'];
@@ -53,14 +54,32 @@ if(!empty($_POST['acpb_save'])){
 	$APB_NOC = $_POST['APB_NOC'];
 	$ACPB_Yes = $_POST['ACPB_Yes'];
 	$APB_API = $_POST['APB_API'];
-	$sql2 = "INSERT into teach_apb (User_Id,Year,Teach_APB_Tno,Teach_APB_BEP,Teach_APB_ISSN,Teach_APB_WPR,Teach_APB_NOC, Teach_APB_MA,Teach_APB_API) Values('$uname','$year','$APB_TNO','$APB_BEP','$APB_ISSN','$APB_WPR','$APB_NOC','$ACPB_Yes','$APB_API')";
+	$sql="SELECT * FROM teach_apb  WHERE User_Id='$user' and Teach_APB_TNO = '$APB_TNO' and year='$year'";
+		$result = mysqli_query($con,$sql) or die('Error'.mysqli_error($con));
+		 $row = mysqli_fetch_array($result);
+
+		if($row>0){
+
+			$updateQuery = "UPDATE teach_apb SET Teach_APB_BEP='$APB_BEP', Teach_APB_ISSN='$APB_ISSN', Teach_APB_WPR='$APB_WPR', Teach_APB_NOC='$APB_NOC', Teach_APB_MA='$ACPB_Yes', Teach_APB_API='$APB_API' where User_Id='$user' and year='$year' and Teach_APB_TNO='$APB_TNO'" ;
+			$result1 = mysqli_query($con,$updateQuery);
+			if($result1){
+				header('location:ppij.php');
+			}
+			else{
+				die("error : ".mysqli_error($con));
+			}
+		}
+ 		else{
+	$sql2 = "INSERT into teach_apb (User_Id,Year,Teach_APB_Tno,Teach_APB_BEP,Teach_APB_ISSN,Teach_APB_WPR,Teach_APB_NOC, Teach_APB_MA,Teach_APB_API) Values('$user','$year','$APB_TNO','$APB_BEP','$APB_ISSN','$APB_WPR','$APB_NOC','$ACPB_Yes','$APB_API')";
 	$result2 = mysqli_query($con,$sql2) or die("error : ").mysqli_error($con);
+}
 	if($result2){
-		header('Location:rpac.php');
+		header('Location:apb.php');
 	}
 	else{
 		echo "Error".mysqli_error();
 	}
+
 }
 if(!empty($_POST['fpcp_save'])){
 	$FCP_TNO = $_POST['FCP_TNO'];

@@ -62,9 +62,10 @@
 				    		<input type="email" class="form-control required" name="email" title="Please Enter Your Email"/><br>
 					</div><!--End of id userInfo for ajax -->	
 						<button class="btn btn-md btn-primary" type="submit" name="infoSave">Save</button>
-						<button  class="btn btn-md btn-primary" name="infoEdit">Edit</button>
+						<button  class="btn btn-md btn-primary" name="infoEdit" id="infoEdit">Edit</button>
 						<button class="btn btn-md btn-primary" type="reset" name="infoReset">Reset</button><br><br>
-					
+					</form>
+
 			 </div><!--End of col-sm-7 class -->
 			 
 			 <div class="col-sm-3">
@@ -98,7 +99,7 @@
  		}); // end ready()
 	</script>
 	<script><!--Ajax script for showing information on the basis of combobox value -->
-		function showInfo(name)
+		function showInfo(id)
 		{
 
 			if (window.XMLHttpRequest)

@@ -1,11 +1,11 @@
 <!-- Script for showing data for "Academic Activity" -->
 
 <?php
-	echo "hello";
+	
 	session_start();
 	ob_start();
 
-	$name = $_GET['name'];
+	echo $name = $_GET['name'];
 	#Database Connection
 	$con = mysqli_connect('localhost','root','','pbas_db');
 	if (!$con)
@@ -28,6 +28,7 @@
 		$permnantAddress = $row['Gen_Info_PA'];
 		$telephone = $row['Gen_Info_TNO'];
 		$email = $row['Gen_Info_Email'];
+
 ?>
  
         <label>Name(in Block Letters)</label> 

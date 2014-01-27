@@ -38,6 +38,8 @@
 <body data-spy="scroll" data-target="#myNav">
 <?php
 	if(isset($_SESSION['username']) and $_SESSION['pbasYear']){
+		$user=$_SESSION['username'];
+		$year=$_SESSION['pbasYear'];
 		include('header.php');
    ?>
 <div class="container">
@@ -93,7 +95,7 @@
 						<option value="">Select Article:</option>
 						 <?php
 							 include('DBConnect.php');
-							$sql2 = mysqli_query($con,"Select * from teach_apb");
+							$sql2 = mysqli_query($con,"Select * from teach_apb where user_id='$user' and year='$year'");
 							while($row = mysqli_fetch_assoc($sql2)){ ?>
 							<option><?php echo $row['Teach_APB_TNO']; ?></option>		
 						<?php } ?>

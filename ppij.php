@@ -67,23 +67,23 @@
 				  <h3  id="papers" class="panel-title" align="center">Published Papers in Journals</h3>
 				
 				
-					  <form role="form" method="post" name="ppij" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post">
+					  <form role="form" name="ppij" id="ppij" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post">
 						<div id="ppij"><br />
 							<div class="form-group">
-								<label>Title With Page Numbers</label> 
-								  <input type="text" class="form-control" name="PPIJ_TNO">
-								<label>Journal</label>
-								  <input type="text" class="form-control" name="PPIJ_Journal"/>
-								<label>ISSN / ISBN No. </label>
-								  <input type="text" class="form-control" name="PPIJ_ISBN"/>
-								<label> Whether peer reviewed. IMpact factor, if any</label>
-								  <input type="text" class="form-control" name="PPIJ_PR"/>
-								<label>No. of Co-authors</label>
-								  <input type="text" class="form-control" name="PPIJ_NCA"/>
-								<label>Whether you are the main Author</label>
+								<br><label>Title With Page Numbers</label> 
+								  <input type="text" class="form-control required" name="PPIJ_TNO" autofocus>
+								<br><label>Journal</label>
+								  <input type="text" class="form-control required" name="PPIJ_Journal"/>
+								<br><label>ISSN / ISBN No. </label>
+								  <input type="text" class="form-control required" name="PPIJ_ISBN"/>
+								<br><label> Whether peer reviewed? Impact factor, if any</label>
+								  <input type="text" class="form-control required" name="PPIJ_PR"/>
+								<br><label>No. of Co-authors</label>
+								  <input type="text" class="form-control required" name="PPIJ_NCA"/>
+								<br><label>Whether you are the main Author</label>
 								  <input type="radio" value="Yes" name="PPIJ_YN" >Yes <input type="radio" value="No" name="PPIJ_YN">NO<br />
-								<label>API Score</label>
-								  <input type="text" class="form-control" name="PPIJ_API"/><br />
+								<br><label>API Score</label>
+								  <input type="text" class="form-control required" name="PPIJ_API"/><br />
 							</div>
 						</div>
 						<input class="btn btn-primary" type="submit" value="Save" name="ppij_save" />
@@ -118,7 +118,11 @@
 	      }
      ?>
 
-	 
+	 <script>
+		$(document).ready(function() {
+ 			$('#ppij').validate();
+ 		}); // end ready()
+	</script>
 	 <!--JavaScript code for dynamically showing records using AJAX-->
 	 <script>
 		function showUser(value, name)

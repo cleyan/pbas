@@ -49,7 +49,7 @@ $sqllstp="SELECT * from teach_lstp where user_id='$user' and year='$year'";
 				else{
 					$sample="bye";}
 
-  
+  //$html variable contains all the html code to be rendered as pdf which contains data
   $html =
     '<html><body>'.
     '<h3><center>University of Indore</center></h3><br/>'.
@@ -72,10 +72,11 @@ $sqllstp="SELECT * from teach_lstp where user_id='$user' and year='$year'";
     $acrow = mysqli_fetch_array($acresult);
     $html.=
     '<br><B>Whether acquired any degree or fresh academic qualification during the year : '.$acrow['Gen_Info_AQ'].''.
-    '<br><B>Whether acquired any degree or fresh academic qualification during the year: '.$acno.''.
+    '<br><B>9.	Academic Staff College Orientation/Refresher Course attended during the year: '.$acno.''.
     '<br><table width="100%" border="1px">'.
     '<tr><th>Name of Course</th><th>Place</th><th>Duration</th><th>Sponsoring Agency</th>';
    while($acadrow = mysqli_fetch_array($acadresult)){
+
     $html .='<tr><th>'.$acadrow['Gen_Info_Noc'].'</th><th>'.$acadrow['Gen_Info_Place'].'</th><th>'.$acadrow['Gen_Info_Duration'].'</th><th>'.$acadrow['Gen_Info_SA'].'</th>';}
 
     $html.='<h3><b><center>PART B : ACADEMIC PERFORMACE INDICATORS</center></b></h3><br/>'.
@@ -92,6 +93,7 @@ $sqllstp="SELECT * from teach_lstp where user_id='$user' and year='$year'";
     	'<tr><th>(a)</th><th>Classes Taken (max 50 for 100% performance & Proportionate Score upto 80% performance, below which no score may be given) </th><td>'.$lstpapi['Teach_LSTP_CTAPI'].'</td></tr>'.
     	'<tr><th>(b)</th><th>Teaching Load in excess of UGC norm (max score:10)</th><td>'.$lstpapi['Teach_LSTP_TLAPI'].'</td></tr>'.
 		'</table></body></html>';
+
 
 $dompdf = new DOMPDF();
 $dompdf->load_html($html);
