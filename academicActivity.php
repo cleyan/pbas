@@ -84,6 +84,7 @@ Course Attended During The Year : </label>
 								<?php } ?>
 							</select>
 							<button class="btn btn-primary icon-trash" type="submit" name="activityDelete"> Delete</button>
+							<button type="reset" class="btn btn-primary" value="Reset" name="reset" >Reset</button>
 			  			</div>
 			  		</form>
 				 </div><!--End of col-sm6 class -->
@@ -95,9 +96,9 @@ Course Attended During The Year : </label>
  	  			 		</div>
  	   					<div class="panel-body">
 						 	<a href="general_Information.php">General Category</a><br><br>		 
-							<a href="teachingLearningActivities.php">Teaching Learning and Evalution Related Activities</a> <br><br>
-							<a href="curricularActivities.php">Co-Curricular, Extension,Professional Development Related Activity</a><br><br>
-							<a href="researchPublication.php">Research, publication And Academic Contribution</a><br><br>
+							<a href="teachingLearningActivitiesaddnew.php">Teaching Learning and Evalution Related Activities</a> <br><br>
+							<a href="professionalDevelopmentActivity.php">Co-Curricular, Extension,Professional Development Related Activity</a><br><br>
+							<a href="ppij.php">Research, publication And Academic Contribution</a><br><br>
    			 				<a href="API_Summary.php">API Summary</a><br><br>
 							<a href="otherInfo.php">Other Relevent Information<br> And Closures</a><br><br>
   	  					</div>	
