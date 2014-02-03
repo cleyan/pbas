@@ -90,7 +90,7 @@ Course Attended During The Year : </label>
 				 </div><!--End of col-sm6 class -->
 			 
 			 	<div class="col-sm-3">
-					<div class="panel panel-primary" class="quicklinks">
+					<div class="panel panel-primary" style="position:fixed;" class="quicklinks">
       		 			<div class="panel-heading">
          					<h3 class="panel-title">QuickLinks</h3>
  	  			 		</div>
