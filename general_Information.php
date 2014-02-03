@@ -3,7 +3,23 @@
 	ob_start();
 	include('DBConnect.php');
 	include('form_process/genInfoProcess.php');
-
+	
+	#Query for grabbing user's general informations in the varables.
+	
+	$sql="SELECT * FROM gen_info WHERE User_Id = '".$_SESSION['username']."'";
+		$result = mysqli_query($con,$sql) or die('Error'.mysqli_error($con));
+		$row = mysqli_fetch_array($result);
+ 		$uname = $row['Gen_Info_Name'];
+	    $fatherName = $row['Gen_Info_Fname'];
+		$motherName = $row['Gen_Info_Mname'];
+		$department = $row['Gen_Info_Department'];
+		$designation = $row['Gen_Info_CD'];
+		$gradePay = $row['Gen_Info_GP'];
+		$promotionDate = $row['Gen_Info_DLP'];
+		$correspAddress = $row['Gen_Info_AFC'];
+		$permnantAddress = $row['Gen_Info_PA'];
+		$telephone = $row['Gen_Info_TNO'];
+		$email = $row['Gen_Info_Email'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,6 +38,7 @@
 	  if(isset($_SESSION['username'])){
 	  include('header.php');
 	?>
+  <div id="wrap">
 	<div class="container" style="background-color:#FFFFFF;">
 	    <?php
 			if(isset($_SESSION['infoUpdated'])){
@@ -29,7 +46,7 @@
 			}
 
 		?>
-	  	<h3 align="center"> General Information </h3>
+	  	<h4 align="center" class="text-primary"><b><?php  echo $_SESSION['username']."'s ";?>General Information </b></h4>
 		<div class="row">	
 			<div class="col-sm-1">
 			
@@ -37,8 +54,50 @@
 			<div class="col-sm-7">
 				<form id="genInfo" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post">
 					<div id="userInfo">
-					
-		          		<label>Name(in Block Letters)</label> 
+						<table border="0" class="table" cellpadding="3" cellspacing="3">
+							<tr>
+								<td>Name</td>
+								<td><?php echo $uname;?></td>
+							</tr>
+							<tr>
+								<td>Father's Name</td>
+								<td><?php echo $fatherName;?></td>
+							</tr>
+							<tr>
+								<td>Mother's Name</td>
+								<td><?php echo $uname;?></td>
+							</tr>
+							<tr>
+								<td>Department</td>
+								<td><?php echo $department;?></td>
+							</tr>
+							<tr>
+								<td>Current Designation</td>
+								<td><?php echo $designation;?></td>
+							</tr>
+							<tr>
+								<td>Date Of Last Promotion</td>
+								<td><?php echo $promotionDate;?></td>
+							</tr>
+							<tr>
+								<td>Address For Correspondence</td>
+								<td><?php echo $correspAddress;?></td>
+							</tr>
+							<tr>
+								<td>Permanent Address</td>
+								<td><?php echo $permnantAddress;?></td>
+							</tr>
+							<tr>
+								<td>Telephone No.</td>
+								<td><?php echo $telephone;?></td>
+							</tr>
+							<tr>
+								<td>Email</td>
+								<td><?php echo $email;?></td>
+							</tr>
+						</table>
+
+		          		<!--<label>Name(in Block Letters)</label> 
 				    		<input type="text" class="form-control required" name="name" title="Please Enter Your Name<br>" autofocus>
                   		<br><label>Father's Name</label>
 				    		<input type="text" class="form-control required" name="fatherName" title="Please Enter Your Father's Name "/>
@@ -59,12 +118,13 @@
 		          		<br><label>Telephone No.</label>
 				   		   <input type="text" class="form-control required" name="telePhone" title="Please Enter Your Telephone No.>"/>
 		   		  		<br><label>Email</label>
-				    		<input type="email" class="form-control required" name="email" title="Please Enter Your Email"/><br>
-					</div><!--End of id userInfo for ajax -->	
+				    		<input type="email" class="form-control required" name="email" title="Please Enter Your Email"/><br>-->
+					</div><!--End of id userInfo for ajax -->
+					
 						<button class="btn btn-md btn-primary" type="submit" name="infoSave">Save</button>
 						<input  type="button" class="btn btn-md btn-primary" name="infoEdit" onClick="showInfo(this.name)" value="show"/>
 						<button class="btn btn-md btn-primary" type="reset" name="infoReset">Reset</button><br><br>
-					</form>
+			    </form>
 
 			 </div><!--End of col-sm-7 class -->
 			 
@@ -87,6 +147,7 @@
 			 </div>
 		</div> <!--End of container row class -->
 	</div><!--End of container class -->
+  </div><!--End of wrap id -->
 	
 	<?php
 		include('footer.php');
@@ -97,6 +158,26 @@
 		$(document).ready(function() {
  			$('#genInfo').validate();
  		}); // end ready()
+	</script>
+	<!-- Knockout Script for  -->
+	<script>
+		var viewModel = {
+			year: ko.observable(),
+			reportEnabled : ko.observable(false),
+			yearEnabled : ko.observable(true),
+			isClicked : function(){
+				self = this;
+				self.yearEnabled(false);
+				self.reportEnabled(true);
+			},
+			changeYear : function(){
+				self = this;
+				self.yearEnabled(true);
+				self.reportEnabled(false);
+			}
+			
+		}
+		ko.applyBindings(viewModel);
 	</script>
 	<script><!--Ajax script for showing information on the basis of combobox value -->
 		function showInfo(name)
