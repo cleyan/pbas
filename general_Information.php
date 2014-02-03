@@ -39,7 +39,7 @@
 					<div id="userInfo">
 					
 		          		<label>Name(in Block Letters)</label> 
-				    		<input type="text" class="form-control required" name="name" title="Please Enter Your Name<br>">
+				    		<input type="text" class="form-control required" name="name" title="Please Enter Your Name<br>" autofocus>
                   		<br><label>Father's Name</label>
 				    		<input type="text" class="form-control required" name="fatherName" title="Please Enter Your Father's Name "/>
 		          		<br><label>Mother's Name</label>
@@ -62,7 +62,7 @@
 				    		<input type="email" class="form-control required" name="email" title="Please Enter Your Email"/><br>
 					</div><!--End of id userInfo for ajax -->	
 						<button class="btn btn-md btn-primary" type="submit" name="infoSave">Save</button>
-						<button  class="btn btn-md btn-primary" name="infoEdit" id="infoEdit">Edit</button>
+						<input  type="button" class="btn btn-md btn-primary" name="infoEdit" onClick="showInfo(this.name)" value="show"/>
 						<button class="btn btn-md btn-primary" type="reset" name="infoReset">Reset</button><br><br>
 					</form>
 
@@ -99,9 +99,8 @@
  		}); // end ready()
 	</script>
 	<script><!--Ajax script for showing information on the basis of combobox value -->
-		function showInfo(id)
+		function showInfo(name)
 		{
-
 			if (window.XMLHttpRequest)
   			{// code for IE7+, Firefox, Chrome, Opera, Safari
   				xmlhttp=new XMLHttpRequest();

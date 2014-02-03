@@ -2,7 +2,8 @@
 <?php
 //DBConnect.php include the code for Database connectivity
 include('DBConnect.php');
-
+$user = $_SESSION['username'];
+	$year = $_SESSION['pbasYear'];
 //Query for clicking on 'SAVE' button in 'Published Papers' form.
 if(isset($_POST['ppij_save'])){
 	$user = $_SESSION['username'];
@@ -88,10 +89,24 @@ if(!empty($_POST['fpcp_save'])){
 	$FCP_NOC = $_POST['FCP_NOC'];
 	$FCP_Yes = $_POST['FCPS_Yes'];
 	$FCP_API = $_POST['FCP_API'];
-	$sql3 = "Insert into `teach_fcp` (Teach_FCP_Tno,Teach_FCP_BEP,Teach_FCP_ISSN,Teach_FCP_NOC, Teach_FCP_MA,Teach_FCP_API) Values('$FCP_TNO','$FCP_BEP','$FCP_ISSN','$FCP_NOC','$FCP_Yes','$FCP_API')";
+	
+	if($row>0){
+
+			$updateQuery = "UPDATE teach_apb SET Teach_APB_BEP='$APB_BEP', Teach_APB_ISSN='$APB_ISSN', Teach_APB_WPR='$APB_WPR', Teach_APB_NOC='$APB_NOC', Teach_APB_MA='$ACPB_Yes', Teach_APB_API='$APB_API' where User_Id='$user' and year='$year' and Teach_APB_TNO='$APB_TNO'" ;
+			$result1 = mysqli_query($con,$updateQuery);
+			if($result1){
+				header('location:ppij.php');
+			}
+			else{
+				die("error : ".mysqli_error($con));
+			}
+		}
+ 		else{
+ 			$sql3 = "Insert into `teach_fcp` (Teach_FCP_Tno,Teach_FCP_BEP,Teach_FCP_ISSN,Teach_FCP_NOC, Teach_FCP_MA,Teach_FCP_API) Values('$FCP_TNO','$FCP_BEP','$FCP_ISSN','$FCP_NOC','$FCP_Yes','$FCP_API')";
 	$result3 = mysqli_query($con,$sql3) or die("error : ").mysqli_error($con);
+}
 	if($result3){
-		header('Location: rpac.php');
+		header('Location: fcp.php');
 	}
 	else{
 		echo "Error".mysqli_error();
@@ -106,8 +121,14 @@ if(!empty($_POST['bps_save'])){
 	$BPSA_Yes = $_POST['BPSA_Yes'];
 	$BPE_API = $_POST['BPE_API'];
 	$year = $_SESSION['pbasYear'];
+	$sql="SELECT * FROM teach_bpe  WHERE User_Id='$user' and Teach_APB_TNO = '$APB_TNO' and year='$year'";
+		$result = mysqli_query($con,$sql) or die('Error'.mysqli_error($con));
+		 $row = mysqli_fetch_array($result);
+
+		
 	$sql4 = "Insert into `teach_bpe` (Teach_BPE_TPN,Teach_BPE_TBA,Teach_BPE_PISSN,Teach_BPE_WPR,Teach_BPE_NOC, Teach_BPE_MA,Teach_BPE_API) Values('$BPE_TPN','$BPE_TBA','$BPE_PISSN','$PE_WPR','$BPE_NOC','$BPSA_Yes','BPE_API')";
 	$result4 = mysqli_query($con,$sql4) or die("error : ").mysqli_error($con);
+
 	if($result4){
 		header('Location: rpac.php');
 	}
