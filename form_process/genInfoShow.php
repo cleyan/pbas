@@ -4,8 +4,7 @@
 	
 	session_start();
 	ob_start();
-
-	echo $name = $_GET['name'];
+	$name = $_GET['name'];
 	#Database Connection
 	$con = mysqli_connect('localhost','root','','pbas_db');
 	if (!$con)
@@ -30,7 +29,8 @@
 		$email = $row['Gen_Info_Email'];
 
 ?>
- 
+		
+
         <label>Name(in Block Letters)</label> 
 				    		<input type="text" class="form-control required" name="name"  value="<?php echo $uname; ?>">
                   		<br><label>Father's Name</label>
@@ -52,7 +52,7 @@
 		          		<br><label>Telephone No.</label>
 				   		   <input type="text" class="form-control required" name="telePhone" title="Please Enter Your Telephone No." value="<?php echo $telephone; ?>"/>
 		   		  		<br><label>Email</label>
-				    		<input type="email" class="form-control required" name="email" title="Please Enter Your Email" value="<?php echo $email; ?>"/>
+				    		<input type="email" class="form-control required" name="email" title="Please Enter Your Email" value="<?php echo $email; ?>"/><br>
 								<?php   }
 							?>
 
