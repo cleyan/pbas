@@ -42,15 +42,7 @@ $sqlacad="SELECT * FROM acad_act where user_id='$user' and year='$year'";
 $sqllstp="SELECT * from teach_lstp where user_id='$user' and year='$year'";
 				$lstpresult=mysqli_query($con , $sqllstp) or die('Error'.mysqli_error($con));
 				$lstpapi=mysqli_fetch_array($lstpresult);
-				if($lstpapi>0)
-				{
-					$sample="hii";
-				}
-				else
-                {
-					$sample="bye";
-                }
-
+				
 //Select query for Reading/Instructional material consulted and additional knowledge resources provided to students
 
 $sqlrimc="SELECT * from teach_rimc where user_id='$user' and year='$year'";
@@ -92,10 +84,60 @@ $sqlppij="SELECT * from teach_ppij where user_id='$user' and year='$year'";
                 $ppijresult=mysqli_query($con , $sqlppij) or die('Error'.mysqli_error($con));
 
 
-//Select query for Articles/ Chapters published in Books                 
+//Select query for Articles/ Chapters published in Books.                 
 
 $sqlapb="SELECT * from teach_apb where user_id='$user' and year='$year'";
                 $apbresult=mysqli_query($con , $sqlapb) or die('Error'.mysqli_error($con));
+
+
+//Select query for Full papers in Conference Proceedings. 
+
+$sqlfcp="SELECT * from teach_fcp where user_id='$user' and year='$year'";
+                $fcpresult=mysqli_query($con , $sqlfcp) or die('Error'.mysqli_error($con));
+
+
+
+// Select query for Books published as single author or as editor. 
+
+$sqlbpe="SELECT * from teach_bpe where user_id='$user' and year='$year'";
+                $bperesult=mysqli_query($con , $sqlbpe) or die('Error'.mysqli_error($con));
+
+
+// Select query for Ongoing Projects/ Consultancies.
+
+$sqlopc="SELECT * from teach_opc where user_id='$user' and year='$year'";
+                $opcresult=mysqli_query($con , $sqlopc) or die('Error'.mysqli_error($con));
+
+
+// Select query for Completed Projects/ Consultancies.
+
+$sqlcpc="SELECT * from teach_cpc where user_id='$user' and year='$year'";
+                $cpcresult=mysqli_query($con , $sqlcpc) or die('Error'.mysqli_error($con));
+
+
+// Select query for Completed Projects/ Consultancies.
+
+$sqlrg="SELECT * from teach_rg where user_id='$user' and year='$year'";
+                $rgresult=mysqli_query($con , $sqlrg) or die('Error'.mysqli_error($con));
+
+
+// Select query for Training Courses, Teaching-Learning-Evaluation Technology, Faculty Development Programmes
+
+$sqlfdp="SELECT * from teach_fdp where user_id='$user' and year='$year'";
+                $fdpresult=mysqli_query($con , $sqlfdp) or die('Error'.mysqli_error($con));
+
+
+// Select query for  Papers presented in Conferences, Seminars, Workshops, Symposia
+
+$sqlppc="SELECT * from teach_ppc where user_id='$user' and year='$year'";
+                $ppcresult=mysqli_query($con , $sqlppc) or die('Error'.mysqli_error($con));
+
+
+//Select query for Invited Lectures and Chairmanship at National or International Conference/ Seminar
+
+$sqlilc="SELECT * from teach_ilc where user_id='$user' and year='$year'";
+                $ilcresult=mysqli_query($con , $sqlilc) or die('Error'.mysqli_error($con));
+
 
 
  /*General Information Table */
@@ -107,7 +149,7 @@ $sqlapb="SELECT * from teach_apb where user_id='$user' and year='$year'";
     '<h4><center>Session/Year :'.$year.' </center></h4><br/>'.
     '<h3><center>PART A : GENERAL INFORMATION</center></h3><br/>'.
     '<table border="1px" width="100%"><tr><th>Name</th><td>'.$name.'</td></tr>'.
-    '<tr><th align="left">Father`s Name</th><td>'.$fname.'</td></tr>'.
+    '<tr><th>Father`s Name</th><td>'.$fname.'</td></tr>'.
     '<tr><th>Mother`s Name</th><td>'.$mname.'</td></tr>'.
     '<tr><th>Department</th><td>'.$dept.'</td></tr>'.
     '<tr><th>Current Designation</th><td>'.$cd.'</td></tr>'.
@@ -123,24 +165,26 @@ $sqlapb="SELECT * from teach_apb where user_id='$user' and year='$year'";
 
     $acrow = mysqli_fetch_array($acresult);
     $html.=
-    '<br><B>Whether acquired any degree or fresh academic qualification during the year : '.$acrow['Gen_Info_AQ'].''.
-    '<br><B>Whether acquired any degree or fresh academic qualification during the year: '.$acno.''.
-    '<br><table width="100%" border="1px">'.
-    '<tr><th>Name of Course</th><th>Place</th><th>Duration</th><th>Sponsoring Agency</th>';
+    '<br/><B>Whether acquired any degree or fresh academic qualification during the year : '.$acrow['Gen_Info_AQ'].''.
+    '<br/><B>Whether acquired any degree or fresh academic qualification during the year: '.$acno.''.
+    '<br/><table width="100%" border="1px">'.
+    '<tr><th>Name of Course</th><th>Place</th><th>Duration</th><th>Sponsoring Agency</th></tr>';
    while($acadrow = mysqli_fetch_array($acadresult)){
-    $html .='<tr><th>'.$acadrow['Gen_Info_Noc'].'</th><th>'.$acadrow['Gen_Info_Place'].'</th><th>'.$acadrow['Gen_Info_Duration'].'</th><th>'.$acadrow['Gen_Info_SA'].'</th>';}
+    $html .='<tr><th>'.$acadrow['Gen_Info_Noc'].'</th><th>'.$acadrow['Gen_Info_Place'].'</th><th>'.$acadrow['Gen_Info_Duration'].'</th><th>'.$acadrow['Gen_Info_SA'].'</th></tr>';}
 
     $html.='<h3><b><center>PART B : ACADEMIC PERFORMACE INDICATORS</center></b></h3><br/>'.
 
+
 /*CATEGORY  I : TEACHING LEARNING AND EVALUATION RELATED ACTIVITES*/
+
 /*LSTP Table*/    
 
     '</table><h3><center><b>CATEGORY  I : TEACHING LEARNING AND EVALUATION RELATED ACTIVITES</b> </center></h3><br/>'.
     '<h4>(i) Lecture, Seminar, Tutorial, Practical, Contact Hours (Semester Wise)</h4>'.
     '<table width="100%" border="1px">'.
-    '<tr><th>Course/Paper</th><th>Level</th><th>Mode of Teaching</th> <th>No. of classes/per week allocated</th> <th>Total no. of classes conducted</th> <th>Practicals</th> <th>% of classes taken as per documented record</th>';
+    '<tr><th>Course/Paper</th><th>Level</th><th>Mode of Teaching</th> <th>No. of classes/per week allocated</th> <th>Total no. of classes conducted</th> <th>Practicals</th> <th>% of classes taken as per documented record</th></tr>';
     while($lstprow=mysqli_fetch_array($lstpresult)){
-    $html .='<tr><td>'.$lstprow['Teach_LSTP_Course'].'</td> <td>'.$lstprow['Teach_LSTP_Level'].'</td><td>'.$lstprow['Teach_LSTP_MOT'].'</td><td>'.$sample.'</td> <td>'.$lstprow['Teach_LSTP_NOCC'].'</td> <td>'.$lstprow['Teach_LSTP_Practicals'].'</td> <td>'.$lstprow['Teach_LSTP_CTDR'].'</td> ';}
+    $html .='<tr><td>'.$lstprow['Teach_LSTP_Course'].'</td> <td>'.$lstprow['Teach_LSTP_Level'].'</td><td>'.$lstprow['Teach_LSTP_MOT'].'</td><td>'.$lstprow['Teach_LSTP_NOCA'].'</td> <td>'.$lstprow['Teach_LSTP_NOCC'].'</td> <td>'.$lstprow['Teach_LSTP_Practicals'].'</td> <td>'.$lstprow['Teach_LSTP_CTDR'].'</td></tr> ';}
 
     $html .='</table><br/><b><h4>Lecture (L), Seminars (S), Tutorials (T), Practical (P), Contact Hours (C)</h4></b>'.
     	'<table border="1px" width="100%">'.
@@ -152,73 +196,178 @@ $sqlapb="SELECT * from teach_apb where user_id='$user' and year='$year'";
 
         '</table><br/><h4>(ii) Reading/Instructional material consulted and additional knowledge resources provided to students :</h4>'.
         '<table width="100%" border="1px">'.
-        '<tr><th>Course Paper</th><th>Consulted </th><th>Prescribed</th> <th>Additional Resources Provided</th>';
+        '<tr><th>Course Paper</th><th>Consulted </th><th>Prescribed</th> <th>Additional Resources Provided</th></tr>';
         while($rimcrow = mysqli_fetch_array($rimcresult)){
-        $html .='<tr><th>'.$rimcrow['Teach_RIMC_Course'].'</th><th>'.$rimcrow['Teach_RIMC_Consulted'].'</th><th>'.$rimcrow['Teach_RIMC_Prescribed'].'</th><th>'.$rimcrow['Teach_RIMC_ARP'].'</th>';}
+        $html .='<tr><th>'.$rimcrow['Teach_RIMC_Course'].'</th><th>'.$rimcrow['Teach_RIMC_Consulted'].'</th><th>'.$rimcrow['Teach_RIMC_Prescribed'].'</th><th>'.$rimcrow['Teach_RIMC_ARP'].'</th></tr>';}
         
 /*TLM Table*/
 
         $html.='</table><br/><h4>(iii) Use of Participatory and innovative Teaching-Learning Methodologies, Updating of subject contents :</h4>'.
         '<table width="100%" border="1px">'.
-        '<tr><th>Short Description</th><th>API Score</th>';
+        '<tr><th>Short Description</th><th>API Score</th></tr>';
         while($tlmrow = mysqli_fetch_array($tlmresult)){
-        $html .='<tr><th>'.$tlmrow['Teach_TLM_SD'].'</th><th>'.$tlmrow['Teach_TLM_API'].'</th>';}
+        $html .='<tr><th>'.$tlmrow['Teach_TLM_SD'].'</th><th>'.$tlmrow['Teach_TLM_API'].'</th></tr>';}
 
 /*EDAP Table*/ 
 
         $html.='</table><br/><h4>(iv) Examination Duties Assigned and Performed </h4>'.
         '<table width="100%" border="1px">'.
-        '<tr><th>Type of Examination duties</th><th>Duties Assigned</th><th>Extent to which carried out(%) </th><th>API Score</th>';
+        '<tr><th>Type of Examination duties</th><th>Duties Assigned</th><th>Extent to which carried out(%) </th><th>API Score</th></tr>';
         while($edaprow = mysqli_fetch_array($edapresult)){
-        $html .='<tr><th>'.$edaprow['Teach_EDAP_TED'].'</th><th>'.$edaprow['Teach_EDAP_DA'].'</th><th>'.$edaprow['Teach_EDAP_ECO'].'</th><th>'.$edaprow['Teach_EDAP_API'].'</th>';}      
-        
+        $html .='<tr><th>'.$edaprow['Teach_EDAP_TED'].'</th><th>'.$edaprow['Teach_EDAP_DA'].'</th><th>'.$edaprow['Teach_EDAP_ECO'].'</th><th>'.$edaprow['Teach_EDAP_API'].'</th></tr>';}      
+  
+
 /*CATEGORY  II : CO-CURRICULAR, EXTENSION, PROFESSIONAL DEVELOPMENT  RELATED  ACTIVITIES */
         $html.='</table><br/><h3><center><b>CATEGORY  II : CO-CURRICULAR, EXTENSION, PROFESSIONAL DEVELOPMENT  RELATED  ACTIVITIES </b> </center></h3><br/>'.
+
         
 /*ECFA Table*/
 
-        '</table><br/><h4>(i) Extension, Co-curricular & Field based activities. </h4>'.
+        '<br/><h4>(i) Extension, Co-curricular & Field based activities. </h4>'.
         '<table width="100%" border="1px">'.
-        '<tr><th>Type of Activity</th><th>Average Hrs/Week</th><th>API Score</th>';
+        '<tr><th>Type of Activity</th><th>Average Hrs/Week</th><th>API Score</th></tr>';
         while($ecfarow = mysqli_fetch_array($ecfaresult)){
-        $html .='<tr><th>'.$ecfarow['Teach_ECFA_TOA'].'</th><th>'.$ecfarow['Teach_ECFA_AH'].'</th><th>'.$ecfarow['Teach_ECFA_API'].'</th>';}      
+        $html .='<tr><th>'.$ecfarow['Teach_ECFA_TOA'].'</th><th>'.$ecfarow['Teach_ECFA_AH'].'</th><th>'.$ecfarow['Teach_ECFA_API'].'</th></tr>';}      
 
 /*CLMI Table*/
         
         $html.='</table><br/><h4>(ii) Contribution to Corporate Life and Management of the Institution. </h4>'.
         '<table width="100%" border="1px">'.
-        '<tr><th>Type of Activity</th><th>Yearly/Semester wise responsibility</th><th>API Score</th>';
+        '<tr><th>Type of Activity</th><th>Yearly/Semester wise responsibility</th><th>API Score</th></tr>';
         while($clmirow = mysqli_fetch_array($clmiresult)){
-        $html .='<tr><th>'.$clmirow['Teach_CLMI_TOA'].'</th><th>'.$clmirow['Teach_CLMI_YSR'].'</th><th>'.$clmirow['Teach_CLMI_API'].'</th>';}      
+        $html .='<tr><th>'.$clmirow['Teach_CLMI_TOA'].'</th><th>'.$clmirow['Teach_CLMI_YSR'].'</th><th>'.$clmirow['Teach_CLMI_API'].'</th></tr>';}      
 
 /*PDA Table*/
 
         $html.='</table><br/><h4>(iii) Professional Development Activities</h4>'.
         '<table width="100%" border="1px">'.
-        '<tr><th>Type of Activity</th><th>Yearly/Semester wise responsibility</th><th>API Score</th>';
+        '<tr><th>Type of Activity</th><th>Yearly/Semester wise responsibility</th><th>API Score</th></tr>';
         while($pdarow = mysqli_fetch_array($pdaresult)){
-        $html .='<tr><th>'.$pdarow['Teach_PDA_TOA'].'</th><th>'.$pdarow['Teach_PDA_YWR'].'</th><th>'.$pdarow['Teach_PDA_API'].'</th>';}      
+        $html .='<tr><th>'.$pdarow['Teach_PDA_TOA'].'</th><th>'.$pdarow['Teach_PDA_YWR'].'</th><th>'.$pdarow['Teach_PDA_API'].'</th></tr>';}      
+
+
 
 /*CATEGORY   III : RESEARCH, PUBLICATION AND ACADEMIC CONTRIBUTION*/
-        $html.='</table><br/><h3><center><b>CATEGORY   III : RESEARCH, PUBLICATION AND ACADEMIC CONTRIBUTION</b> </center></h3><br/>'.
+
+
+        $html.='</table><br/><br/><h3><center><b>CATEGORY   III : RESEARCH, PUBLICATION AND ACADEMIC CONTRIBUTION</b> </center></h3><br/>'.
 
 /*PPIJ Table*/
 
         '</table><br/><h4>A) Published Papers in Journals.</h4>'.
         '<table width="100%" border="1px">'.
-        '<tr><th>Title with page no.</th><th>Journal</th><th>ISSN/ISBN No.</th> <th>Whether peer reviewed.Impact factor,if any</th> <th>No. of Co.authors</th> <th>Whether you are the main author</th> <th>API Score</th>';
+        '<tr><th>Title with page no.</th><th>Journal</th><th>ISSN/ISBN No.</th> <th>Whether peer reviewed.Impact factor,if any</th> <th>No. of Co.authors</th> <th>Whether you are the main author</th> <th>API Score</th></tr>';
         while($ppijrow = mysqli_fetch_array($ppijresult)){
-        $html.='<tr><th>'.$ppijrow['Teach_PPIJ_TNO'].'</th><th>'.$ppijrow['Teach_PPIJ_Journal'].'</th> <th>'.$ppijrow['Teach_PPIJ_ISBN'].'</th> <th>'.$ppijrow['Teach_PPIJ_PR'].'</th> <th>'.$ppijrow['Teach_PPIJ_NCA'].'</th> <th>'.$ppijrow['Teach_PPIJ_MA'].'</th>  <th>'.$ppijrow['Teach_PPIJ_API'].'</th>';}      
+        $html.='<tr><th>'.$ppijrow['Teach_PPIJ_TNO'].'</th><th>'.$ppijrow['Teach_PPIJ_Journal'].'</th> <th>'.$ppijrow['Teach_PPIJ_ISBN'].'</th> <th>'.$ppijrow['Teach_PPIJ_PR'].'</th> <th>'.$ppijrow['Teach_PPIJ_NCA'].'</th> <th>'.$ppijrow['Teach_PPIJ_MA'].'</th>  <th>'.$ppijrow['Teach_PPIJ_API'].'</th></tr>';}      
         
 /*APB Table*/
 
-        
+        $html.='</table>'.
+        '<br/><h4>B (i) Articles/ Chapters published in Books.</h4>'.
+        '<table width="100%" border="1px">'.
+        '<tr><th>Title with page no.</th><th>Book Title,editor & publisher</th><th>ISSN/ISBN No.</th> <th>Whether peer reviewed.Impact factor,if any</th> <th>No. of Co.authors</th> <th>Whether you are the main author</th> <th>API Score</th></tr>';
+        while($apbrow=mysqli_fetch_array($apbresult)){
+        $html.='<tr><th>'.$apbrow['Teach_APB_TNO'].'</th> <th>'.$apbrow['Teach_APB_BEP'].'</th> <th>'.$apbrow['Teach_APB_ISSN'].'</th> <th>'.$apbrow['Teach_APB_WPR'].'</th> <th>'.$apbrow['Teach_APB_NOC'].'</th> <th>'.$apbrow['Teach_APB_MA'].'</th> <th>'.$apbrow['Teach_APB_API'].'</th></tr>';}      
+       
+/*FCP Table*/
 
-/*PPIJ Table*/
+       $html.='</table>'.
+        '<br/><h4>B(ii) Full papers in Conference Proceedings.</h4>'.
+        '<table width="100%" border="1px">'.
+        '<tr><th>Title with page no.</th><th>Details of Conference publication</th><th>ISSN/ISBN No.</th> <th>No. of Co.authors</th> <th>Whether you are the main author</th> <th>API Score</th></tr>';
+        while($fcprow=mysqli_fetch_array($fcpresult)){
+        $html.='<tr><th>'.$fcprow['Teach_FCP_TNO'].'</th> <th>'.$fcprow['Teach_FCP_BEP'].'</th> <th>'.$fcprow['Teach_FCP_ISSN'].'</th> <th>'.$fcprow['Teach_FCP_NOC'].'</th> <th>'.$fcprow['Teach_FCP_MA'].'</th> <th>'.$fcprow['Teach_FCP_API'].'</th></tr>';}      
+ 
+/*BPE Table*/
+
+        $html.='</table>'.
+        '<br/><h4>B (iii) Books published as single author or as editor. </h4>'.
+        '<table width="100%" border="1px">'.
+        '<tr><th>Title with page no.</th><th>Type of Book & Authorship</th><th>Publisher & ISSN/ISBN No.</th> <th>Whether peer reviewed</th> <th>No. of Co.authors</th> <th>Whether you are the main author</th> <th>API Score</th></tr>';
+        while($bperow=mysqli_fetch_array($bperesult)){
+        $html.='<tr><th>'.$bperow['Teach_BPE_TPN'].'</th> <th>'.$bperow['Teach_BPE_TBA'].'</th> <th>'.$bperow['Teach_BPE_PISSN'].'</th> <th>'.$bperow['Teach_BPE_WPR'].'</th> <th>'.$bperow['Teach_BPE_NOC'].'</th> <th>'.$bperow['Teach_BPE_MA'].'</th> <th>'.$bperow['Teach_BPE_API'].'</th></tr>';}      
+ 
+/*OPC Table*/
+
+        $html.='</table><br/><h4>C) Ongoing and Completed Research projects and consultancies</h4>'.
+        '<h4>Ongoing Projects/ Consultancies.<br/></h4>'.
+        '<table width="100%" border="1px">'.
+        '<tr><th>Title </th><th>Agency</th><th>Period</th> <th>Grant/Amount Mobilized(Rs. Lakh)</th> <th>API Score</th></tr>';
+        while($opcrow=mysqli_fetch_array($opcresult)){
+        $html.='<tr><th>'.$opcrow['Teach_OPC_Title'].'</th> <th>'.$opcrow['Teach_OPC_Agency'].'</th> <th>'.$opcrow['Teach_OPC_Period'].'</th> <th>'.$opcrow['Teach_OPC_GAM'].'</th> <th>'.$opcrow['Teach_OPC_API'].'</th></tr>';}      
+ 
+
+/*CPC Table*/
+
+        $html.='</table><br/>'.
+        '<h4>Completed Projects/ Consultancies.<br/></h4>'.
+        '<table width="100%" border="1px">'.
+        '<tr><th>Title </th><th>Agency</th><th>Period</th> <th>Grant/Amount Mobilized(Rs. Lakh)</th> <th> Whether policy document/Patent as outcome </th> <th>API Score</th></tr>';
+        while($cpcrow=mysqli_fetch_array($cpcresult)){
+        $html.='<tr><th>'.$cpcrow['Teach_CPC_Title'].'</th> <th>'.$cpcrow['Teach_CPC_Agency'].'</th> <th>'.$cpcrow['Teach_CPC_Period'].'</th> <th>'.$cpcrow['Teach_CPC_GAM'].'</th> <th>'.$cpcrow['Teach_CPC_WPD'].'</th> <th>'.$cpcrow['Teach_CPC_API'].'</th></tr>';}      
+
+
+
+/*RG Table*/
+
+        $html.='</table>'.
+        '<br/><h4>Research Guidance.<br/></h4>'.
+        '<table width="100%" border="1px">'.
+        '<tr><th>Number Enrolled </th><th>Thesis Submitted</th><th>Degree Awarded</th> <th>API Score</th></tr>';
+        while($rgrow=mysqli_fetch_array($rgresult)){
+        $html.='<tr><th>'.$rgrow['Teach_RG_NE'].'</th> <th>'.$rgrow['Teach_RG_TS'].'</th> <th>'.$rgrow['Teach_RG_DA'].'</th> <th>'.$rgrow['Teach_RG_API'].'</th></tr>';}      
+
+
+/*FDP Table*/
+
+        $html.='</table>'.
+        '<br/><h4>E (i) Training Courses, Teaching-Learning-Evaluation Technology, Faculty Development Programmes.<br/></h4>'.
+        '<table width="100%" border="1px">'.
+        '<tr><th>Programme </th><th>Duration</th><th>Organized By</th> <th>API Score</th></tr>';
+        while($fdprow=mysqli_fetch_array($fdpresult)){
+        $html.='<tr><th>'.$fdprow['Teach_FDP_Programme'].'</th> <th>'.$fdprow['Teach_FDP_Duration'].'</th> <th>'.$fdprow['Teach_FDP_Organized'].'</th> <th>'.$fdprow['Teach_FDP_API'].'</th></tr>';}      
+
+
+/*PPC Table*/
+
+        $html.='</table>'.
+        '<br/><h4>E (ii) Papers presented in Conferences, Seminars, Workshops, Symposia.<br/></h4>'.
+        '<table width="100%" border="1px">'.
+        '<tr><th>Title of paper presented </th><th>Title of Conference/Seminar etc.</th><th>Date of the event</th> <th> Organized By </th> <th> Whether International/National/State </th> <th>API Score</th></tr>';
+        while($ppcrow=mysqli_fetch_array($ppcresult)){
+        $html.='<tr><th>'.$ppcrow['Teach_PPC_TPP'].'</th> <th>'.$ppcrow['Teach_PPC_TCS'].'</th> <th>'.$ppcrow['Teach_PPC_DOE'].'</th> <th>'.$ppcrow['Teach_PPC_Organized'].'</th> <th>'.$ppcrow['Teach_PPC_WINS'].'</th> <th>'.$ppcrow['Teach_PPC_API'].'</th></tr>';}      
+
+
+/*ILC Table*/
+
+        $html.='</table>'.
+        '<br/><h4>E(iii) Invited Lectures and Chairmanship at National or International Conference/ Seminar.<br/></h4>'.
+        '<table width="100%" border="1px">'.
+        '<tr><th>Title of the Lecture/Academic Session </th><th>Title of Conference/Seminar etc.</th><th>Date of the event</th> <th> Organized By </th> <th> Whether International/National/State </th> <th>API Score</th></tr>';
+        while($ilcrow=mysqli_fetch_array($ilcresult)){
+        $html.='<tr><th>'.$ilcrow['Teach_ILC_TOL'].'</th> <th>'.$ilcrow['Teach_ILC_TCS'].'</th> <th>'.$ilcrow['Teach_ILC_DOE'].'</th> <th>'.$ilcrow['Teach_ILC_Organized'].'</th> <th>'.$ilcrow['Teach_ILC_WINS'].'</th> <th>'.$ilcrow['Teach_ILC_API'].'</th></tr>';}      
+
+
+
+/*Calculation of summary of API*/
+
+
+
+
+
+
+/*Footer Detail*/
+
+        $html.='</table><br/><br/><br/>'.
+        '<div align="right"><h4>I certify that the information provided is correct as per records available with the University and/or documents enclosed along with the duly filled PBAS proforma. </h4>'.
+        '<h4>Signature of the faculty</h4>'.
+        '<h4>Designation :</h4>'.
+        '<h4>Place :</h4>'.
+        '<h4>Date :</h4></div><br/><br/><br/>'.
+        '</body></html>'; 
         
-        $html.='</table><br/><h4>B (i) Articles/ Chapters published in Books</h4><br>';
         
-        $html.='<br/></body></html>';
+        
         
 
 $dompdf = new DOMPDF();
