@@ -208,20 +208,17 @@ $sqlapb="SELECT * from teach_apb where user_id='$user' and year='$year'";
         '<table width="100%" border="1px">'.
         '<tr><th>Title with page no.</th><th>Journal</th><th>ISSN/ISBN No.</th> <th>Whether peer reviewed.Impact factor,if any</th> <th>No. of Co.authors</th> <th>Whether you are the main author</th> <th>API Score</th>';
         while($ppijrow = mysqli_fetch_array($ppijresult)){
-        $html .='<tr><th>'.$ppijrow['Teach_PPIJ_TNO'].'</th><th>'.$ppijrow['Teach_PPIJ_Journal'].'</th> <th>'.$ppijrow['Teach_PPIJ_ISBN'].'</th> <th>'.$ppijrow['Teach_PPIJ_PR'].'</th> <th>'.$ppijrow['Teach_PPIJ_NCA'].'</th> <th>'.$ppijrow['Teach_PPIJ_MA'].'</th>  <th>'.$ppijrow['Teach_PPIJ_API'].'</th>';}      
-        $html.='</table><br/></body></html>';
+        $html.='<tr><th>'.$ppijrow['Teach_PPIJ_TNO'].'</th><th>'.$ppijrow['Teach_PPIJ_Journal'].'</th> <th>'.$ppijrow['Teach_PPIJ_ISBN'].'</th> <th>'.$ppijrow['Teach_PPIJ_PR'].'</th> <th>'.$ppijrow['Teach_PPIJ_NCA'].'</th> <th>'.$ppijrow['Teach_PPIJ_MA'].'</th>  <th>'.$ppijrow['Teach_PPIJ_API'].'</th>';}      
+        
 /*APB Table*/
 
         
 
 /*PPIJ Table*/
-
-        $html.='</table><br/><h4>B (i) Articles/ Chapters published in Books </h4><br/>'.
-        '<h4>B (i) Articles/ Chapters published in Books </h4><br/>'.
-        '<h4>B (i) Articles/ Chapters published in Books </h4><br/>'.
-        '<h4>B (i) Articles/ Chapters published in Books </h4><br/>'.
-        '<h4>B (i) Articles/ Chapters published in Books </h4><br/>'.
-        '<h4>B (i) Articles/ Chapters published in Books </h4><br/>';
+        
+        $html.='</table><br/><h4>B (i) Articles/ Chapters published in Books</h4><br>';
+        
+        $html.='<br/></body></html>';
         
 
 $dompdf = new DOMPDF();
