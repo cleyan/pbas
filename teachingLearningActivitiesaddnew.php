@@ -25,15 +25,17 @@
 	 	<div class="container" style="background-color:#FFFFFF;">
 	 		<h3 align="center">Teaching Learning And Evaluation Related Activities</h3>
 			 <div class="row" style=" margin-bottom:50px;">
-
+			 		
 			 	<div class="col-sm-3" style="box-shadow:5px 5px 5px #888888; padding-bottom:55px;">
 			 		<br><br><br><br>
+
 			 		<li class="active"><a href="teachingLearningActivities.php">Lectures, Seminar,Tutorial, Practical, Contact Hours</a><br><br></li>
 					<a href="rimc.php">Reading/Instructional material consulted and additional knowledge resources provided to students</a><br><br>
 	   			 	<a href="tlm.php">Use of participatory and innovative Teaching-Learning Methodologies, Updating of subject contents</a><br><br>
 					<a href="edap.php">Examination Duties Assigned and Performed</a><br><br>
 				 		
 			 	</div>
+
 			 	<div class="col-sm-1"></div>
 	   		 	<div class="col-sm-8">
 	   		 		<br>

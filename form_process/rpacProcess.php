@@ -87,26 +87,28 @@ if(!empty($_POST['fpcp_save'])){
 	$FCP_BEP = $_POST['FCP_BEP'];
 	$FCP_ISSN = $_POST['FCP_ISSN'];
 	$FCP_NOC = $_POST['FCP_NOC'];
-	$FCP_Yes = $_POST['FCPS_Yes'];
+	$FCP_Yes = $_POST['FCP_YN'];
 	$FCP_API = $_POST['FCP_API'];
-	
+	$sql="SELECT * FROM teach_FCP  WHERE User_Id='$user' and Teach_FCP_TNO = '$FCP_TNO' and year='$year'";
+		$result = mysqli_query($con,$sql) or die('Error'.mysqli_error($con));
+		 $row = mysqli_fetch_array($result);
 	if($row>0){
 
-			$updateQuery = "UPDATE teach_apb SET Teach_APB_BEP='$APB_BEP', Teach_APB_ISSN='$APB_ISSN', Teach_APB_WPR='$APB_WPR', Teach_APB_NOC='$APB_NOC', Teach_APB_MA='$ACPB_Yes', Teach_APB_API='$APB_API' where User_Id='$user' and year='$year' and Teach_APB_TNO='$APB_TNO'" ;
+			$updateQuery = "UPDATE teach_fcp SET Teach_FCP_BEP='$FCP_BEP', Teach_FCP_ISSN='$FCP_ISSN', Teach_FCP_NOC='$FCP_NOC', Teach_FCP_MA='$FCP_NOC', Teach_FCP_MA='$FCP_Yes', Teach_FCP_API='$FCP_API' where User_Id='$user' and year='$year' and Teach_FCP_Tno='$FCP_TNO'" ;
 			$result1 = mysqli_query($con,$updateQuery);
 			if($result1){
-				header('location:ppij.php');
+				header('location:fcp.php');
 			}
 			else{
 				die("error : ".mysqli_error($con));
 			}
 		}
  		else{
- 			$sql3 = "Insert into `teach_fcp` (Teach_FCP_Tno,Teach_FCP_BEP,Teach_FCP_ISSN,Teach_FCP_NOC, Teach_FCP_MA,Teach_FCP_API) Values('$FCP_TNO','$FCP_BEP','$FCP_ISSN','$FCP_NOC','$FCP_Yes','$FCP_API')";
-	$result3 = mysqli_query($con,$sql3) or die("error : ").mysqli_error($con);
+ 			$sql3 = "INSERT into teach_fcp (User_Id,year,Teach_FCP_Tno,Teach_FCP_BEP,Teach_FCP_ISSN,Teach_FCP_NOC, Teach_FCP_MA,Teach_FCP_API) Values('$user','$year','$FCP_TNO','$FCP_BEP','$FCP_ISSN','$FCP_NOC','$FCP_Yes','$FCP_API')";
+	$result3 = mysqli_query($con,$sql3) or die("error : insert m error").mysqli_error($con);
 }
 	if($result3){
-		header('Location: fcp.php');
+		header('Location:fcp.php');
 	}
 	else{
 		echo "Error".mysqli_error();

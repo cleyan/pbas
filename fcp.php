@@ -37,8 +37,10 @@
 </head>
 <body data-spy="scroll" data-target="#myNav">
 <?php
-	if(isset($_SESSION['username'])){
+	if(isset($_SESSION['username']) and isset($_SESSION['pbasYear'])){
 		include('header.php');
+		$user=$_SESSION['username'];
+		$year=$_SESSION['pbasYear'];
    ?>
 <div class="container">
 	
@@ -77,7 +79,7 @@
 						<label>No. of Co-authors </label>
 							<input class="form-control" type="text" name="FCP_NOC" /> 
 						 <label> Whether you are the main Author</label>
-							<input type="radio" name="FPCP_Yes" />Yes <input type="radio" name="FPCP_No" />No<br /> 
+							<input type="radio" name="FCP_YN" />Yes <input type="radio" name="FCP_YN" />No<br /> 
 						<label>API Score </label>
 							<input class="form-control" type="text" name="FCP_API" /> 
 					  </div>
@@ -85,7 +87,7 @@
 						<select name="fp">
 							<option>--Title--</option>
 							<?php 
-								$sql3 = mysqli_query($con,"SELECT * from teach_fcp");
+								$sql3 = mysqli_query($con,"SELECT * from teach_fcp where year='$year' and user_id='$user'");
 								while($row = mysqli_fetch_assoc($sql3)){
 									?><option><?php echo $row['Teach_FCP_TNO']; ?></option>
 							<?php } ?>
@@ -117,7 +119,7 @@
 		{
 		if (value=="")
 		  {
-		  document.getElementById("apb").innerHTML="";
+		  document.getElementById("fp").innerHTML="";
 		  return;
 		  }
 		if (window.XMLHttpRequest)
@@ -137,6 +139,9 @@
 				}
 				if(name == 'pp'){
 					document.getElementById("ppij").innerHTML=xmlhttp.responseText;
+				}
+				if(name == 'fp'){
+					document.getElementById("myNav").innerHTML=xmlhttp.responseText;
 				}	
 			}
 		  }
