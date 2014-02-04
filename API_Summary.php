@@ -24,7 +24,7 @@ include('DBConnect.php');
 
 <body>
 <?php
-	if(isset($_SESSION['username'])){
+	if(isset($_SESSION['username']) and isset($_SESSION['pbasYear'])){
 		echo '<div id="wrap">';
 		include('header.php');
 ?>
@@ -48,37 +48,35 @@ include('DBConnect.php');
 					<td>Teaching Learning and Evaluation Related Activities</td>
 					<td></td>
 					<td><?php $muid=$_SESSION['username'];
-					//$myear="2003";
-				  $get1 = mysqli_query($con, "select sum(Teach_LSTP_CTAPI) as value_sum  from Teach_LSTP where User_Id='".$muid."'");
+					$year=$_SESSION['pbasYear'];
+					
+				  $get1 = mysqli_query($con, "select sum(Teach_LSTP_CTAPI) as value_sum  from Teach_LSTP where User_Id='".$muid."' and year='".$year."' ");
                   $row1 = mysqli_fetch_assoc($get1); 
                   $lstp1 = $row1['value_sum'];
-				  //echo $sum1;
+				  
 
-				  $get2 = mysqli_query($con, "select sum(Teach_LSTP_TLAPI) as value_sum  from Teach_LSTP where User_Id='".$muid."'");
+				  $get2 = mysqli_query($con, "select sum(Teach_LSTP_TLAPI) as value_sum  from Teach_LSTP where User_Id='".$muid."' and year='".$year."'");
                   $row2 = mysqli_fetch_assoc($get2); 
                   $lstp2 = $row2['value_sum'];
-				  //echo $sum2;
+				  
 
 				  $lstp=$lstp1+$lstp2;
-				  //echo $lstp;
+				  
 
-				  $get3 = mysqli_query($con, "select sum(Teach_TLM_API) as value_sum  from Teach_TLM where User_Id='".$muid."'");
+				  $get3 = mysqli_query($con, "select sum(Teach_TLM_API) as value_sum  from Teach_TLM where User_Id='".$muid."' and year='".$year."'");
                   $row3 = mysqli_fetch_assoc($get3); 
                   $tlm = $row3['value_sum'];
-				  //echo $tlm;
+				  
 
-				  $get4 = mysqli_query($con, "select sum(Teach_EDAP_API) as value_sum  from Teach_EDAP where User_Id='".$muid."'");
+				  $get4 = mysqli_query($con, "select sum(Teach_EDAP_API) as value_sum  from Teach_EDAP where User_Id='".$muid."' and year='".$year."'");
                   $row4 = mysqli_fetch_assoc($get4); 
                   $edap = $row4['value_sum'];
-				  //echo $edap;
+				  
 
 				  $teachinglearning=$lstp+$tlm+$edap;
 				  echo $teachinglearning; 
-				  $_SESSION['learning']=$teachinglearning;
 				  
-				  /*$query = mysqli_query($con,"select sum(Teach_LSTP_CTAPI) as value_sum  from Teach_LSTP where User_Id='".$muid."'");
-				  while($row = mysqli_fetch_assoc($query))
-				  {$sum1=row[];}*/
+				  
 				  ?></td>
 					<td></td>
 	</tr>
@@ -87,21 +85,21 @@ include('DBConnect.php');
 		<td>Co-Curricular,Extension,Professional, Development Related Activities</td>
 		<td></td>
 		<td><?php 
-			$get5 = mysqli_query($con, "select sum(Teach_ECFA_API) as value_sum  from Teach_ECFA where User_Id='".$muid."'");
+			$get5 = mysqli_query($con, "select sum(Teach_ECFA_API) as value_sum  from Teach_ECFA where User_Id='".$muid."' and year='".$year."'");
             $row5 = mysqli_fetch_assoc($get5); 
             $ecfa = $row5['value_sum'];
 
-            $get6 = mysqli_query($con, "select sum(Teach_CLMI_API) as value_sum  from Teach_CLMI where User_Id='".$muid."'");
+            $get6 = mysqli_query($con, "select sum(Teach_CLMI_API) as value_sum  from Teach_CLMI where User_Id='".$muid."' and year='".$year."'");
             $row6 = mysqli_fetch_assoc($get6); 
             $clmi = $row6['value_sum'];
 
-            $get7 = mysqli_query($con, "select sum(Teach_PDA_API) as value_sum  from Teach_PDA where User_Id='".$muid."'");
+            $get7 = mysqli_query($con, "select sum(Teach_PDA_API) as value_sum  from Teach_PDA where User_Id='".$muid."' and year='".$year."'");
             $row7 = mysqli_fetch_assoc($get7); 
             $pda = $row7['value_sum'];
 
             $CoCurricular=$ecfa+$clmi+$pda;
             echo $CoCurricular;
-            $_SESSION['curricular']=$CoCurricular;
+            
 
 		?></td>
 		<td></td>
@@ -114,7 +112,7 @@ include('DBConnect.php');
 
 		$sum=$teachinglearning+$CoCurricular;
 		echo $sum;
-		$_SESSION['sum1and2']=$sum;
+		
 
 		?></td>
 		<td></td>
@@ -125,51 +123,49 @@ include('DBConnect.php');
 		<td></td>
 		<td><?php 
 
-		$get8 = mysqli_query($con, "select sum(Teach_PPIJ_API) as value_sum  from Teach_PPIJ where User_Id='".$muid."'");
+		$get8 = mysqli_query($con, "select sum(Teach_PPIJ_API) as value_sum  from Teach_PPIJ where User_Id='".$muid."' and year='".$year."'");
         $row8 = mysqli_fetch_assoc($get8); 
         $ppij = $row8['value_sum'];	
 
-        $get9 = mysqli_query($con, "select sum(Teach_APB_API) as value_sum  from Teach_APB where User_Id='".$muid."'");
+        $get9 = mysqli_query($con, "select sum(Teach_APB_API) as value_sum  from Teach_APB where User_Id='".$muid."' and year='".$year."'");
         $row9 = mysqli_fetch_assoc($get9); 
         $apb = $row9['value_sum'];	
 
-        $get10 = mysqli_query($con, "select sum(Teach_FCP_API) as value_sum  from Teach_FCP where User_Id='".$muid."'");
+        $get10 = mysqli_query($con, "select sum(Teach_FCP_API) as value_sum  from Teach_FCP where User_Id='".$muid."' and year='".$year."'");
         $row10 = mysqli_fetch_assoc($get10); 
         $fcp = $row10['value_sum'];	
 
-        $get11 = mysqli_query($con, "select sum(Teach_BPE_API) as value_sum  from Teach_BPE where User_Id='".$muid."'");
+        $get11 = mysqli_query($con, "select sum(Teach_BPE_API) as value_sum  from Teach_BPE where User_Id='".$muid."' and year='".$year."'");
         $row11 = mysqli_fetch_assoc($get11); 
         $bpe= $row11['value_sum'];	
 
-        $get12 = mysqli_query($con, "select sum(Teach_OPC_API) as value_sum  from Teach_OPC where User_Id='".$muid."'");
+        $get12 = mysqli_query($con, "select sum(Teach_OPC_API) as value_sum  from Teach_OPC where User_Id='".$muid."' and year='".$year."'");
         $row12 = mysqli_fetch_assoc($get12); 
         $opc = $row12['value_sum'];	
 
-        $get13 = mysqli_query($con, "select sum(Teach_CPC_API) as value_sum  from Teach_CPC where User_Id='".$muid."'");
+        $get13 = mysqli_query($con, "select sum(Teach_CPC_API) as value_sum  from Teach_CPC where User_Id='".$muid."' and year='".$year."'");
         $row13 = mysqli_fetch_assoc($get13); 
         $cpc = $row13['value_sum'];	
 
-        $get14 = mysqli_query($con, "select sum(Teach_RG_API) as value_sum  from Teach_RG where User_Id='".$muid."'");
+        $get14 = mysqli_query($con, "select sum(Teach_RG_API) as value_sum  from Teach_RG where User_Id='".$muid."' and year='".$year."'");
         $row14 = mysqli_fetch_assoc($get14); 
         $rg = $row14['value_sum'];	
 
-        $get15 = mysqli_query($con, "select sum(Teach_FDP_API) as value_sum  from Teach_FDP where User_Id='".$muid."'");
+        $get15 = mysqli_query($con, "select sum(Teach_FDP_API) as value_sum  from Teach_FDP where User_Id='".$muid."' and year='".$year."'");
         $row15 = mysqli_fetch_assoc($get15); 
         $fdp = $row15['value_sum'];	
 
-        $get16 = mysqli_query($con, "select sum(Teach_PPC_API) as value_sum  from Teach_PPC where User_Id='".$muid."'");
+        $get16 = mysqli_query($con, "select sum(Teach_PPC_API) as value_sum  from Teach_PPC where User_Id='".$muid."' and year='".$year."'");
         $row16 = mysqli_fetch_assoc($get16); 
         $ppc = $row16['value_sum'];	
 
-        $get17 = mysqli_query($con, "select sum(Teach_ILC_API) as value_sum  from Teach_ILC where User_Id='".$muid."'");
+        $get17 = mysqli_query($con, "select sum(Teach_ILC_API) as value_sum  from Teach_ILC where User_Id='".$muid."' and year='".$year."'");
         $row17 = mysqli_fetch_assoc($get17); 
         $ilc = $row17['value_sum'];	
 
         $research=$ppij+$apb+$fcp+$bpe+$opc+$cpc+$rg+$fdp+$ppc+$ilc;
         echo $research;
-        //session_start();
-        $_SESSION['sumresearch']=$research;
-        //echo $_SESSION['sumresearch'];
+        
 
 		?></td>
 		<td></td>
@@ -191,10 +187,10 @@ include('DBConnect.php');
 						<a href="otherInfo.php">Other Relevent Information<br> And Closures</a><br><br>
   	  				</div>	
    		 		</div>
-	  		</div><!--End of col-sm-3 class -->
-	   </div><!--End of row class -->
-	</div><!--End of container class -->
-</div><!--End of Wrap id -->
+	  		</div>
+	   </div>
+	</div>
+</div>
 <?php
 	      	include('footer.php');
 	        include('jsLinks.php');
