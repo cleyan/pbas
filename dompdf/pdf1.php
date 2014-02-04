@@ -165,15 +165,10 @@ $sqlilc="SELECT * from teach_ilc where user_id='$user' and year='$year'";
 
     $acrow = mysqli_fetch_array($acresult);
     $html.=
-<<<<<<< HEAD
-    '<br/><B>Whether acquired any degree or fresh academic qualification during the year : '.$acrow['Gen_Info_AQ'].''.
-    '<br/><B>Whether acquired any degree or fresh academic qualification during the year: '.$acno.''.
-    '<br/><table width="100%" border="1px">'.
-=======
+
     '<br><B>Whether acquired any degree or fresh academic qualification during the year : '.$acrow['Gen_Info_AQ'].''.
     '<br><B>Whether acquired any degree or fresh academic qualification during the year: '.$acno.''.
     '<br><table width="100%" border="1px">'.
->>>>>>> 19a24860fa322cea6a40a20ef696b5cd98c18d5f
     '<tr><th>Name of Course</th><th>Place</th><th>Duration</th><th>Sponsoring Agency</th></tr>';
    while($acadrow = mysqli_fetch_array($acadresult)){
     $html .='<tr><th>'.$acadrow['Gen_Info_Noc'].'</th><th>'.$acadrow['Gen_Info_Place'].'</th><th>'.$acadrow['Gen_Info_Duration'].'</th><th>'.$acadrow['Gen_Info_SA'].'</th></tr>';}
@@ -190,11 +185,7 @@ $sqlilc="SELECT * from teach_ilc where user_id='$user' and year='$year'";
     '<table width="100%" border="1px">'.
     '<tr><th>Course/Paper</th><th>Level</th><th>Mode of Teaching</th> <th>No. of classes/per week allocated</th> <th>Total no. of classes conducted</th> <th>Practicals</th> <th>% of classes taken as per documented record</th></tr>';
     while($lstprow=mysqli_fetch_array($lstpresult)){
-<<<<<<< HEAD
     $html .='<tr><td>'.$lstprow['Teach_LSTP_Course'].'</td> <td>'.$lstprow['Teach_LSTP_Level'].'</td><td>'.$lstprow['Teach_LSTP_MOT'].'</td><td>'.$lstprow['Teach_LSTP_NOCA'].'</td> <td>'.$lstprow['Teach_LSTP_NOCC'].'</td> <td>'.$lstprow['Teach_LSTP_Practicals'].'</td> <td>'.$lstprow['Teach_LSTP_CTDR'].'</td></tr> ';}
-=======
-    $html .='<tr><td>'.$lstprow['Teach_LSTP_Course'].'</td> <td>'.$lstprow['Teach_LSTP_Level'].'</td><td>'.$lstprow['Teach_LSTP_MOT'].'</td><td>'.$sample.'</td> <td>'.$lstprow['Teach_LSTP_NOCC'].'</td> <td>'.$lstprow['Teach_LSTP_Practicals'].'</td> <td>'.$lstprow['Teach_LSTP_CTDR'].'</td></tr> ';}
->>>>>>> 19a24860fa322cea6a40a20ef696b5cd98c18d5f
 
     $html .='</table><br/><b><h4>Lecture (L), Seminars (S), Tutorials (T), Practical (P), Contact Hours (C)</h4></b>'.
     	'<table border="1px" width="100%">'.
@@ -225,28 +216,18 @@ $sqlilc="SELECT * from teach_ilc where user_id='$user' and year='$year'";
         '<tr><th>Type of Examination duties</th><th>Duties Assigned</th><th>Extent to which carried out(%) </th><th>API Score</th></tr>';
         while($edaprow = mysqli_fetch_array($edapresult)){
         $html .='<tr><th>'.$edaprow['Teach_EDAP_TED'].'</th><th>'.$edaprow['Teach_EDAP_DA'].'</th><th>'.$edaprow['Teach_EDAP_ECO'].'</th><th>'.$edaprow['Teach_EDAP_API'].'</th></tr>';}      
-<<<<<<< HEAD
-  
 
-=======
-        
->>>>>>> 19a24860fa322cea6a40a20ef696b5cd98c18d5f
 /*CATEGORY  II : CO-CURRICULAR, EXTENSION, PROFESSIONAL DEVELOPMENT  RELATED  ACTIVITIES */
         $html.='</table><br/><h3><center><b>CATEGORY  II : CO-CURRICULAR, EXTENSION, PROFESSIONAL DEVELOPMENT  RELATED  ACTIVITIES </b> </center></h3><br/>'.
 
         
 /*ECFA Table*/
 
-<<<<<<< HEAD
-        '<br/><h4>(i) Extension, Co-curricular & Field based activities. </h4>'.
-        '<table width="100%" border="1px">'.
-        '<tr><th>Type of Activity</th><th>Average Hrs/Week</th><th>API Score</th></tr>';
-=======
         '<br/><h4>(i) Extension, Co-curricular & Field based activities </h4><br/>'.
-        '<br/><h4>(i) ajeet</h4><br/>'.
+        
         '<table width="100%" border="1px">'.
         '<tr><th>Type of Activity</th><th>Average Hrs per Week</th><th>API Score</th></tr>';
->>>>>>> 19a24860fa322cea6a40a20ef696b5cd98c18d5f
+
         while($ecfarow = mysqli_fetch_array($ecfaresult)){
         $html .='<tr><th>'.$ecfarow['Teach_ECFA_TOA'].'</th><th>'.$ecfarow['Teach_ECFA_AH'].'</th><th>'.$ecfarow['Teach_ECFA_API'].'</th></tr>';}      
 
@@ -265,11 +246,6 @@ $sqlilc="SELECT * from teach_ilc where user_id='$user' and year='$year'";
         '<tr><th>Type of Activity</th><th>Yearly/Semester wise responsibility</th><th>API Score</th></tr>';
         while($pdarow = mysqli_fetch_array($pdaresult)){
         $html .='<tr><th>'.$pdarow['Teach_PDA_TOA'].'</th><th>'.$pdarow['Teach_PDA_YWR'].'</th><th>'.$pdarow['Teach_PDA_API'].'</th></tr>';}      
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 19a24860fa322cea6a40a20ef696b5cd98c18d5f
 
 /*CATEGORY   III : RESEARCH, PUBLICATION AND ACADEMIC CONTRIBUTION*/
 
@@ -370,24 +346,31 @@ $sqlilc="SELECT * from teach_ilc where user_id='$user' and year='$year'";
         '<tr><th>Title of the Lecture/Academic Session </th><th>Title of Conference/Seminar etc.</th><th>Date of the event</th> <th> Organized By </th> <th> Whether International/National/State </th> <th>API Score</th></tr>';
         while($ilcrow=mysqli_fetch_array($ilcresult)){
         $html.='<tr><th>'.$ilcrow['Teach_ILC_TOL'].'</th> <th>'.$ilcrow['Teach_ILC_TCS'].'</th> <th>'.$ilcrow['Teach_ILC_DOE'].'</th> <th>'.$ilcrow['Teach_ILC_Organized'].'</th> <th>'.$ilcrow['Teach_ILC_WINS'].'</th> <th>'.$ilcrow['Teach_ILC_API'].'</th></tr>';}      
-
+        $html.='</table><br/><br/>'.
 
 
 /*Calculation of summary of API*/
 
-
-
-
+        '<h3>IV. SUMMARY OF API SCORES</h3>'.
+        '<table width="100%" border="1px">'.
+        '<tr><th> </th><th>Criteria</th><th>Last Academic Year</th> <th> Total API Score for Assessment Period</th> <th>Annual Average API Score for Assessment Period </th></tr>'.
+        '<tr><td> I </td> <td> TEACHING LEARNING AND EVALUATION RELATED ACTIVITIES</td><td> </td><td> </td><td> </td></tr>'.
+        '<tr><td>II</td><td>CO-CURRICULAR,EXTENSION PROFESSIONAL DEVELOPMENT RELATED ACTIVITIES</td><td> </td><td> </td> <td> </td></tr>'.
+        '<tr><td> </td> <td>TOTAL I + II </td> <td> </td><td> </td><td> </td></tr>'.
+        '<tr><td> III</td> <td> RESEARCH,PUBLICATION AND ACADEMIC CONTRIBUTION</td> <td> </td> <td> </td> <td> </td></tr>'.
+        '</table> <br/><br/>'.
+        '<h3><center>PART C: OTHER RELEVANT INFORMATION</center></h3> <br/> <br/> <br/> <br/>'.
 
 
 /*Footer Detail*/
 
-        $html.='</table><br/><br/><br/>'.
-        '<div align="right"><h4>I certify that the information provided is correct as per records available with the University and/or documents enclosed along with the duly filled PBAS proforma. </h4>'.
-        '<h4>Signature of the faculty</h4>'.
-        '<h4>Designation :</h4>'.
+        
+        '<h4>I certify that the information provided is correct as per records available with the University and/or documents enclosed along with the duly filled PBAS proforma. </h4>'.
+        '<br/><div align="right"><h4>Signature of the faculty</h4>'.
+        '<h4>Designation : '.$cd.'</h4>'.
         '<h4>Place :</h4>'.
-        '<h4>Date :</h4></div><br/><br/><br/>'.
+        '<h4>Date :</h4><br/><br/><br/>'.
+        '<h4>Signature of HOD</h4></div>'.
         '</body></html>'; 
         
         
