@@ -37,8 +37,10 @@
 </head>
 <body data-spy="scroll" data-target="#myNav">
 <?php
-	if(isset($_SESSION['username'])){
+	if(isset($_SESSION['username']) and isset($_SESSION['pbasYear'])){
 		include('header.php');
+		$user=$_SESSION['username'];
+		$year=$_SESSION['pbasYear'];
    ?>
 <div class="container">
 	
@@ -84,11 +86,11 @@
 					   </div> 
 						 <br />
 						<input class="btn btn-md btn-primary" type="submit" value="Save" name="cpc_save" />
-						<select name="cp">
+						<select name="cp" onchange="showUser(this.value,this.name)">
 							<option>--Title--</option>
 							<?php 
 								include('DBConnect.php');
-								$query = mysqli_query($con,"SELECT * from teach_cpc");
+								$query = mysqli_query($con,"SELECT * from teach_cpc where user_id='$user' and year='$year'");
 								while($row = mysqli_fetch_assoc($query)){
 							?><option><?php echo $row['Teach_CPC_Title']; ?></option>
 							<?php } ?>
@@ -134,12 +136,9 @@
 		  {
 		  if (xmlhttp.readyState==4 && xmlhttp.status==200)
 			{  
-				if(name == 'apb'){
-					document.getElementById("apb").innerHTML=xmlhttp.responseText;
+				if(name == 'cp'){
+					document.getElementById("completedFields").innerHTML=xmlhttp.responseText;
 				}
-				if(name == 'pp'){
-					document.getElementById("ppij").innerHTML=xmlhttp.responseText;
-				}	
 			}
 		  }
 		xmlhttp.open("GET","form_process/rpac_show.php?val="+value+"&name="+name,true);

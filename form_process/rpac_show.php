@@ -85,9 +85,9 @@
 <!-- Script for showing data for "Articles Published" tab -->
 
 <?php	
-
+	}
 	if($name == 'apb'){
-		$sql="SELECT * FROM teach_apb WHERE Teach_APB_TNO = '".$val."' and year='$year'";
+		$sql="SELECT * FROM teach_apb WHERE Teach_APB_TNO = '$val' and year='$year'";
 		$result = mysqli_query($con,$sql) or die('Error'.mysqli_error($con));
 		 $row = mysqli_fetch_array($result);
  		$APB_TNO = $row['Teach_APB_TNO'];
@@ -122,9 +122,10 @@
 <!-- Script for showing data for "Full papers in Conference Proceedings " tab -->
 
 <?php	
+	}
 
 	if($name == 'fp'){
-		$sql="SELECT * FROM teach_fcp WHERE user_id='$user' Teach_FCP_TNO = '$val' and year='$year'";
+		$sql="SELECT * FROM teach_fcp WHERE user_id='$user' and Teach_FCP_TNO = '$val' and year='$year'";
 		$result = mysqli_query($con,$sql) or die('Error'.mysqli_error($con));
 		 $row = mysqli_fetch_array($result);
  		$FCP_TNO = $row['Teach_FCP_TNO'];
@@ -133,6 +134,7 @@
  		$FCP_NOC = $row['Teach_FCP_NOC'];
  		$FCP_MA = $row['Teach_FCP_MA'];
 	    $FCP_API = $row['Teach_FCP_API'];
+
 ?>
         <h3>Full Papers in Conference Proceedings</h3>
             
@@ -151,23 +153,131 @@
 						<label>API Score </label>
 							<input class="form-control" type="text" name="FCP_API" value=" <?php echo $FCP_API ?>"/> 
 					  </div>
-						<br><input class="btn btn-md btn-primary" type="submit" value="Save" name="fpcp_save" />
-						<select name="fp">
-							<option>--Title--</option>
-							<?php 
-								$sql3 = mysqli_query($con,"SELECT * from teach_fcp where year='$year' and user_id='$user'");
-								while($row = mysqli_fetch_assoc($sql3)){
-									?><option><?php echo $row['Teach_FCP_TNO']; ?></option>
-							<?php } ?>
-						</select>
-						<input class="btn btn-md btn-primary" type="button" value="Delete" /> 
-						<input type="reset" class="btn btn-primary" value="Reset" name="reset" />
+						<br>
+							</div>
+
+
+
+<!-- Script for showing data for "Full papers in Conference Proceedings " tab -->
+
+<?php	
+	}
+
+	if($name == 'bp'){
+		$sql="SELECT * FROM teach_bpe WHERE user_id='$user' and Teach_BPE_TPN = '$val' and year='$year'";
+		$result = mysqli_query($con,$sql) or die('Error'.mysqli_error($con));
+		 $row = mysqli_fetch_array($result);
+ 		$BPE_TPN = $row['Teach_BPE_TPN'];
+ 		$BPE_TBA = $row['Teach_BPE_TBA'];
+ 		$BPE_PISSN = $row['Teach_BPE_PISSN'];
+ 		$BPE_WPR = $row['Teach_BPE_WPR'];
+ 		$BPE_NOC=$row['Teach_BPE_NOC'];
+ 		$BPE_MA = $row['Teach_BPE_MA'];
+	    $BPE_API = $row['Teach_BPE_API'];
+	    
+
+?>
+        <h3>Books published as single author or as editor </h3>
+            
+			
+			 <div class="form-group">
+								<label>Title With Page Numbers</label>
+						  <input class="form-control" type="text" name="BPE_TPN" value="<?php echo $BPE_TPN ?>"> 
+						<label>Type of Book And Authorship</label>
+						  <input class="form-control" type="text" name="BPE_TBA" value="<?php echo $BPE_TBA ?>"> 
+						<label>Publisher And ISSN / ISBN No</label>
+						  <input class="form-control" type="text" name="BPE_PISSN" value="<?php echo $BPE_PISSN ?>"/> 
+						<label> Whether Peer Reviewed</label>
+						 <input class="form-control" type="text" name="PE_WPR" value="<?php echo $BPE_WPR ?>"/> 
+						<label>No. of Co-authors</label>
+						  <input class="form-control" type="text" name="BPE_NOC" value="<?php echo $BPE_NOC ?>"/> 
+					   <label>Whether you are the main Author</label>
+						 <input type="radio" name="BPSA_Yes" />Yes <input type="radio" name="BPSA_No"/>No<br /> 
+					   <label>API Score</label>  <input class="form-control" type="text" name="BPE_API" value="<?php echo $BPE_API ?>"/>  
+					  </div>
+						<br>
 							</div>
 
 
 <?php
-  
-  mysqli_close($con);
+  }
+
+	if($name == 'op'){
+		$sql="SELECT * FROM teach_opc WHERE user_id='$user' and Teach_OPC_Title = '$val' and year='$year'";
+		$result = mysqli_query($con,$sql) or die('Error'.mysqli_error($con));
+		 $row = mysqli_fetch_array($result);
+ 		$OPC_Title = $row['Teach_OPC_Title'];
+ 		$OPC_Agency = $row['Teach_OPC_Agency'];
+ 		$OPC_Period = $row['Teach_OPC_Period'];
+ 		$OPC_GAM = $row['Teach_OPC_GAM'];
+ 		$OPC_API=$row['Teach_OPC_API'];
+ 		
+	    
+
 ?>
+        <h3>Ongoing Projects / Consultancies</h3>
+            
+			
+			 <div class="form-group">
+								<label>Title</label>
+							  <input class="form-control" type="text" name="OPC_Title" value="<?php echo $OPC_Title ?>"> 
+							<label>Agency</label>
+							  <input class="form-control" type="text" name="OPC_Agency" value="<?php echo $OPC_Agency ?>"/> 
+							<label>Period</label>
+							  <input class="form-control" type="text" name="OPC_Period" value="<?php echo $OPC_Period ?>"/> 
+							<label>Grant / Amount Mobilized (Rs. Lakh)</label>
+							  <input class="form-control" type="text" name="OPC_GAM" value="<?php echo $OPC_GAM ?>"/> 
+						   <label>API Score</label>  <input class="form-control" type="text" name="OPC_API" value="<?php echo $OPC_API ?>"/>  
+					  </div>
+						<br>
+							</div>
+
+
+<?php
+  }
+
+  if($name == 'cp'){
+		$sql="SELECT * from teach_cpc where user_id='$user' and year='$year' and teach_CPC_Title='$val'";
+		$result = mysqli_query($con,$sql) or die('Error'.mysqli_error($con));
+		 $row = mysqli_fetch_array($result);
+ 		$CPC_Title = $row['Teach_CPC_Title'];
+ 		$CPC_Agency = $row['Teach_CPC_Agency'];
+ 		$CPC_Period = $row['Teach_CPC_Period'];
+ 		$CPC_GAM = $row['Teach_CPC_GAM'];
+ 		$CPC_WPD = $row['Teach_CPC_WPD'];
+ 		$CPC_API=$row['Teach_CPC_API'];
+ 		
+	    
+
+?>
+        <h3>Completed Projects / Consultancies</h3>
+            
+			
+			 <div class="form-group">
+								<label>Title</label>
+						   <input class="form-control" type="text" name="CPC_Title" value="<?php echo $CPC_Title ?>"> 
+						 <label>Agency</label>
+						   <input class="form-control" type="text" name="CPC_Agency" value="<?php echo $CPC_Agency ?>"/> 
+						 <label>Period</label>
+						  <input class="form-control" type="text" name="CPC_Period" value="<?php echo $CPC_Period ?>"/> 
+						 <label>Grant / Amount Mobilized (Rs. Lakh)</label>
+						   <input class="form-control" type="text" name="CPC_GAM" value="<?php echo $CPC_GAM ?>"/> 
+						 <label>Whether policy document / Patent as outcome</label>
+						   <input class="form-control" type="text" name="CPC_WPD" value="<?php echo $CPC_WPD ?>"/> 
+						 <label>API Score</label>
+							 <input class="form-control" type="text" name="CPC_API" value="<?php echo $CPC_API ?>"/> 
+					  </div>
+						<br>
+							</div>
+
+
+<?php
+  }
+  
+?>
+  
+
+
+
 
 

@@ -84,7 +84,7 @@
 							<input class="form-control" type="text" name="FCP_API" /> 
 					  </div>
 						<br><input class="btn btn-md btn-primary" type="submit" value="Save" name="fpcp_save" />
-						<select name="fp">
+						<select name="fp" onChange="showUser(this.value, this.name)">
 							<option>--Title--</option>
 							<?php 
 								$sql3 = mysqli_query($con,"SELECT * from teach_fcp where year='$year' and user_id='$user'");
@@ -134,14 +134,9 @@
 		  {
 		  if (xmlhttp.readyState==4 && xmlhttp.status==200)
 			{  
-				if(name == 'apb'){
-					document.getElementById("apb").innerHTML=xmlhttp.responseText;
-				}
-				if(name == 'pp'){
-					document.getElementById("ppij").innerHTML=xmlhttp.responseText;
-				}
+				
 				if(name == 'fp'){
-					document.getElementById("myNav").innerHTML=xmlhttp.responseText;
+					document.getElementById("fullPapersConf").innerHTML=xmlhttp.responseText;
 				}	
 			}
 		  }
