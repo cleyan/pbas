@@ -85,7 +85,7 @@
 					   <label>API Score</label>  <input class="form-control" type="text" name="BPE_API" /> 
 					 </div><br />
 						<input class="btn btn-md btn-primary" type="submit" value="Save" name="bps_save" />
-						<select name="bp">
+						<select name="bp" onChange="showUser(this.value, this.name)">
 							<option>--Title--</option>
 							<?php 
 								$uname=$_SESSION['username'];
@@ -136,12 +136,10 @@
 		  {
 		  if (xmlhttp.readyState==4 && xmlhttp.status==200)
 			{  
-				if(name == 'apb'){
-					document.getElementById("apb").innerHTML=xmlhttp.responseText;
+				if(name == 'bp'){
+					document.getElementById("bookPublished").innerHTML=xmlhttp.responseText;
 				}
-				if(name == 'pp'){
-					document.getElementById("ppij").innerHTML=xmlhttp.responseText;
-				}	
+					
 			}
 		  }
 		xmlhttp.open("GET","form_process/rpac_show.php?val="+value+"&name="+name,true);

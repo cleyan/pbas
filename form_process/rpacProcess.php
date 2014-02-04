@@ -144,10 +144,10 @@ if(!empty($_POST['opc_save'])){
 	$OPC_Period = $_POST['OPC_Period'];
 	$OPC_Gam = $_POST['OPC_GAM'];
 	$OPC_API = $_POST['OPC_API'];
-	$sql5 = "Insert into `teach_opc` (Teach_OPC_Title,Teach_OPC_Agency,Teach_OPC_Period,Teach_OPC_Gam,Teach_OPC_API) Values('$OPC_Title','$OPC_Agency','$OPC_Period','$OPC_Gam','$OPC_API')";
+	$sql5 = "Insert into teach_opc (user_id,year,Teach_OPC_Title,Teach_OPC_Agency,Teach_OPC_Period,Teach_OPC_Gam,Teach_OPC_API) Values('$user','$year','$OPC_Title','$OPC_Agency','$OPC_Period','$OPC_Gam','$OPC_API')";
 	$result5 = mysqli_query($con,$sql5) or die("error : ").mysqli_error($con);
 	if($result5){
-		header('Location: rpac.php');
+		header('Location:opc.php');
 	}
 	else{
 		echo "Error".mysqli_error();

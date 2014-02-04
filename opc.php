@@ -37,8 +37,10 @@
 </head>
 <body data-spy="scroll" data-target="#myNav">
 <?php
-	if(isset($_SESSION['username'])){
+	if(isset($_SESSION['username']) and isset($_SESSION['pbasYear'])){
 		include('header.php');
+		$user=$_SESSION['username'];
+		$year=$_SESSION['pbasYear'];
    ?>
 <div class="container">
 	
@@ -80,11 +82,11 @@
 						   <label>API Score</label>  <input class="form-control" type="text" name="OPC_API" />
 					  </div> <br />
 							<input class="btn btn-md btn-primary" type="submit" value="Save" name="opc_save" />
-							<select name="op">
+							<select name="op" onchange="showUser(this.value,this.name)">
 								<option>--Title--</option>
 								<?php 
 									include('DBConnect.php');
-									$query = mysqli_query($con,"SELECT * from teach_opc");
+									$query = mysqli_query($con,"SELECT * from teach_opc where User_Id='$user' and year='$year'");
 									while($row = mysqli_fetch_assoc($query)){
 								?><option><?php echo $row['Teach_OPC_Title']; ?></option>
 								<?php } ?>
@@ -130,8 +132,8 @@
 		  {
 		  if (xmlhttp.readyState==4 && xmlhttp.status==200)
 			{  
-				if(name == 'apb'){
-					document.getElementById("apb").innerHTML=xmlhttp.responseText;
+				if(name == 'op'){
+					document.getElementById("ongoingForm").innerHTML=xmlhttp.responseText;
 				}
 				if(name == 'pp'){
 					document.getElementById("ppij").innerHTML=xmlhttp.responseText;
