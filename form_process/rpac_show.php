@@ -235,8 +235,48 @@
 
 <?php
   }
+
+  if($name == 'cp'){
+		$sql="SELECT * from teach_cpc where user_id='$user' and year='$year' and teach_CPC_Title='$val'";
+		$result = mysqli_query($con,$sql) or die('Error'.mysqli_error($con));
+		 $row = mysqli_fetch_array($result);
+ 		$CPC_Title = $row['Teach_CPC_Title'];
+ 		$CPC_Agency = $row['Teach_CPC_Agency'];
+ 		$CPC_Period = $row['Teach_CPC_Period'];
+ 		$CPC_GAM = $row['Teach_CPC_GAM'];
+ 		$CPC_WPD = $row['Teach_CPC_WPD'];
+ 		$CPC_API=$row['Teach_CPC_API'];
+ 		
+	    
+
+?>
+        <h3>Completed Projects / Consultancies</h3>
+            
+			
+			 <div class="form-group">
+								<label>Title</label>
+						   <input class="form-control" type="text" name="CPC_Title" value="<?php echo $CPC_Title ?>"> 
+						 <label>Agency</label>
+						   <input class="form-control" type="text" name="CPC_Agency" value="<?php echo $CPC_Agency ?>"/> 
+						 <label>Period</label>
+						  <input class="form-control" type="text" name="CPC_Period" value="<?php echo $CPC_Period ?>"/> 
+						 <label>Grant / Amount Mobilized (Rs. Lakh)</label>
+						   <input class="form-control" type="text" name="CPC_GAM" value="<?php echo $CPC_GAM ?>"/> 
+						 <label>Whether policy document / Patent as outcome</label>
+						   <input class="form-control" type="text" name="CPC_WPD" value="<?php echo $CPC_WPD ?>"/> 
+						 <label>API Score</label>
+							 <input class="form-control" type="text" name="CPC_API" value="<?php echo $CPC_API ?>"/> 
+					  </div>
+						<br>
+							</div>
+
+
+<?php
+  }
   
 ?>
+  
+
 
 
 

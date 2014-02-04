@@ -159,10 +159,10 @@ if(!empty($_POST['cpc_save'])){
 	$CPC_Period = $_POST['CPC_Period'];
 	$CPC_Gam = $_POST['CPC_GAM'];
 	$CPC_API = $_POST['CPC_API'];
-	$sql6 = "Insert into `teach_cpc` (Teach_CPC_Title,Teach_CPC_Agency,Teach_CPC_Period,Teach_CPC_Gam,Teach_CPC_API) Values('$CPC_Title','$CPC_Agency','$CPC_Period','$CPC_Gam','$CPC_API')";
+	$sql6 = "Insert into `teach_cpc` (user_id,year,Teach_CPC_Title,Teach_CPC_Agency,Teach_CPC_Period,Teach_CPC_Gam,Teach_CPC_API) Values('$user','$year','$CPC_Title','$CPC_Agency','$CPC_Period','$CPC_Gam','$CPC_API')";
 	$result6 = mysqli_query($con,$sql6) or die("error : ").mysqli_error($con);
 	if($result6){
-		header('Location: rpac.php');
+		header('Location: cpc.php');
 	}
 	else{
 		echo "Error".mysqli_error();
