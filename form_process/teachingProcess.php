@@ -21,7 +21,7 @@
 			$updateQuery = "UPDATE teach_lstp SET Teach_LSTP_Level='$level', Teach_LSTP_MOT='$modes', Teach_LSTP_NOCA='$clsAllocated', Teach_LSTP_NOCC='$clsConducted', Teach_LSTP_Practicals='$practicals', Teach_LSTP_CTDR='$clsPercent',Teach_LSTP_CTAPI='$clsTaken',Teach_LSTP_TLAPI='$teachingLoad' where User_Id='$user_id' and Teach_LSTP_Course='$courseName'" ;
 			$result1 = mysqli_query($con,$updateQuery);
 			if($result1){
-				header('location:teachingLearningActivities.php.php');
+				header('location:teachingLearningActivities.php');
 			}
 			else{
 				die("Update error : ".mysqli_error($con));

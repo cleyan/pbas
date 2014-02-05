@@ -35,35 +35,45 @@
 				 		
 			 	</div>
 			 	<div class="col-sm-1"></div>
-			 	
 	   		 	<div class="col-sm-8">
 	   		 		<br>
 					
 					<h5 align="center">  Lectures, Seminar,Tutorial, Practical, Contact Hours</h5>
 			   		<form role="form" name="lectures" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post" id="lectureForm">
 			   			<div class="form-group">
-							<div id="lect"><br/>
+							<div id="lect"><br />
 		          				<label>Course / Paper </label>
-				    			<input type="text" data-bind="value: lstpcourse" class="form-control required" name="course" title="Please Enter Course Name">
+				    			<input type="text" class="form-control required" name="course" title="Please Enter Course Name">
                   				<br /><label>Level</label>
-				    			<input type="text" data-bind="value: lstplevel" class="form-control required" name="level" title="Please Enter The Level"/>
+				    			<input type="text" class="form-control required" name="level" title="Please Enter The Level"/>
 		          					<br /><label>Mode Of Teaching</label>
-				    					<input type="text" data-bind="value:lstpmot " class="form-control required" name="teachingModes" title="Please Enter Teaching Mode"/>
+				    					<input type="text" class="form-control required" name="teachingModes" title="Please Enter Teaching Mode"/>
 		   		  					<br /><label> No. of Classes/per Week Allocated</label>
-				    					<input type="text" data-bind="value:lstpnoc " class="form-control required" name="classAllocated" title="Please Enter No. Of Class Allocated"/>
+				    					<input type="text" class="form-control required" name="classAllocated" title="Please Enter No. Of Class Allocated"/>
 		      	  					<br /><label>Total Number of Classes Conducted</label>
-				    					<input type="text" data-bind="value: lstptnoc" class="form-control required" name="classConducted" title="Please Enter Total No. of Conducted Classes"/>
+				    					<input type="text" class="form-control required" name="classConducted" title="Please Enter Total No. of Conducted Classes"/>
 				  					<br /><label>Practicals</label> 
-				    					<input type="text" data-bind="value:lstppracticals " class="form-control required" name="practicals" title="Please Enter Practicles">
+				    					<input type="text" class="form-control required" name="practicals" title="Please Enter Practicles">
                   					<br /><label>% of Classes Taken AS Per Documented Record</label>
-				    					<input type="text" data-bind="value: lstpctdr" class="form-control required" name="classTakenRecord" title="Please Enter the % value"/>
+				    					<input type="text" class="form-control required" name="classTakenRecord" title="Please Enter the % value"/>
 		          					<br /><label>Classes Taken (max 50 for 100% Performance and Proportionate Score upto 80% Performance, below which no Score may be given)</label>
-				    					<input type="text" data-bind="value: lstpctapi" class="form-control required" name="classTaken" title="Please Enter Classes Taken"/>
+				    					<input type="text" class="form-control required" name="classTaken" title="Please Enter Classes Taken"/>
 		   		 					<br /><label>Teaching Load in Excess of UGC norm(max score : 10)</label>
-				    					<input type="text" data-bind="value: lstptlapi" class="form-control required" name="teachingLoads" title="Please Enter Teaching Load"/>
+				    					<input type="text" class="form-control required" name="teachingLoads" title="Please Enter Teaching Load"/>
 			 					 </div><!--End of lect id -->
 			 				
-							       <br><input data-bind="click: savelstp" class="btn btn-primary" type="submit" value="Save" name="lectSave" />
+							       <br><input class="btn btn-primary" type="submit" value="Save" name="lectSave" />
+									<select name="lect" onChange="showUser(this.value, this.name)">
+										<option>--Title--</option>
+										<?php 
+											include('DBConnect.php');
+											$user_id = $_SESSION['username'];
+											echo $year=$_SESSION['pbasYear'];
+											$query = mysqli_query($con,"SELECT * from Teach_LSTP WHERE User_Id='$user_id' and Year='$year'");
+											while($row = mysqli_fetch_assoc($query)){
+										?>		<option><?php echo $row['Teach_LSTP_Course']; ?></option>
+										<?php } ?>
+									</select>
 									<input type="submit" class="btn btn-primary"  value="Delete" name="lectDelete" />
 									<input type="reset" class="btn btn-primary" value="Reset" name="reset" />
 								</div><!--End of form-group class -->
@@ -74,17 +84,10 @@
 			</div><!--End of row class -->
 	 	 </div><!--End of container class -->
 	</div><!--end of wrap id -->
-
-	<script src="js/knockout-2.3.0.js"></script>
-	<script src="js/jquery-1.7.2.min.js"></script>
-
 	 <?php
 	      	include('footer.php');
 	        include('jsLinks.php');
 	?>
-
-
-
 <script>
 		$(document).ready(function() {
  			$('#lectureForm').validate();
@@ -132,150 +135,6 @@
 			xmlhttp.send();
 		}
 	</script>
-
-
-	<script>
-	
-		<!-- First we need to have a model that represents the data available for each student -->
-		var lstpModel = function(id, name, age){
-			var self = this; //caching so that it can be accessed later in a different context
-			  this.course = ko.observable(course); //unique id for the student (auto increment primary key from the database)
-			  this.level = ko.observable(level); //name of the student
-			  this.mot = ko.observable(mot);
-			  this.noc = ko.observable(noc);
-			  this.tnoc = ko.observable(tnoc);
-			  this.practicals = ko.observable(practicals);
-			  this.ctdr = ko.observable(ctdr);
-			  this.ctapi = ko.observable(ctapi);
-			  this.tlapi = ko.observable(tlapi);
-
-			 };
-		
-		<!--Next is the model in which the knockout.js bindings will be applied-->
-		var model = function(){
-			var self = this; //cache the current context
-			this.lstpcourse= ko.observable(""); 
-			this.lstplevel = ko.observable("");
-			this.lstpmot = ko.observable("");
-			this.lstpnoc = ko.observable("");
-			this.lstptnoc = ko.observable("");
-			this.lstppracticals = ko.observable("");
-			this.lstpctdr = ko.observable("");
-			this.lstpctapi = ko.observable("");
-			this.lstptlapi = ko.observable("");
-			
-			this.lstp = ko.observableArray([]); 
-			this.savelstp = function(){
-			  if(self.validatelstp()){ //if the validation succeeded
-			  
-				  //build the data to be submitted to the server
-				  var lstpdata = {'course' : this.lstpcourse(), 'level' : this.lstplevel(), 'mot': this.lstpmot(), 'noc' : this.lstpnoc(), 'tnoc':this.lstptnoc(), 'practicals':this.lstppracticals(),  'ctdr':this.lstpctdr(),
-				  	 'ctapi':this.lstpctapi(), 'tlapi':this.lstptlapi() };
-
-				  
-				  //submit the data to the server        
-				  $.ajax(
-					  {
-						  url: 'teachinglearning_save.php',
-						  type: 'POST',
-						  data: {'lstparray' : lstpdata, 'action' : 'insert'},
-						  success: function(id){//id is returned from the server
-						  
-							  //push a new record to the student array
-							  self.lstp.push(new lstpModel(id, self.lstpcourse(), self.lstplevel(), self.lstpmot(), self.lstpnoc(),self.lstptnoc() ,self.lstppracticals(), self.lstpctdr(), self.lstpctapi(), self.lstptlapi()
-							  	));
-							  
-							  self.lstpcourse("");
-							  self.lstplevel("");
-							   self.lstpmot(""); 
-							   self.lstpnoc("");
-							   self.lstptnoc("");
-							   self.lstppracticals("");
-							   self.lstpctdr(""); 
-							   self.lstpctapi("");
-							   self.lstptlapi("");
-
-							  
-						  }
-					  }
-				  );           
-				  
-			  }else{ //if the validation fails
-				  alert("Name and age are required and age should be a number!");
-			  }
-			};
-			
-			this.validatelstp = function(){
-			  if(self.person_name() !== "" && self.person_age() != "" && Number(self.person_age()) + 0 == self.person_age()){
-				  return true;
-			  }
-			  return false;
-			};
-			
-			this.loadData = function(){
-
-			  //fetch existing student data from database
-			 $.ajax({
-				  url : 'refresher_save.php',
-				  dataType: 'json',
-				  success: function(data){ //json string of the student records returned from the server
-					  
-					  for(var x in data){
-
-						  //student details
-						  var id = data[x]['id'];
-						  var name = data[x]['name'];
-						  var age = data[x]['age'];
-
-						  //push each of the student record to the observable array for 
-						  //storing student data
-						  self.people.push(new lstpModel(id, name, age));
-					  }
-					  
-				  }
-			  });  
-
-			};
-			
-			this.removePerson = function(person){
-  
-			    $.post(
-				    'refresher_save.php',
-				    {'action' : 'delete', 'student_id' : person.id()},
-				    function(response){
-					  
-					    //remove the currently selected student from the array
-					    self.people.remove(person);
-				  }
-			    );
-			};
-			
-			this.updatePerson = function(person){
-			  //get the student details
-			  var id = person.id();
-			  var name = person.name();
-			  var age = person.age();
-
-			  //build the data
-			  var student = {'id' : id, 'name' : name, 'age' : age};
-			  
-			  //submit to server via POST
-			  $.post(
-				  'refresher_save.php',
-				  {'action' : 'update', 'student' : student}
-			  );
-			};
-
-
-		};
-		
-		//Then we just apply the knockout.js bindings to the model. This simply means that we're binding the UI to the model
-		//so that any changes to the model will also update the UI.
-		ko.applyBindings(new model());
-		
-	</script>
-
-
 
 	<?php
 		  }
