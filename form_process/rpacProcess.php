@@ -174,10 +174,10 @@ if(!empty($_POST['rg_save'])){
 	$RG_TS = $_POST['RG_TS'];
 	$RG_DA = $_POST['RG_DA'];
 	$RG_API = $_POST['RG_API'];
-	$sql7 = "Insert into `teach_rg` (Teach_RG_NE,Teach_RG_TS,Teach_RG_DA,Teach_RG_API) Values('$RG_NE','$RG_TS','$RG_DA','$RG_API')";
+	$sql7 = "Insert into `teach_rg` (user_id,year,Teach_RG_NE,Teach_RG_TS,Teach_RG_DA,Teach_RG_API) Values('$user','$year','$RG_NE','$RG_TS','$RG_DA','$RG_API')";
 	$result7 = mysqli_query($con,$sql7) or die("error : ").mysqli_error($con);
 	if($result7){
-		header('Location:rpac.php');
+		header('Location:rg.php');
 	}
 	else{
 		echo "Error".mysqli_error();
@@ -188,10 +188,10 @@ if(!empty($_POST['fdp_save'])){
 	$FDP_Duration = $_POST['FDP_Duration'];
 	$FDP_Organized = $_POST['FDP_Organized'];
 	$FDP_API = $_POST['FDP_API'];
-	$sql8 = "Insert into `teach_fdp` (Teach_FDP_Programme,Teach_FDP_Duration,Teach_FDP_Organized,Teach_FDP_API) Values('$FDP_Programme','$FDP_Duration','$FDP_Organized','$FDP_API')";
+	$sql8 = "Insert into `teach_fdp` (User_Id,Year,Teach_FDP_Programme,Teach_FDP_Duration,Teach_FDP_Organized,Teach_FDP_API) Values('$user','$year','$FDP_Programme','$FDP_Duration','$FDP_Organized','$FDP_API')";
 	$result8 = mysqli_query($con,$sql8) or die("error : ").mysqli_error($con);
 	if($result8){
-		header('Location:rpac.php');
+		header('Location:fdp.php');
 	}
 	else{
 		echo "Error".mysqli_error();

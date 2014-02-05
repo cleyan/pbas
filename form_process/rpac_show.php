@@ -273,6 +273,72 @@
 
 <?php
   }
+
+   if($name == 'rg'){
+		$sql="SELECT * from teach_rg where user_id='$user' and year='$year' and teach_RG_NE='$val'";
+		$result = mysqli_query($con,$sql) or die('Error'.mysqli_error($con));
+		 $row = mysqli_fetch_array($result);
+ 		$RG_NE = $row['Teach_RG_NE'];
+ 		$RG_TS = $row['Teach_RG_TS'];
+ 		$RG_DA = $row['Teach_RG_DA'];
+ 		
+ 		$RG_API=$row['Teach_RG_API'];
+ 		
+	    
+
+?>
+       
+            
+			
+			 <div class="form-group">
+								<label>Number Enrolled</label>
+							<input class="form-control" type="text" name="RG_NE" value="<?php echo $RG_NE ?>"> 
+						   <label>Thesis Submitted</label>
+							<input class="form-control" type="text" name="RG_TS" value="<?php echo $RG_TS ?>"/> 
+						   <label>Degree Awarded</label>  
+							 <input class="form-control" type="text" name="RG_DA" value="<?php echo $RG_DA ?>"/>  
+						  <label>API Score </label> 
+							 <input class="form-control" type="text" name="RG_API" value="<?php echo $RG_API ?>"/>
+					  </div>
+						<br>
+							</div>
+
+
+<?php
+  }
+  
+   if($name == 'ppf'){
+		$sql="SELECT * from teach_fdp where user_id='$user' and year='$year' and teach_FDP_Programme='$val'";
+		$result = mysqli_query($con,$sql) or die('Error'.mysqli_error($con));
+		 $row = mysqli_fetch_array($result);
+ 		$FDP_Programme = $row['Teach_FDP_Programme'];
+ 		$FDP_Duration = $row['Teach_FDP_Duration'];
+ 		$FDP_Organized = $row['Teach_FDP_Organized'];
+ 		
+ 		$FDP_API=$row['Teach_FDP_API'];
+ 		
+	    
+
+?>
+       
+            
+			
+			 <div class="form-group">
+								<label>Programme </label>
+							 <input class="form-control" type="text" name="FDP_Programme" value="<?php echo $FDP_Programme ?>"> 
+						   <label> Duration </label>
+							<input class="form-control" type="text" name="FDP_Duration" value="<?php echo $FDP_Duration ?>"/> 
+							<label>Organized By </label>
+							 <input class="form-control" type="text" name="FDP_Organized" value="<?php echo $FDP_Organized ?>"/>  
+							<label>API Score </label>
+							 <input class="form-control" type="text" name="FDP_API" value="<?php echo $FDP_API ?>"/> 
+					  </div>
+						<br>
+							</div>
+
+
+<?php
+  }
   
 ?>
   
