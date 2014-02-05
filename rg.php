@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	include('DBConnect.php');
-	include('form_process/rpac_form.php');
+	include('form_process/rpacProcess.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,8 +37,10 @@
 </head>
 <body data-spy="scroll" data-target="#myNav">
 <?php
-	if(isset($_SESSION['username'])){
+	if(isset($_SESSION['username']) and isset($_SESSION['pbasYear'])){
 		include('header.php');
+		$user=$_SESSION['username'];
+		$year=$_SESSION['pbasYear'];
    ?>
 <div class="container">
 	
@@ -80,11 +82,11 @@
 					  </div> 
 						 <br />
 							<input class="btn btn-md btn-primary" type="submit" value="Save" name="rg_save" />
-							<select name="rg">
+							<select name="rg" onchange="showUser(this.value,this.name)">
 								<option>--Title--</option>
 								<?php 
 									include('DBConnect.php');
-									$query = mysqli_query($con,"SELECT * from teach_rg");
+									$query = mysqli_query($con,"SELECT * from teach_rg where user_id='$user' and year='$year'");
 									while($row = mysqli_fetch_assoc($query)){
 								?><option><?php echo $row['Teach_RG_NE']; ?></option>
 								<?php } ?>
@@ -130,8 +132,8 @@
 		  {
 		  if (xmlhttp.readyState==4 && xmlhttp.status==200)
 			{  
-				if(name == 'apb'){
-					document.getElementById("apb").innerHTML=xmlhttp.responseText;
+				if(name == 'rg'){
+					document.getElementById("GuidanceFields").innerHTML=xmlhttp.responseText;
 				}
 				if(name == 'pp'){
 					document.getElementById("ppij").innerHTML=xmlhttp.responseText;
