@@ -84,8 +84,8 @@
 								<label>No. of Co-authors </label>
 								   <input type="text" class="form-control" name="APB_NOC"/>
 								<label>Whether you are the main Author</label> 
-								  <input type="radio" name="ACPB_Yes" />Yes 
-								  <input type="radio" name="ACPB_No" />No<br />
+								  <input type="radio" value="Yes" name="ACPB_YN" />Yes 
+								  <input type="radio" value="No" name="ACPB_YN" />No<br />
 								<label>API Score</label> <input type="text" class="form-control required" placeholder="API Score" name="APB_API"/><br />
 								
 							</div>
