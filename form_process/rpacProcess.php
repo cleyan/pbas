@@ -204,10 +204,10 @@ if(!empty($_POST['ppc_save'])){
 	$PPC_Organized = $_POST['PPC_Organized'];
 	$PPC_WINS = $_POST['PPC_WINS'];
 	$PPC_API = $_POST['PPC_API'];
-	$sql9 = "Insert into `teach_ppc` (Teach_PPC_TPP,Teach_PPC_TCS,Teach_PPC_DOE, Teach_PPC_Organized, Teach_PPC_WINS,Teach_PPC_API) Values('$PPC_TPP','$PPC_TCS','$PPC_DOE','$PPC_Organized','$PPC_WINS','$PPC_API')";
+	$sql9 = "Insert into `teach_ppc` (User_Id,Year,Teach_PPC_TPP,Teach_PPC_TCS,Teach_PPC_DOE, Teach_PPC_Organized, Teach_PPC_WINS,Teach_PPC_API) Values('$user','$year','$PPC_TPP','$PPC_TCS','$PPC_DOE','$PPC_Organized','$PPC_WINS','$PPC_API')";
 	$result9 = mysqli_query($con,$sql9) or die("error : ").mysqli_error($con);
 	if($result9){
-		header('Location:rpac.php');
+		header('Location:ppc.php');
 	}
 	else{
 		echo "Error".mysqli_error();
@@ -220,10 +220,10 @@ if(!empty($_POST['ilc_save'])){
 	$ILC_Organized = $_POST['ILC_Organized'];
 	$ILC_WINS = $_POST['ILC_WINS'];
 	$IlC_API = $_POST['ILC_API'];
-	$sql10 = "Insert into `teach_ilc` (Teach_ILC_TOL,Teach_ILC_TCS,Teach_ILC_DOE, Teach_ILC_Organized, Teach_ILC_WINS,Teach_ILC_API) Values('$ILC_TOL','$ILC_TCS','$ILC_DOE','$ILC_Organized','$ILC_WINS','$ILC_API')";
+	$sql10 = "Insert into `teach_ilc` (User_Id,Year,Teach_ILC_TOL,Teach_ILC_TCS,Teach_ILC_DOE,Teach_ILC_Organized,Teach_ILC_WINS,Teach_ILC_API) Values('$user','$year','$ILC_TOL','$ILC_TCS','$ILC_DOE','$ILC_Organized','$ILC_WINS','$IlC_API')";
 	$result10 = mysqli_query($con,$sql10) or die("error : ").mysqli_error($con);
 	if($result10){
-		header('Location:rpac.php');
+		header('Location:ilc.php');
 	}
 	else{
 		echo "Error".mysqli_error();

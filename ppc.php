@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	include('DBConnect.php');
-	include('form_process/rpac_form.php');
+	include('form_process/rpacProcess.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,8 +37,11 @@
 </head>
 <body data-spy="scroll" data-target="#myNav">
 <?php
-	if(isset($_SESSION['username'])){
+	if(isset($_SESSION['username']) and isset($_SESSION['pbasYear'])){
 		include('header.php');
+		$user=$_SESSION['username'];
+		$year=$_SESSION['pbasYear'];
+
    ?>
 <div class="container">
 	
@@ -83,11 +86,11 @@
 							 <input class="form-control" type="text" name="PPC_API" /> 
 						</div><br />
 							<input class="btn btn-md btn-primary" type="submit" value="Save" name="ppc_save" />
-							<select name="pc">
+							<select name="pc" onchange="showUser(this.value,this.name)">
 								<option>--Title--</option>
 								<?php 
 									include('DBConnect.php');
-									$query = mysqli_query($con,"SELECT * from teach_ppc");
+									$query = mysqli_query($con,"SELECT * from teach_ppc where user_id='$user' and year='$year'");
 									while($row = mysqli_fetch_assoc($query)){
 								?><option><?php echo $row['Teach_PPC_TPP']; ?></option>
 								<?php } ?>
@@ -133,11 +136,9 @@
 		  {
 		  if (xmlhttp.readyState==4 && xmlhttp.status==200)
 			{  
-				if(name == 'apb'){
-					document.getElementById("apb").innerHTML=xmlhttp.responseText;
-				}
-				if(name == 'pp'){
-					document.getElementById("ppij").innerHTML=xmlhttp.responseText;
+				
+				if(name == 'pc'){
+					document.getElementById("presentedFields").innerHTML=xmlhttp.responseText;
 				}	
 			}
 		  }

@@ -339,7 +339,83 @@
 
 <?php
   }
+
+   if($name == 'pc'){
+		$sql="SELECT * from teach_ppc where user_id='$user' and year='$year' and teach_PPC_TPP='$val'";
+		$result = mysqli_query($con,$sql) or die('Error'.mysqli_error($con));
+		 $row = mysqli_fetch_array($result);
+ 		$PPC_TPP = $row['Teach_PPC_TPP'];
+ 		$PPC_TCS = $row['Teach_PPC_TCS'];
+ 		$PPC_DOE = $row['Teach_PPC_DOE'];
+ 		$PPC_Organized = $row['Teach_PPC_Organized'];
+ 		$PPC_WINS = $row['Teach_PPC_WINS'];
+ 		$PPC_API=$row['Teach_PPC_API'];
+ 		
+	    
+
+?>
+       
+            
+			
+			 <div class="form-group">
+								<label>Title of the Paper Presented</label>
+							<input class="form-control"t type="text" name="PPC_TPP" value="<?php echo $PPC_TPP ?>">  
+						   <label>Title Conference / Seminar etc.</label> 
+							 <input class="form-control" type="text" name="PPC_TCS" value="<?php echo $PPC_TCS ?>"/>  
+						   <label>Date (s) of the Event </label>
+							 <input class="form-control" type="text" name="PPC_DOE" value="<?php echo $PPC_DOE ?>"/>  
+						   <label>Organized By</label>
+							 <input class="form-control" type="text" name="PPC_Organized" value="<?php echo $PPC_Organized ?>"/>  
+						   <label>Whether International / National / State</label>
+							<input class="form-control" type="text" name="PPC_WINS" value="<?php echo $PPC_WINS ?>"/>   
+						   <label>API Score</label>
+							 <input class="form-control" type="text" name="PPC_API" value="<?php echo $PPC_API ?>"/> 
+					  </div>
+						<br>
+							</div>
+
+
+<?php
+	  }
   
+  if($name == 'il'){
+  	
+		$sql="SELECT * from teach_ilc where user_id='$user' and year='$year' and Teach_ILC_TOL='$val'";
+		$result = mysqli_query($con,$sql) or die('Error'.mysqli_error($con));
+		 $row = mysqli_fetch_array($result);
+ 		 $ILC_TOL = $row['Teach_ILC_TOL'];
+ 		$ILC_TCS = $row['Teach_ILC_TCS'];
+ 		 $ILC_DOE = $row['Teach_ILC_DOE'];
+ 		$ILC_Organized = $row['Teach_ILC_Organized'];
+ 		$ILC_WINS = $row['Teach_ILC_WINS'];
+ 		$ILC_API=$row['Teach_ILC_API'];
+ 		
+	    
+
+?>
+       
+            
+			
+			 <div class="form-group">
+								<label>Title of the Lecture / Academic Session</label>
+							<input class="form-control" type="text" name="ILC_TOL" value="<?php echo $ILC_TOL ?>"> 
+						   <label>Title Conference / Seminar etc.</label>
+							<input class="form-control" type="text" name="ILC_TCS" value="<?php echo $ILC_TCS ?>"/> 
+							<label>Date (s) of the Event</label>
+							 <input class="form-control" type="text" name="ILC_DOE" value="<?php echo $ILC_DOE ?>"/> 
+						   <label>Organized By</label>
+							 <input class="form-control" type="text" name="ILC_Organized" value="<?php echo $ILC_Organized ?>"/> 
+						  <label> Whether International / National / State</label>
+							<input class="form-control" type="text" name="ILC_WINS" value="<?php echo $ILC_WINS ?>"/> 
+						   <label>API Score</label>
+							 <input class="form-control" type="text" name="ILC_API" value="<?php echo $ILC_API ?>"/> 
+					  </div>
+						<br>
+							</div>
+
+
+<?php
+  }
 ?>
   
 
