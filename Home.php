@@ -40,10 +40,10 @@
 		
 	<?php }?>
 	 
-    <div class="container" style="background-color:#FFFFFF;">
+    <div class="container" style="background-color:#FFFFFF;" >
    	   <div class="row">
 			<div class="col-sm-12">
-		   		<div  style="box-shadow:5px 5px 5px 5px #888888; padding:3px 3px 3px 3px;">
+		   		<div  style="box-shadow:5px 5px 5px 5px #888888; padding:3px 3px 3px 3px;" >
 		   			
 		   				
 		   				
@@ -51,8 +51,9 @@
 		  					<div class="text-primary" > Welcome <?php echo $rw['Gen_Info_Name']; ?>
 		  					</div>
 		  					<br> Manage Your PBAS Account<br></b>
+		  					
 						PBAS Year - <?php if(isset($_SESSION['pbasYear'])){ echo $_SESSION['pbasYear']; } ?> &nbsp <a data-toggle="modal" href="#yearModal">Change</a><br>
-							
+							</div>
 						
 						
 							</center>
@@ -66,7 +67,7 @@
 				<div class="col-md-4">
 					<div class="panel panel-primary" >
 						<div class="panel-heading">
-					  		<h3 class="panel-title">Part-A : General Information</h3>
+					  		<h3 class="panel-title" ><i class="icon-pushpin" >   Part-A : General Information   </i></h3>
 						</div>
 							<div class="panel-body">
 					  				<a class="btn btn-default btn-md" style="color:#428bca; width:100%;" href="general_Information.php">1. General Category</a><br><br>
@@ -78,7 +79,7 @@
 				<div class="col-md-5">	
 					<div class="panel panel-primary">
 						<div class="panel-heading">
-					 		 <h3 class="panel-title">Part-B : Academic Performance Indicator</h3>
+					 		 <h3 class="panel-title"><i class="icon-pushpin" >  Part-B : Academic Performance Indicator</i></h3>
 						</div>
 						<div class="panel-body">
 					 	<a class="btn btn-default btn-md" style="color:#428bca; width:100%;" href="teachingLearningActivities.php">1. Teaching Learning & <br>Evalution Related Activities</a></br></br>
@@ -92,11 +93,11 @@
 			<div class="col-md-3">
 			<div class="panel panel-primary">
 				<div class="panel-heading">
-				  <h3 class="panel-title">Other Activitis</h3>
+				  <h3 class="panel-title"><i class="icon-pushpin" >  Other Activitis</i></h3>
 				</div>
 				<div class="panel-body">
 				  		<a href="otherInfo.php" class="btn btn-default btn-md" style="color:#428bca; width:100%;" >1. Other Relevent Information<br> And Closures</a></br><br>
-				  		<a href="dompdf/pdf1.php" class="btn btn-default btn-md" style="color:#428bca; width:100%;" >1. Click here to see the report</a></br>
+				  		<a href="dompdf/pdf1.php" class="btn btn-default btn-md" style="color:#428bca; width:100%;" >2. Click here to see the report</a></br>
 				</div>
 			</div>
 			</div>
