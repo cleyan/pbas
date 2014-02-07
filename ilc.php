@@ -94,7 +94,7 @@
 								?><option><?php echo $row['Teach_ILC_TOL']; ?></option>
 								<?php } ?>
 							</select>
-							<input class="btn btn-md btn-primary" type="submit" value="Delete" name="invitedDelete" />
+							<input class="btn btn-md btn-primary" type="submit" value="Delete" name="ilc_delete" />
 							<input class="btn btn-md btn-primary" type="reset" value="Reset" name="reset" /> 
 				   </form>
 				

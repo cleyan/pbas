@@ -450,6 +450,25 @@ if(!empty($_POST['ilc_save'])){
 	}
 }
 
+if(!empty($_POST['ilc_delete'])){
+	$ILC_TOL = $_POST['ILC_TOL'];
+	$ILC_TCS = $_POST['ILC_TCS'];
+	$ILC_DOE = $_POST['ILC_DOE'];
+	$ILC_Organized = $_POST['ILC_Organized'];
+	$ILC_WINS = $_POST['ILC_WINS'];
+	$IlC_API = $_POST['ILC_API'];
+
+	$sqlilcdelete="Delete From teach_ilc where User_Id='$user' and year='$year' and Teach_ILC_TOL='$ILC_TOL'";
+	$ilcdeleteresult = mysqli_query($con,$sqlilcdelete);
+		if($ilcdeleteresult){
+			header('location:ilc.php');
+		}
+		else{
+			die("Error : ".mysqli_error($con) );
+		}
+}	
+
+
 //Query for showing submitted data (by selecting combobox value and then clicking on 'SHOW' button
 //in the 'Published Papers' form.).
 if(!empty($_POST['ppij_show'])){
