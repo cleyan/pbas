@@ -348,6 +348,23 @@ if(!empty($_POST['rg_save'])){
 		echo "Error".mysqli_error();
 	}
 }
+
+if(!empty($_POST['rg_delete'])){
+	$RG_NE = $_POST['RG_NE'];
+	$RG_TS = $_POST['RG_TS'];
+	$RG_DA = $_POST['RG_DA'];
+	$RG_API = $_POST['RG_API'];
+
+	$sqlrgdelete="Delete From teach_rg where User_Id='$user' and year='$year' and Teach_RG_NE='$RG_NE'";
+	$rgdeleteresult = mysqli_query($con,$sqlrgdelete);
+		if($rgdeleteresult){
+			header('location:rg.php');
+		}
+		else{
+			die("Error : ".mysqli_error($con) );
+		}
+}	
+
 if(!empty($_POST['fdp_save'])){
 	$FDP_Programme = $_POST['FDP_Programme'];
 	$FDP_Duration = $_POST['FDP_Duration'];
