@@ -108,7 +108,7 @@ if(!empty($_POST['acpb_save'])){
 }
 
 
-if(!empty($_POST['acpb_save'])){
+if(!empty($_POST['apb_delete'])){
 	$user=$_SESSION['username'];
 	$year=$_SESSION['pbasYear'];
 	$APB_TNO = $_POST['APB_TNO'];
@@ -118,6 +118,15 @@ if(!empty($_POST['acpb_save'])){
 	$APB_NOC = $_POST['APB_NOC'];
 	$ACPB_Yes = $_POST['ACPB_Yes'];
 	$APB_API = $_POST['APB_API'];
+
+	$sqlapbdelete="Delete From teach_apb where User_Id='$user' and year='$year' and Teach_APB_TNO='$APB_TNO'";
+	$apbdeleteresult = mysqli_query($con,$sqlapbdelete);
+		if($apbdeleteresult){
+			header('location:apb.php');
+		}
+		else{
+			die("Error : ".mysqli_error($con) );
+		}
 }
 
 
