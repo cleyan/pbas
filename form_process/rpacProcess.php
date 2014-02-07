@@ -64,7 +64,7 @@ if(!empty($_POST['acpb_save'])){
 			$updateQuery = "UPDATE teach_apb SET Teach_APB_BEP='$APB_BEP', Teach_APB_ISSN='$APB_ISSN', Teach_APB_WPR='$APB_WPR', Teach_APB_NOC='$APB_NOC', Teach_APB_MA='$ACPB_Yes', Teach_APB_API='$APB_API' where User_Id='$user' and year='$year' and Teach_APB_TNO='$APB_TNO'" ;
 			$result1 = mysqli_query($con,$updateQuery);
 			if($result1){
-				header('location:ppij.php');
+				header('location:apb.php');
 			}
 			else{
 				die("error : ".mysqli_error($con));
@@ -82,6 +82,8 @@ if(!empty($_POST['acpb_save'])){
 	}
 
 }
+
+
 if(!empty($_POST['fpcp_save'])){
 	$FCP_TNO = $_POST['FCP_TNO'];
 	$FCP_BEP = $_POST['FCP_BEP'];
@@ -89,12 +91,15 @@ if(!empty($_POST['fpcp_save'])){
 	$FCP_NOC = $_POST['FCP_NOC'];
 	$FCP_Yes = $_POST['FCP_YN'];
 	$FCP_API = $_POST['FCP_API'];
-	$sql="SELECT * FROM teach_FCP  WHERE User_Id='$user' and Teach_FCP_TNO = '$FCP_TNO' and year='$year'";
+
+
+	$sql="SELECT * FROM teach_fcp  WHERE User_Id='$user' and Teach_FCP_TNO = '$FCP_TNO' and year='$year'";
 		$result = mysqli_query($con,$sql) or die('Error'.mysqli_error($con));
 		 $row = mysqli_fetch_array($result);
-	if($row>0){
 
-			$updateQuery = "UPDATE teach_fcp SET Teach_FCP_BEP='$FCP_BEP', Teach_FCP_ISSN='$FCP_ISSN', Teach_FCP_NOC='$FCP_NOC', Teach_FCP_MA='$FCP_NOC', Teach_FCP_MA='$FCP_Yes', Teach_FCP_API='$FCP_API' where User_Id='$user' and year='$year' and Teach_FCP_Tno='$FCP_TNO'" ;
+		if($row>0){
+
+			$updateQuery = "UPDATE teach_fcp SET Teach_FCP_BEP='$FCP_BEP', Teach_FCP_ISSN='$FCP_ISSN', Teach_FCP_NOC='$FCP_NOC', Teach_FCP_MA='$FCP_Yes', Teach_FCP_API='$FCP_API' where User_Id='$user' and year='$year' and Teach_FCP_TNO='$FCP_TNO'" ;
 			$result1 = mysqli_query($con,$updateQuery);
 			if($result1){
 				header('location:fcp.php');
@@ -104,40 +109,81 @@ if(!empty($_POST['fpcp_save'])){
 			}
 		}
  		else{
- 			$sql3 = "INSERT into teach_fcp (User_Id,year,Teach_FCP_Tno,Teach_FCP_BEP,Teach_FCP_ISSN,Teach_FCP_NOC, Teach_FCP_MA,Teach_FCP_API) Values('$user','$year','$FCP_TNO','$FCP_BEP','$FCP_ISSN','$FCP_NOC','$FCP_Yes','$FCP_API')";
-	$result3 = mysqli_query($con,$sql3) or die("error : insert m error").mysqli_error($con);
+	$sql2 = "INSERT into teach_fcp (User_Id,year,Teach_FCP_Tno,Teach_FCP_BEP,Teach_FCP_ISSN,Teach_FCP_NOC, Teach_FCP_MA,Teach_FCP_API) Values('$user','$year','$FCP_TNO','$FCP_BEP','$FCP_ISSN','$FCP_NOC','$FCP_Yes','$FCP_API')";
+	$result2 = mysqli_query($con,$sql2) or die("error : ").mysqli_error($con);
 }
-	if($result3){
+	if($result2){
 		header('Location:fcp.php');
 	}
 	else{
 		echo "Error".mysqli_error();
 	}
+
 }
+
+
+
 if(!empty($_POST['bps_save'])){
 	$BPE_TPN = $_POST['BPE_TPN'];
 	$BPE_TBA = $_POST['BPE_TBA'];
 	$BPE_PISSN = $_POST['BPE_PISSN'];
-	$PE_WPR = $_POST['PE_WPR'];
+	$PE_WPR = $_POST['BPE_WPR'];
 	$BPE_NOC = $_POST['BPE_NOC'];
-	$BPSA_Yes = $_POST['BPSA_Yes'];
+	$BPE_YN = $_POST['BPE_YN'];
 	$BPE_API = $_POST['BPE_API'];
 	$year = $_SESSION['pbasYear'];
-	$sql="SELECT * FROM teach_bpe  WHERE User_Id='$user' and Teach_APB_TNO = '$APB_TNO' and year='$year'";
-		$result = mysqli_query($con,$sql) or die('Error'.mysqli_error($con));
-		 $row = mysqli_fetch_array($result);
-
-		
-	$sql4 = "Insert into `teach_bpe` (Teach_BPE_TPN,Teach_BPE_TBA,Teach_BPE_PISSN,Teach_BPE_WPR,Teach_BPE_NOC, Teach_BPE_MA,Teach_BPE_API) Values('$BPE_TPN','$BPE_TBA','$BPE_PISSN','$PE_WPR','$BPE_NOC','$BPSA_Yes','BPE_API')";
-	$result4 = mysqli_query($con,$sql4) or die("error : ").mysqli_error($con);
-
-	if($result4){
-		header('Location: rpac.php');
+	$sqlbpe="SELECT * FROM teach_bpe  WHERE User_Id='$user' and Teach_BPE_TPN = '$BPE_TPN' and year='$year'";
+		$resultbpe = mysqli_query($con,$sqlbpe) or die('Error'.mysqli_error($con));
+		 $rowbpe = mysqli_fetch_array($resultbpe);
+	if (rowbpe>0)
+	{	
+		$updatebpe = "UPDATE teach_bpe SET Teach_BPE_TBA='$BPE_TBA', Teach_BPE_PISSN='$BPE_PISSN', Teach_BPE_WPR='$PE_WPR', Teach_BPE_NOC='$BPE_NOC', Teach_BPE_MA='$BPE_YN', Teach_BPE_API='$BPE_API' where User_Id='$user' and year='$year' and Teach_BPE_TPN='$BPE_TPN'" ;
+		$resultupdatebpe = mysqli_query($con,$updatebpe);
+		if($resultupdatebpe){
+				header('location:bpe.php');
+			}
+		else{
+				die("error : ".mysqli_error($con));
+			}
 	}
-	else{
-		echo "Error".mysqli_error($con);
-	}
+	else
+	{
+		$insertbpe = "Insert into `teach_bpe` (User_Id,Year,Teach_BPE_TPN,Teach_BPE_TBA,Teach_BPE_PISSN,Teach_BPE_WPR,Teach_BPE_NOC, Teach_BPE_MA,Teach_BPE_API) Values('$user','$year','$BPE_TPN','$BPE_TBA','$BPE_PISSN','$PE_WPR','$BPE_NOC','$BPE_YN','$BPE_API')";
+		$resultinsertbpe = mysqli_query($con,$insertbpe) or die("error : ").mysqli_error($con);
+
+		if($resultinsertbpe){
+			header('Location: bpe.php');
+		}
+		else{
+			echo "Error".mysqli_error($con);
+		}
+
+	}	
 }
+
+
+if(!empty($_POST['bpe_delete'])){
+	$BPE_TPN = $_POST['BPE_TPN'];
+	$BPE_TBA = $_POST['BPE_TBA'];
+	$BPE_PISSN = $_POST['BPE_PISSN'];
+	$PE_WPR = $_POST['BPE_WPR'];
+	$BPE_NOC = $_POST['BPE_NOC'];
+	$BPE_YN = $_POST['BPE_YN'];
+	$BPE_API = $_POST['BPE_API'];
+	$user=$_SESSION['username'];
+	$year = $_SESSION['pbasYear'];
+	$sqlbpedelete="Delete From teach_bpe where User_Id='$user' and year='$year' and Teach_BPE_TPN='$BPE_TPN'";
+	$bpedeleteresult = mysqli_query($con,$sqlbpedelete);
+		if($bpedeleteresult){
+			header('location:bpe.php');
+		}
+		else{
+			die("Error : ".mysqli_error($con) );
+		}
+}
+
+
+
 if(!empty($_POST['opc_save'])){
 	$OPC_Title = $_POST['OPC_Title'];
 	$OPC_Agency = $_POST['OPC_Agency'];

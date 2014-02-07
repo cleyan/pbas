@@ -95,7 +95,7 @@
 							?><option><?php echo $row['Teach_BPE_TPN']; ?></option>
 							<?php } ?>
 						</select>
-						<input class="btn btn-md btn-primary" type="submit" value="Delete" />
+						<input class="btn btn-md btn-primary" type="submit" value="Delete" name="bpe_delete" />
 						<input type="reset" class="btn btn-primary" value="Reset" name="reset" />
 				  </form>
 				
