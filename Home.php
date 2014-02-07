@@ -42,66 +42,66 @@
 	 
     <div class="container" style="background-color:#FFFFFF;">
    	   <div class="row">
-		
-	       <div class="col-sm-3">
-		   		<img class="img-responsive" src="images/default/default.gif"><br>
-				<div style="box-shadow:5px 5px 5px #888888; padding:3px 3px 3px 3px">
-					<span class="pull-right"><a class="icon-edit" href="#">Edit</a> </span><br><br>
-					Name :<span class="pull-right"> <?php echo $rw[1]; ?></span><br><br>
-					Designation :<span class="pull-right"> <?php echo $rw[5]; ?></span><br><br>
-					Add. <span class="pull-right"> <?php echo $rw[8]; ?></span><br><br>
-					Mobile No <span class="pull-right"> <?php echo $rw[10]; ?></span><br><br>
-					E-Mail <span class="pull-right"> <?php echo $rw[11]; ?></span><br><br>
-					
-				</div>
-		   </div>
-			
-		   <div class="col-sm-5">
-		  			<br><br><br><br>
-					<center><b> <br><br>Manage Your PBAS Account<br><br></b>
+			<div class="col-sm-12">
+		   		<div  style="box-shadow:5px 5px 5px 5px #888888; padding:3px 3px 3px 3px;">
+		   			
+		   				
+		   				
+		  					<center><b>
+		  					<div class="text-primary" > Welcome <?php echo $rw['Gen_Info_Name']; ?>
+		  					</div>
+		  					<br> Manage Your PBAS Account<br></b>
 						PBAS Year - <?php if(isset($_SESSION['pbasYear'])){ echo $_SESSION['pbasYear']; } ?> &nbsp <a data-toggle="modal" href="#yearModal">Change</a><br>
 							
-						<br><a class="icon-download-alt" href="dompdf/pdf1.php"> Click Here To See The Report</a>
 						
-					</center>
-
-			</div>
-		    
-			<div class="col-sm-4">
-				<div class="panel panel-primary">
-					<div class="panel-heading">
-					  <h3 class="panel-title">Part-A : General Information</h3>
-					</div>
-					<div class="panel-body">
-					  <a class="btn btn-default btn-md" style="color:#428bca" href="general_Information.php">1. General Category</a>
-					   <a class="btn btn-default btn-md" style="color:#428bca" href="academicActivity.php">2. Academic Activity</a></br>
-					</div>
-				  </div>
+						
+							</center>
+						
 					
-				<div class="panel panel-primary">
-					<div class="panel-heading">
-					  <h3 class="panel-title">Part-B : Academic Performance Indicator</h3>
-					</div>
-					<div class="panel-body">
-					 <a class="btn btn-default btn-md" style="color:#428bca; width:100%;" href="teachingLearningActivities.php">1. Teaching Learning & <br>Evalution Related Activities</a></br></br>
-					<a class="btn btn-default btn-md" style="color:#428bca; width:100%;" href="professionalDevelopmentActivity.php">2. Co-Curricular, Extension,Professional <br>Development Related Activity</a></br></br>
-					<a class="btn btn-default btn-md" style="color:#428bca; width:100%;" href="ppij.php">3. Research Publiaction & <br>Academic Contribution</a> </br></br>
-					<a class="btn btn-default btn-md" style="color:#428bca; width:100%;" href="API_Summary.php">4. Summary Of API Score</a></br>
-				</div> 
-				
+				</div>
 			</div>
+		</div>
+		<br><br>
+		    <div class="row">
+				<div class="col-md-4">
+					<div class="panel panel-primary" >
+						<div class="panel-heading">
+					  		<h3 class="panel-title">Part-A : General Information</h3>
+						</div>
+							<div class="panel-body">
+					  				<a class="btn btn-default btn-md" style="color:#428bca; width:100%;" href="general_Information.php">1. General Category</a><br><br>
+					  				 <a class="btn btn-default btn-md" style="color:#428bca; width:100%;" href="academicActivity.php">2. Academic Activity</a></br>
+							</div>
+				  	</div>
+				 </div>
+				 
+				<div class="col-md-5">	
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+					 		 <h3 class="panel-title">Part-B : Academic Performance Indicator</h3>
+						</div>
+						<div class="panel-body">
+					 	<a class="btn btn-default btn-md" style="color:#428bca; width:100%;" href="teachingLearningActivities.php">1. Teaching Learning & <br>Evalution Related Activities</a></br></br>
+						<a class="btn btn-default btn-md" style="color:#428bca; width:100%;" href="professionalDevelopmentActivity.php">2. Co-Curricular, Extension,Professional <br>Development Related Activity</a></br></br>
+						<a class="btn btn-default btn-md" style="color:#428bca; width:100%;" href="ppij.php">3. Research Publiaction & <br>Academic Contribution</a> </br></br>
+						<a class="btn btn-default btn-md" style="color:#428bca; width:100%;" href="API_Summary.php">4. Summary Of API Score</a></br>
+						</div> 
+					</div>
+				</div>
+			
+			<div class="col-md-3">
 			<div class="panel panel-primary">
 				<div class="panel-heading">
 				  <h3 class="panel-title">Other Activitis</h3>
 				</div>
 				<div class="panel-body">
-				  		<a href="otherInfo.php" class="btn btn-default btn-md" style="color:#428bca; width:100%;" >1. Other Relevent Information<br> And Closures</a></br>
+				  		<a href="otherInfo.php" class="btn btn-default btn-md" style="color:#428bca; width:100%;" >1. Other Relevent Information<br> And Closures</a></br><br>
+				  		<a href="dompdf/pdf1.php" class="btn btn-default btn-md" style="color:#428bca; width:100%;" >1. Click here to see the report</a></br>
 				</div>
-			 </div>
-		</div>
-	  </div><!--End of Super Row Class -->
-   </div><!--End of container class -->
- </div><!--end of wrap id -->
+			</div>
+			</div>
+			</div>
+			</div>
  <?php
  	include('footer.php');
  	include('jsLinks.php');
