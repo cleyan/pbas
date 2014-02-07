@@ -3,7 +3,7 @@
 	//Condition or checking if year is submitted
 	if(isset($_POST['yearButton'])){
 		$pbasYear = $_POST['pbasYear'];
-		
+
 		$_SESSION['pbasYear'] = $pbasYear;
 		header('location: Home.php');
 	}
@@ -35,8 +35,7 @@
 					
 				});
 				
-    document.getElementById('myInput').focus();
-});
+  
 	</script>
 
 </body>
