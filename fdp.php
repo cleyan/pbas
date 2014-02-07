@@ -91,7 +91,7 @@
 								?><option><?php echo $row['Teach_FDP_Programme']; ?></option>
 								<?php } ?>
 							</select>
-							<input class="btn btn-md btn-primary" type="submit" value="Delete" name="trainingDelete" />
+							<input class="btn btn-md btn-primary" type="submit" value="Delete" name="fdp_delete" />
 							<input class="btn btn-md btn-primary" type="reset" value="Reset" name="trainingReset" /> 
 				  </form>
 				

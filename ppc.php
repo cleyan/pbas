@@ -95,7 +95,7 @@
 								?><option><?php echo $row['Teach_PPC_TPP']; ?></option>
 								<?php } ?>
 							</select>
-							<input class="btn btn-md btn-primary" type="submit" value="Delete" name="presentedDelete" />
+							<input class="btn btn-md btn-primary" type="submit" value="Delete" name="ppc_delete" />
 							<input class="btn btn-md btn-primary" type="reset" value="Reset" name="reset" /> 
 					</form>
 				

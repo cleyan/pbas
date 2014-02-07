@@ -91,7 +91,7 @@
 								?><option><?php echo $row['Teach_RG_NE']; ?></option>
 								<?php } ?>
 							</select>
-							<input class="btn btn-md btn-primary" type="submit" value="Delete" name="guidanceDelete" />
+							<input class="btn btn-md btn-primary" type="submit" value="Delete" name="rg_delete" />
 							<input class="btn btn-md btn-primary" type="reset" value="Reset" name="guidanceReset" /> 
 				  </form>
 				
