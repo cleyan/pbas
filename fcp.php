@@ -92,7 +92,7 @@
 									?><option><?php echo $row['Teach_FCP_TNO']; ?></option>
 							<?php } ?>
 						</select>
-						<input class="btn btn-md btn-primary" type="button" value="Delete" /> 
+						<input class="btn btn-md btn-primary" type="button" value="Delete" name="fcp_delete" /> 
 						<input type="reset" class="btn btn-primary" value="Reset" name="reset" />
 					</form> 
 				

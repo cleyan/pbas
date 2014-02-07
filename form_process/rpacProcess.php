@@ -138,7 +138,8 @@ if(!empty($_POST['fpcp_save'])){
 	$FCP_NOC = $_POST['FCP_NOC'];
 	$FCP_Yes = $_POST['FCP_YN'];
 	$FCP_API = $_POST['FCP_API'];
-
+	$user=$_SESSION['username'];
+	$year=$_SESSION['pbasYear'];
 
 	$sql="SELECT * FROM teach_fcp  WHERE User_Id='$user' and Teach_FCP_TNO = '$FCP_TNO' and year='$year'";
 		$result = mysqli_query($con,$sql) or die('Error'.mysqli_error($con));
@@ -165,6 +166,28 @@ if(!empty($_POST['fpcp_save'])){
 	else{
 		echo "Error".mysqli_error();
 	}
+
+}
+
+
+if(!empty($_POST['fcp_delete'])){
+	$FCP_TNO = $_POST['FCP_TNO'];
+	$FCP_BEP = $_POST['FCP_BEP'];
+	$FCP_ISSN = $_POST['FCP_ISSN'];
+	$FCP_NOC = $_POST['FCP_NOC'];
+	$FCP_Yes = $_POST['FCP_YN'];
+	$FCP_API = $_POST['FCP_API'];
+	$user=$_SESSION['username'];
+	$year=$_SESSION['pbasYear'];
+
+	$sqlfcpdelete="Delete From teach_fcp where User_Id='$user' and year='$year' and Teach_FCP_TNO='$FCP_TNO'";
+	$fcpdeleteresult = mysqli_query($con,$sqlfcpdelete);
+		if($fcpdeleteresult){
+			header('location:fcp.php');
+		}
+		else{
+			die("Error : ".mysqli_error($con) );
+		}
 
 }
 
@@ -207,6 +230,28 @@ if(!empty($_POST['bps_save'])){
 
 	}	
 }
+
+
+if(!empty($_POST['bps_save'])){
+	$BPE_TPN = $_POST['BPE_TPN'];
+	$BPE_TBA = $_POST['BPE_TBA'];
+	$BPE_PISSN = $_POST['BPE_PISSN'];
+	$PE_WPR = $_POST['BPE_WPR'];
+	$BPE_NOC = $_POST['BPE_NOC'];
+	$BPE_YN = $_POST['BPE_YN'];
+	$BPE_API = $_POST['BPE_API'];
+	$year = $_SESSION['pbasYear'];
+
+	$sqlbpedelete="Delete From teach_fcp where User_Id='$user' and year='$year' and Teach_BPE_TPN='$BPE_TPN'";
+	$bpedeleteresult = mysqli_query($con,$sqlbpedelete);
+		if($bpedeleteresult){
+			header('location:bpe.php');
+		}
+		else{
+			die("Error : ".mysqli_error($con) );
+		}
+
+}	
 
 
 if(!empty($_POST['bpe_delete'])){
