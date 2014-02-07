@@ -135,9 +135,9 @@
  	  			 		</div>
  	   					<div class="panel-body">
 						 	<a href="academicActivity.php">Academic Activity </a><br><br>		 
-							<a href="teachingLearning.php">Teaching Learning and Evalution Related Activities</a> <br><br>
-							<a href="curricularActivities.php">Co-Curricular, Extension,Professional Development Related Activity</a><br><br>
-							<a href="researchPublication.php">Research, publication And Academic Contribution</a><br><br>
+							<a href="teachingLearningActivities.php">Teaching Learning and Evalution Related Activities</a> <br><br>
+							<a href="professionalDevelopmentActivity.php">Co-Curricular, Extension,Professional Development Related Activity</a><br><br>
+							<a href="ppij.php">Research, publication And Academic Contribution</a><br><br>
    			 				<a href="API_Summary.php">API Summary</a><br><br>
 							<a href="otherInfo.php">Other Relevent Information<br> And Closures</a><br><br>
   	  					</div>	
