@@ -413,6 +413,26 @@ if(!empty($_POST['ppc_save'])){
 		echo "Error".mysqli_error();
 	}
 }
+
+
+if(!empty($_POST['ppc_delete'])){
+	$PPC_TPP = $_POST['PPC_TPP'];
+	$PPC_TCS = $_POST['PPC_TCS'];
+	$PPC_DOE = $_POST['PPC_DOE'];
+	$PPC_Organized = $_POST['PPC_Organized'];
+	$PPC_WINS = $_POST['PPC_WINS'];
+	$PPC_API = $_POST['PPC_API'];
+
+	$sqlppcdelete="Delete From teach_ppc where User_Id='$user' and year='$year' and Teach_PPC_TPP='$PPC_TPP'";
+	$ppcdeleteresult = mysqli_query($con,$sqlppcdelete);
+		if($ppcdeleteresult){
+			header('location:ppc.php');
+		}
+		else{
+			die("Error : ".mysqli_error($con) );
+		}
+}	
+
 if(!empty($_POST['ilc_save'])){
 	$ILC_TOL = $_POST['ILC_TOL'];
 	$ILC_TCS = $_POST['ILC_TCS'];
