@@ -84,7 +84,7 @@
 						<div class="panel-body">
 					 	<a class="btn btn-default btn-md" style="color:#428bca; width:100%;" href="teachingLearningActivities.php">1. Teaching Learning & <br>Evalution Related Activities</a></br></br>
 						<a class="btn btn-default btn-md" style="color:#428bca; width:100%;" href="professionalDevelopmentActivity.php">2. Co-Curricular, Extension,Professional <br>Development Related Activity</a></br></br>
-						<a class="btn btn-default btn-md" style="color:#428bca; width:100%;" href="ppij.php">3. Research Publiaction & <br>Academic Contribution</a> </br></br>
+						<a class="btn btn-default btn-md" style="color:#428bca; width:100%;" href="ppij.php">3. Research Publication & <br>Academic Contribution</a> </br></br>
 						<a class="btn btn-default btn-md" style="color:#428bca; width:100%;" href="API_Summary.php">4. Summary Of API Score</a></br>
 						</div> 
 					</div>

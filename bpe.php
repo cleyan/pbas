@@ -77,11 +77,11 @@
 						<label>Publisher And ISSN / ISBN No</label>
 						  <input class="form-control" type="text" name="BPE_PISSN" /> 
 						<label> Whether Peer Reviewed</label>
-						 <input class="form-control" type="text" name="PE_WPR" /> 
+						 <input class="form-control" type="text" name="BPE_WPR" /> 
 						<label>No. of Co-authors</label>
 						  <input class="form-control" type="text" name="BPE_NOC" /> 
 					   <label>Whether you are the main Author</label>
-						 <input type="radio" name="BPSA_Yes" />Yes <input type="radio" name="BPSA_No"/>No<br /> 
+						 <input type="radio" name="BPE_YN" />Yes <input type="radio" name="BPE_YN"/>No<br /> 
 					   <label>API Score</label>  <input class="form-control" type="text" name="BPE_API" /> 
 					 </div><br />
 						<input class="btn btn-md btn-primary" type="submit" value="Save" name="bps_save" />
@@ -95,7 +95,7 @@
 							?><option><?php echo $row['Teach_BPE_TPN']; ?></option>
 							<?php } ?>
 						</select>
-						<input class="btn btn-md btn-primary" type="submit" value="Delete" />
+						<input class="btn btn-md btn-primary" type="submit" value="Delete" name="bpe_delete" />
 						<input type="reset" class="btn btn-primary" value="Reset" name="reset" />
 				  </form>
 				

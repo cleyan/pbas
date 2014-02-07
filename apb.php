@@ -100,7 +100,7 @@
 							<option><?php echo $row['Teach_APB_TNO']; ?></option>		
 						<?php } ?>
 						</select>
-						<input type="submit" class="btn btn-primary"  value="Delete" name="ppij_delete" />
+						<input type="submit" class="btn btn-primary"  value="Delete" name="apb_delete" />
 						<input type="reset" class="btn btn-primary" value="Reset" name="reset" />
 				   </form>			
 		
