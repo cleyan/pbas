@@ -3,7 +3,7 @@
 //DBConnect.php include the code for Database connectivity
 include('DBConnect.php');
 $user = $_SESSION['username'];
-	$year = $_SESSION['pbasYear'];
+$year = $_SESSION['pbasYear'];
 //Query for clicking on 'SAVE' button in 'Published Papers' form.
 if(isset($_POST['ppij_save'])){
 	$user = $_SESSION['username'];
@@ -44,6 +44,30 @@ if(isset($_POST['ppij_save'])){
 	}
 }
 
+
+if(isset($_POST['ppij_delete'])){
+	$user = $_SESSION['username'];
+	$year = $_SESSION['pbasYear'];
+	 $PPIJ_TNO = $_POST['PPIJ_TNO'];
+	$PPIJ_Journal = $_POST['PPIJ_Journal'];
+	$PPIJ_ISBN = $_POST['PPIJ_ISBN'];
+	$PPIJ_PR = $_POST['PPIJ_PR'];
+	$PPIJ_NCA = $_POST['PPIJ_NCA'];
+	$PPIJ_YN = $_POST['PPIJ_YN'];
+	$PPIJ_API = $_POST['PPIJ_API'];
+
+	$sqlppijdelete="Delete From teach_ppij where User_Id='$user' and year='$year' and Teach_PPIJ_TNO='$PPIJ_TNO'";
+	$ppijdeleteresult = mysqli_query($con,$sqlppijdelete);
+		if($ppijdeleteresult){
+			header('location:ppij.php');
+		}
+		else{
+			die("Error : ".mysqli_error($con) );
+		}
+}
+
+
+
 //Query for clicking on "Save" Button in 'Article/Chapetrs' form
 if(!empty($_POST['acpb_save'])){
 	$user=$_SESSION['username'];
@@ -82,6 +106,20 @@ if(!empty($_POST['acpb_save'])){
 	}
 
 }
+
+
+if(!empty($_POST['acpb_save'])){
+	$user=$_SESSION['username'];
+	$year=$_SESSION['pbasYear'];
+	$APB_TNO = $_POST['APB_TNO'];
+	$APB_BEP = $_POST['APB_BEP'];
+	$APB_ISSN = $_POST['APB_ISSN'];
+	$APB_WPR = $_POST['APB_WPR'];
+	$APB_NOC = $_POST['APB_NOC'];
+	$ACPB_Yes = $_POST['ACPB_Yes'];
+	$APB_API = $_POST['APB_API'];
+}
+
 
 
 if(!empty($_POST['fpcp_save'])){
