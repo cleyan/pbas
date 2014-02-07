@@ -365,6 +365,7 @@ if(!empty($_POST['rg_delete'])){
 		}
 }	
 
+
 if(!empty($_POST['fdp_save'])){
 	$FDP_Programme = $_POST['FDP_Programme'];
 	$FDP_Duration = $_POST['FDP_Duration'];
@@ -379,6 +380,23 @@ if(!empty($_POST['fdp_save'])){
 		echo "Error".mysqli_error();
 	}
 }
+
+if(!empty($_POST['fdp_delete'])){
+	$FDP_Programme = $_POST['FDP_Programme'];
+	$FDP_Duration = $_POST['FDP_Duration'];
+	$FDP_Organized = $_POST['FDP_Organized'];
+	$FDP_API = $_POST['FDP_API'];
+
+	$sqlfdpdelete="Delete From teach_fdp where User_Id='$user' and year='$year' and Teach_FDP_Programme='$FDP_Programme'";
+	$fdpdeleteresult = mysqli_query($con,$sqlfdpdelete);
+		if($fdpdeleteresult){
+			header('location:fdp.php');
+		}
+		else{
+			die("Error : ".mysqli_error($con) );
+		}
+}
+
 if(!empty($_POST['ppc_save'])){
 	$PPC_TPP = $_POST['PPC_TPP'];
 	$PPC_TCS = $_POST['PPC_TCS'];
