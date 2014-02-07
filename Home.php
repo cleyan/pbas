@@ -44,13 +44,11 @@
    	   <div class="row">
 			<div class="col-sm-12">
 		   		<div  style="box-shadow:5px 5px 5px 5px #888888; padding:3px 3px 3px 3px;" >
-		   			
-		   				
-		   				
+		   				<div class="pull-left" > <img src="images/iipslogo.jpg" class="img-polaroid" style="height:100px"></div>.
 		  					<center><b>
-		  					<div class="text-primary" > Welcome <?php echo $rw['Gen_Info_Name']; ?>
+		  					<div class="text-primary" ><h4>Welcome <?php echo $rw['Gen_Info_Name']; ?></h4>
 		  					</div>
-		  					<br> Manage Your PBAS Account<br></b>
+		  					 Manage Your PBAS Account</b><br>
 		  					
 						PBAS Year - <?php if(isset($_SESSION['pbasYear'])){ echo $_SESSION['pbasYear']; } ?> &nbsp <a data-toggle="modal" href="#yearModal">Change</a><br>
 							</div>
@@ -62,47 +60,63 @@
 				</div>
 			</div>
 		</div>
-		<br><br>
-		    <div class="row">
-				<div class="col-md-4">
+		<br>
+		    <div class="row"><div class="col-md-1"></div>
+				<div class="col-md-3">
 					<div class="panel panel-primary" >
 						<div class="panel-heading">
 					  		<h3 class="panel-title" ><i class="icon-pushpin" >   Part-A : General Information   </i></h3>
 						</div>
 							<div class="panel-body">
-					  				<a class="btn btn-default btn-md" style="color:#428bca; width:100%;" href="general_Information.php">1. General Category</a><br><br>
-					  				 <a class="btn btn-default btn-md" style="color:#428bca; width:100%;" href="academicActivity.php">2. Academic Activity</a></br>
+					  				<a class="btn btn-default btn-md" style="color:#428bca; width:100%;" href="general_Information.php"><i class="icon-user" >  Profile</i></a><br><br>
+					  				 <a class="btn btn-default btn-md" style="color:#428bca; width:100%;" href="academicActivity.php"><i class="icon-pencil" >  Academic Activity</i></a></br>
 							</div>
-				  	</div>
+				  	</div><div >
+					<div class="panel panel-primary">
+				<div class="panel-heading">
+				  <h3 class="panel-title"><i class="icon-pushpin" >  Other Activitis</i></h3>
+				</div>
+				<div class="panel-body">
+				  		<a href="otherInfo.php" class="btn btn-default btn-md" style="color:#428bca; width:100%;" ><i class="icon-briefcase" >  Other Relevent Information And Closures</i></a></br><br>
+				  		<a href="dompdf/pdf1.php" class="btn btn-default btn-md" style="color:#428bca; width:100%;" ><i class="icon-download-alt" > Click here to see the report</i></a></br>
+				</div>
+			</div>
 				 </div>
+				 </div>
+
 				 
-				<div class="col-md-5">	
+				<div class="col-md-4">	
 					<div class="panel panel-primary">
 						<div class="panel-heading">
 					 		 <h3 class="panel-title"><i class="icon-pushpin" >  Part-B : Academic Performance Indicator</i></h3>
 						</div>
 						<div class="panel-body">
-					 	<a class="btn btn-default btn-md" style="color:#428bca; width:100%;" href="teachingLearningActivities.php">1. Teaching Learning & <br>Evalution Related Activities</a></br></br>
-						<a class="btn btn-default btn-md" style="color:#428bca; width:100%;" href="professionalDevelopmentActivity.php">2. Co-Curricular, Extension,Professional <br>Development Related Activity</a></br></br>
-						<a class="btn btn-default btn-md" style="color:#428bca; width:100%;" href="ppij.php">3. Research Publication & <br>Academic Contribution</a> </br></br>
-						<a class="btn btn-default btn-md" style="color:#428bca; width:100%;" href="API_Summary.php">4. Summary Of API Score</a></br>
+					 	<a class="btn btn-default btn-md" style="color:#428bca; width:100%;" href="teachingLearningActivities.php"><i class="icon-book" >  Teaching Learning & Evalution Related Activities</i></a></br></br>
+						<a class="btn btn-default btn-md" style="color:#428bca; width:100%;" href="professionalDevelopmentActivity.php"><i class="icon-briefcase" > Co-Curricular, Extension,Professional </i><br>Development Related Activity</a></br></br>
+						<a class="btn btn-default btn-md" style="color:#428bca; width:100%;" href="ppij.php"><i class="icon-pencil" > Research Publication & Academic Contribution</i></a> </br></br>
+						<a class="btn btn-default btn-md" style="color:#428bca; width:100%;" href="API_Summary.php"><i class="icon-check" > Summary Of API Score</i></a></br>
 						</div> 
 					</div>
 				</div>
 			
 			<div class="col-md-3">
-			<div class="panel panel-primary">
-				<div class="panel-heading">
-				  <h3 class="panel-title"><i class="icon-pushpin" >  Other Activitis</i></h3>
-				</div>
-				<div class="panel-body">
-				  		<a href="otherInfo.php" class="btn btn-default btn-md" style="color:#428bca; width:100%;" >1. Other Relevent Information<br> And Closures</a></br><br>
-				  		<a href="dompdf/pdf1.php" class="btn btn-default btn-md" style="color:#428bca; width:100%;" >2. Click here to see the report</a></br>
-				</div>
+					<div class="panel panel-primary"  class="quicklinks">
+      		 			<div class="panel-heading">
+         					<h3 class="panel-title"><i class=" icon-list" >  QuickLinks</i></h3>
+ 	  			 		</div>
+ 	   					<div class="panel-body">
+						 	<a href="teachingLearningActivities.php"><i class="icon-hand-right" >  Lectures, Seminar,Tutorial, Practical, Contact Hours</i></a><br><br>		 
+							<a href="rimc.php"><i class="icon-hand-right" >  Resources proveded to students</i></a> <br><br>
+							<a href="edap.php"><i class="icon-hand-right" >  Examination duties</i></a><br><br>
+							<a href="opc.php"><i class="icon-hand-right" >  Projects</i></a><br><br>
+   			 				<a href="ppc.php"><i class="icon-hand-right" >  Papers presented in conference,workshop etc.</i></a><br><br>
+							
+  	  					</div>	
+   		 			</div>
 			</div>
 			</div>
 			</div>
-			</div>
+
  <?php
  	include('footer.php');
  	include('jsLinks.php');
