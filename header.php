@@ -11,16 +11,23 @@ if(isset($_POST['save'])){
     $Query = mysqli_query($con, "Select * FROM userinfo WHERE User_Id = '$user' and Pwd='$old_pass'");
     $row = mysqli_fetch_array($Query);
     if($row>0){ 
-      
-      $updateQuery = "update userinfo set Pwd='$retype_pass' WHERE User_Id = '$user'" ;
-      $result = mysqli_query($con,$updateQuery);
 
-      if($result){
-        $_SESSION['success'] = "<h5 class='alert alert-success' align='center'>Registration Successfull !!</h5>";
-        //header('location:home.php');
-      }
-      else{
-        die("error : ".mysqli_error($con));
+      if ($new_pass==$old_pass)
+      {
+          $updateQuery = "update userinfo set Pwd='$retype_pass' WHERE User_Id = '$user'" ;
+          $result = mysqli_query($con,$updateQuery);
+
+          if($result){
+            $_SESSION['success'] = "<h5 class='alert alert-success' align='center'>Registration Successfull !!</h5>";
+            //header('location:home.php');
+            }
+            else{
+            die("error : ".mysqli_error($con));
+          }
+      }    
+      else
+      {
+        die("password not match".mysqli_error($con));
       }
 
     }
@@ -74,7 +81,7 @@ if(isset($_POST['save'])){
               <li class="dropdown active">
                 <a href="#" class="dropdown-toggle icon-wrench" data-toggle="dropdown"> Setting <b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                  <li><a href="#changePasswordModal" role="button" class="btn" data-toggle="modal">Change Password</a></li>
+                  <li><a class="icon-pencil" href="#changePasswordModal" role="button" class="btn" data-toggle="modal">  Change Password</a></li>
                   
                   <li><a class="icon-trash" href="#">  Delete Account</a></li>
                   <li class="divider"></li>
@@ -100,7 +107,7 @@ if(isset($_POST['save'])){
                   <div class="form-group">
                     <label for="inputpassword1" class="col-lg-4 control-label">Current Password</label>
                     <div class="col-lg-7">
-                        <input type="password" class="form-control" placeholder="Current Password" name="old_pass" >
+                        <input type="password" class="form-control" placeholder="Current Password" name="old_pass" autofocus>
                     </div>
                   </div>
                 <div class="form-group">
