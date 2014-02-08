@@ -43,36 +43,52 @@
 		$year=$_SESSION['pbasYear'];
    ?>
 <div class="container">
-	
+	<div style="box-shadow:5px 5px 5px 5px #888888; padding:3px 3px 3px 3px;" class="text-primary">
 	<center><h3><b>Research Publication And Academic Contribution</b></h3></center>
+	</div>
     <div class="row-fluid">
         <div class="col-md-4" id="myNav">
         <br><br>
-            <ul style="box-shadow:5px 5px 5px #888888" data-spy="affix" data-offset-top="190">
-                <a href="ppij.php">Published Papers in Journals</a> <br><br>
+        <div class="panel panel-primary" >
+            <ul class="nav nav-tabs nav-stacked"  data-offset-top="190" style="width:100%;">
+                <li><a href="ppij.php">Published Papers in Journals</a>
                 
-                <a href="apb.php">Articles/ Chapters published in Books </a><br><br>
-                <a href="fcp.php">Full papers in Conference Proceedings </a><br><br>
-                <a href="bpe.php">Books published as single author or as editor </a><br><br>
-                <a href="opc.php">Ongoing Projects/ Consultancies</a><br><br>
-				<a href="cpc.php">Completed Projects/ Consultancies</a><br><br>
-				<a href="rg.php">Research Guidance </a><br><br>
-				<a href="fdp.php">Training Courses, Teaching-Learning-Evaluation Technology, Faculty Development Programmes</a><br><br>
-				<a href="ppc.php">Papers presented in Conferences, Seminars, Workshops, Symposia</a><br><br>
-				<li class="active"><a href="ilc.php"> Invited Lectures and Chairmanship at National or International Conference/ Seminar</a><br><br></li>
+                <li><a href="apb.php" >Articles/ Chapters published in Books </a></li>
+                <li><a href="fcp.php">Full papers in Conference Proceedings </a></li>
+                <li><a href="bpe.php">Books published as single author or as editor </a></li>
+                <li><a href="opc.php">Ongoing Projects/ Consultancies</a></li>
+				<li><a href="cpc.php">Completed Projects/ Consultancies</a></li>
+				<li><a href="rg.php">Research Guidance </a></li>
+				<li><a href="fdp.php">Training Courses, Teaching-Learning-Evaluation Technology, Faculty Development Programmes</a></li>
+				<li><a href="ppc.php">Papers presented in Conferences, Seminars, Workshops, Symposia</a></li>
+				<li class="active"><a href="ilc.php" > Invited Lectures and Chairmanship at National or International Conference/ Seminar<div class="pull-right"><i class="icon-chevron-right" ></i></div></a></li>
             </ul>
+            </div>
         </div>
-        <div class="col-sm-1"></div>
-        <div class="col-md-7">
+        <br>
+        <div class="col-md-8">
             			 
 			 <!--"Invited Lectures and Chairmanship" Panel started --><br>			 
-				
-				  <h3 id="invitedLectures" class="panel-title" align="center">Invited Lectures and Chairmanship at National or International Conference/ Seminar</h3><br>			
-				
-				  <form id="invitedForm" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post">
+				<div class="panel panel-primary" style="padding:3px 3px 3px 3px;">
+				<div class="panel-heading">
+				  <h4 id="invitedLectures"  align="center" >Invited Lectures and Chairmanship at National or International Conference/ Seminar</h4>			
+				</div><br>
+				  <form id="invitedForm" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post"  >
+				  	<input class="btn btn-md btn-primary" type="submit" value="Save" name="ilc_save" />
+							<select name="il" onchange="showUser(this.value,this.name)">
+								<option>--Title--</option>
+								<?php 
+									include('DBConnect.php');
+									$query = mysqli_query($con,"SELECT * from teach_ilc where user_id='$user' and year='$year'");
+									while($row = mysqli_fetch_assoc($query)){
+								?><option><?php echo $row['Teach_ILC_TOL']; ?></option>
+								<?php } ?>
+							</select>
+							<input class="btn btn-md btn-primary" type="submit" value="Delete" name="ilc_delete" />
+							<input class="btn btn-md btn-primary" type="reset" value="Reset" name="reset" />
 					   <div id="invitedFields">
 						   <label>Title of the Lecture / Academic Session</label>
-							<input class="form-control" type="text" name="ILC_TOL"> 
+							<input class="form-control" type="text" name="ILC_TOL" > 
 						   <label>Title Conference / Seminar etc.</label>
 							<input class="form-control" type="text" name="ILC_TCS" /> 
 							<label>Date (s) of the Event</label>
@@ -97,7 +113,7 @@
 							<input class="btn btn-md btn-primary" type="submit" value="Delete" name="ilc_delete" />
 							<input class="btn btn-md btn-primary" type="reset" value="Reset" name="reset" /> 
 				   </form>
-				
+				</div>
         </div><!--End Of col-md-6 --> 
 		
 		
