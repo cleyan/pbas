@@ -26,19 +26,16 @@
 	 		<h3 align="center">Teaching Learning And Evaluation Related Activities</h3>
 			 <div class="row" style=" margin-bottom:50px;">
 
-			 	<div class="col-md-4" style="padding-top:55px;">	
-					<div class="panel panel-primary" style="box-shadow:5px 5px 5px #888888; ">
-						
-						<div class="panel-body">
-					 	<a class="btn btn-default btn-md" style="color:#428bca; width:100%;" href="teachingLearningActivities.php"><i class="icon-pencil" >  Lectures, Seminar,Tutorial, Practical, Contact Hours</i></a></br></br></li>
-						<a class="btn btn-default btn-md" style="color:#428bca; width:100%;" href="rimc.php"><i class="icon-pencil" > Reading/Instructional material consulted and <br/> additional knowledge resources provided to students</i></a></br></br>
-						<a class="btn btn-default btn-md" style="color:#428bca; width:100%;" href="tlm.php"><i class="icon-pencil" > Use of participatory and innovative Teaching- <br/> Learning Methodologies, Updating of subject contents</i></a> </br></br>
-						<a class="btn btn-default btn-md" style="color:#428bca; width:100%;" href="edap.php"><i class="icon-pencil" > Examination Duties Assigned and Performed</i></a></br>
-						</div> 
-					</div>
-				</div>
+			 	<div class="col-sm-4" style="box-shadow:5px 5px 5px #888888; padding-bottom:55px;">
+			 		<br><br><br><br>
+			 		<li class="active"><a href="teachingLearningActivities.php">Lectures, Seminar,Tutorial, Practical, Contact Hours</a><br><br></li>
+					<a href="rimc.php">Reading/Instructional material consulted and additional knowledge resources provided to students</a><br><br>
+	   			 	<a href="tlm.php">Use of participatory and innovative Teaching-Learning Methodologies, Updating of subject contents</a><br><br>
+					<a href="edap.php">Examination Duties Assigned and Performed</a><br><br>
+				 		
+			 	</div>
 
-			 	
+			 	<!-- <div class="col-sm-1"></div> -->
 			 	<!-- <div class="col-sm-1"></div> -->
 	   		 	<div class="col-sm-7">
 	   		 		<br>
@@ -85,7 +82,7 @@
 									<input type="reset" class="btn btn-primary" value="Reset" name="reset" />
 								</div><!--End of form-group class -->
 		    				</form>	     
-	         </div>
+					</div>
 				</div><!--End of col-sm-9 class -->
 				<!--End of col-sm-3 class -->
 			</div><!--End of row class -->
