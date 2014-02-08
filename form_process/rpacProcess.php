@@ -136,18 +136,18 @@ if(!empty($_POST['fpcp_save'])){
 	$FCP_BEP = $_POST['FCP_BEP'];
 	$FCP_ISSN = $_POST['FCP_ISSN'];
 	$FCP_NOC = $_POST['FCP_NOC'];
-	$FCP_Yes = $_POST['FCP_YN'];
+	$FCP_YN = $_POST['FCP_YN'];
 	$FCP_API = $_POST['FCP_API'];
 	$user=$_SESSION['username'];
 	$year=$_SESSION['pbasYear'];
 
-	$sql="SELECT * FROM teach_fcp  WHERE User_Id='$user' and Teach_FCP_TNO = '$FCP_TNO' and year='$year'";
-		$result = mysqli_query($con,$sql) or die('Error'.mysqli_error($con));
-		 $row = mysqli_fetch_array($result);
+	$sql="SELECT * FROM teach_fcp  WHERE User_Id='$user' and Teach_FCP_TNO = '$FCP_TNO' and Year='$year'";
+	$result = mysqli_query($con,$sql) or die('Error'.mysqli_error($con));
+	$row = mysqli_fetch_array($result);
 
 		if($row>0){
 
-			$updateQuery = "UPDATE teach_fcp SET Teach_FCP_BEP='$FCP_BEP', Teach_FCP_ISSN='$FCP_ISSN', Teach_FCP_NOC='$FCP_NOC', Teach_FCP_MA='$FCP_Yes', Teach_FCP_API='$FCP_API' where User_Id='$user' and year='$year' and Teach_FCP_TNO='$FCP_TNO'" ;
+			$updateQuery = "UPDATE teach_fcp SET Teach_FCP_BEP='$FCP_BEP', Teach_FCP_ISSN='$FCP_ISSN', Teach_FCP_NOC='$FCP_NOC', Teach_FCP_MA='$FCP_YN', Teach_FCP_API='$FCP_API' " ;
 			$result1 = mysqli_query($con,$updateQuery);
 			if($result1){
 				header('location:fcp.php');
@@ -157,15 +157,15 @@ if(!empty($_POST['fpcp_save'])){
 			}
 		}
  		else{
-	$sql2 = "INSERT into teach_fcp (User_Id,year,Teach_FCP_Tno,Teach_FCP_BEP,Teach_FCP_ISSN,Teach_FCP_NOC, Teach_FCP_MA,Teach_FCP_API) Values('$user','$year','$FCP_TNO','$FCP_BEP','$FCP_ISSN','$FCP_NOC','$FCP_Yes','$FCP_API')";
-	$result2 = mysqli_query($con,$sql2) or die("error : ").mysqli_error($con);
-}
-	if($result2){
-		header('Location:fcp.php');
-	}
-	else{
-		echo "Error".mysqli_error();
-	}
+				$sql2 = "INSERT into teach_fcp (User_Id,year,Teach_FCP_TNO,Teach_FCP_BEP,Teach_FCP_ISSN,Teach_FCP_NOC, Teach_FCP_MA,Teach_FCP_API) Values('$user','$year','$FCP_TNO','$FCP_BEP','$FCP_ISSN','$FCP_NOC','$FCP_YN','$FCP_API')";
+				$result2 = mysqli_query($con,$sql2) or die("error : ").mysqli_error($con);
+			}
+		if($result2){
+			header('Location:fcp.php');
+		}
+		else{
+			echo "Error".mysqli_error();
+		}
 
 }
 
@@ -193,42 +193,25 @@ if(!empty($_POST['fcp_delete'])){
 
 
 
-if(!empty($_POST['bps_save'])){
+if(!empty($_POST['bpe_save'])){
 	$BPE_TPN = $_POST['BPE_TPN'];
 	$BPE_TBA = $_POST['BPE_TBA'];
 	$BPE_PISSN = $_POST['BPE_PISSN'];
-	$PE_WPR = $_POST['BPE_WPR'];
+	$BPE_WPR = $_POST['BPE_WPR'];
 	$BPE_NOC = $_POST['BPE_NOC'];
 	$BPE_YN = $_POST['BPE_YN'];
 	$BPE_API = $_POST['BPE_API'];
 	$year = $_SESSION['pbasYear'];
-	$sqlbpe="SELECT * FROM teach_bpe  WHERE User_Id='$user' and Teach_BPE_TPN = '$BPE_TPN' and year='$year'";
-		$resultbpe = mysqli_query($con,$sqlbpe) or die('Error'.mysqli_error($con));
-		 $rowbpe = mysqli_fetch_array($resultbpe);
-	if (rowbpe>0)
-	{	
-		$updatebpe = "UPDATE teach_bpe SET Teach_BPE_TBA='$BPE_TBA', Teach_BPE_PISSN='$BPE_PISSN', Teach_BPE_WPR='$PE_WPR', Teach_BPE_NOC='$BPE_NOC', Teach_BPE_MA='$BPE_YN', Teach_BPE_API='$BPE_API' where User_Id='$user' and year='$year' and Teach_BPE_TPN='$BPE_TPN'" ;
-		$resultupdatebpe = mysqli_query($con,$updatebpe);
-		if($resultupdatebpe){
-				header('location:bpe.php');
+			$bpeinsertquery = "Insert into `teach_bpe` (User_Id,Year,Teach_BPE_TPN,Teach_BPE_TBA,Teach_BPE_PISSN,Teach_BPE_WPR,Teach_BPE_NOC,Teach_BPE_YN,Teach_BPE_API) Values('$user','$year','$BPE_TPN','$BPE_TBA','$BPE_PISSN','$BPE_WPR','$BPE_NOC','$BPE_YN','$BPE_API')";
+			$bpeinsertresult = mysqli_query($con,$bpeinsertquery) or die("error : ").mysqli_error($con);
+			if($bpeinsertresult){
+				header('Location:bpe.php');
 			}
-		else{
-				die("error : ".mysqli_error($con));
+			else{
+				echo "Error".mysqli_error();
 			}
-	}
-	else
-	{
-		$insertbpe = "Insert into `teach_bpe` (User_Id,Year,Teach_BPE_TPN,Teach_BPE_TBA,Teach_BPE_PISSN,Teach_BPE_WPR,Teach_BPE_NOC, Teach_BPE_MA,Teach_BPE_API) Values('$user','$year','$BPE_TPN','$BPE_TBA','$BPE_PISSN','$PE_WPR','$BPE_NOC','$BPE_YN','$BPE_API')";
-		$resultinsertbpe = mysqli_query($con,$insertbpe) or die("error : ").mysqli_error($con);
+			
 
-		if($resultinsertbpe){
-			header('Location: bpe.php');
-		}
-		else{
-			echo "Error".mysqli_error($con);
-		}
-
-	}	
 }
 
 
@@ -237,12 +220,13 @@ if(!empty($_POST['bpe_delete'])){
 	$BPE_TPN = $_POST['BPE_TPN'];
 	$BPE_TBA = $_POST['BPE_TBA'];
 	$BPE_PISSN = $_POST['BPE_PISSN'];
-	$PE_WPR = $_POST['BPE_WPR'];
+	$BPE_WPR = $_POST['BPE_WPR'];
 	$BPE_NOC = $_POST['BPE_NOC'];
 	$BPE_YN = $_POST['BPE_YN'];
 	$BPE_API = $_POST['BPE_API'];
 	$user=$_SESSION['username'];
 	$year = $_SESSION['pbasYear'];
+
 	$sqlbpedelete="Delete From teach_bpe where User_Id='$user' and year='$year' and Teach_BPE_TPN='$BPE_TPN'";
 	$bpedeleteresult = mysqli_query($con,$sqlbpedelete);
 		if($bpedeleteresult){
@@ -309,7 +293,7 @@ if(!empty($_POST['opc_delete'])){
 	$sqlopcdelete="Delete From teach_opc where User_Id='$user' and year='$year' and Teach_OPC_Title='$OPC_Title'";
 	$opcdeleteresult = mysqli_query($con,$sqlopcdelete);
 		if($opcdeleteresult){
-			header('location:bpe.php');
+			header('location:opc.php');
 		}
 		else{
 			die("Error : ".mysqli_error($con) );
@@ -344,7 +328,7 @@ if(!empty($_POST['cpc_save'])){
 		}
  		else{
 
-		$cpcinsertquery = "Insert into `teach_cpc` (user_id,year,Teach_CPC_Title,Teach_CPC_Agency,Teach_CPC_Period,Teach_CPC_Gam,Teach_CPC_WPD,Teach_CPC_API) Values('$user','$year','$CPC_Title','$CPC_Agency','$CPC_Period','$CPC_Gam','$CPC_WPD',$CPC_API')";
+		$cpcinsertquery = "INSERT into teach_cpc (User_Id,Year,Teach_CPC_Title,Teach_CPC_Agency,Teach_CPC_Period,Teach_CPC_GAM,Teach_CPC_WPD,Teach_CPC_API) Values('$user','$year','$CPC_Title','$CPC_Agency','$CPC_Period','$CPC_Gam','$CPC_WPD',$CPC_API')";
 		$cpcinsertresult = mysqli_query($con,$cpcinsertquery) or die("error : ").mysqli_error($con);
 		if($cpcinsertresult){
 			header('Location: cpc.php');
@@ -353,7 +337,6 @@ if(!empty($_POST['cpc_save'])){
 			echo "Error".mysqli_error();
 		}
 	}
-
 
 	
 }
@@ -385,14 +368,34 @@ if(!empty($_POST['rg_save'])){
 	$RG_TS = $_POST['RG_TS'];
 	$RG_DA = $_POST['RG_DA'];
 	$RG_API = $_POST['RG_API'];
-	$sql7 = "Insert into `teach_rg` (user_id,year,Teach_RG_NE,Teach_RG_TS,Teach_RG_DA,Teach_RG_API) Values('$user','$year','$RG_NE','$RG_TS','$RG_DA','$RG_API')";
-	$result7 = mysqli_query($con,$sql7) or die("error : ").mysqli_error($con);
-	if($result7){
-		header('Location:rg.php');
-	}
-	else{
-		echo "Error".mysqli_error();
-	}
+
+	$sql="SELECT * FROM teach_rg WHERE User_Id='$user' and Teach_RG_NE = '$RG_NE' and year='$year'";
+		$result = mysqli_query($con,$sql) or die('Error'.mysqli_error($con));
+		 $row = mysqli_fetch_array($result);
+
+		if($row>0){
+
+			$rgupdateQuery = "UPDATE teach_rg SET Teach_RG_TS='$RG_TS', Teach_RG_DA='$RG_DA', Teach_RG_API='$RG_API' where User_Id='$user' and year='$year' and Teach_RG_NE='$RG_NE'" ;
+			$rgupdateresult = mysqli_query($con,$rgupdateQuery);
+			if($rgupdateresult){
+				header('location:rg.php');
+			}
+			else{
+				die("error : ".mysqli_error($con));
+			}
+		}
+ 		else{
+
+			$rginsertquery = "Insert into `teach_rg` (user_id,year,Teach_RG_NE,Teach_RG_TS,Teach_RG_DA,Teach_RG_API) Values('$user','$year','$RG_NE','$RG_TS','$RG_DA','$RG_API')";
+			$rginsertresult = mysqli_query($con,$rginsertquery) or die("error : ").mysqli_error($con);
+			if($rginsertresult){
+				header('Location:rg.php');
+			}
+			else{
+				echo "Error".mysqli_error();
+			}
+		}
+			
 }
 
 if(!empty($_POST['rg_delete'])){
@@ -417,15 +420,37 @@ if(!empty($_POST['fdp_save'])){
 	$FDP_Duration = $_POST['FDP_Duration'];
 	$FDP_Organized = $_POST['FDP_Organized'];
 	$FDP_API = $_POST['FDP_API'];
-	$sql8 = "Insert into `teach_fdp` (User_Id,Year,Teach_FDP_Programme,Teach_FDP_Duration,Teach_FDP_Organized,Teach_FDP_API) Values('$user','$year','$FDP_Programme','$FDP_Duration','$FDP_Organized','$FDP_API')";
-	$result8 = mysqli_query($con,$sql8) or die("error : ").mysqli_error($con);
-	if($result8){
-		header('Location:fdp.php');
-	}
-	else{
-		echo "Error".mysqli_error();
-	}
+
+	$sql="SELECT * FROM teach_fdp WHERE User_Id='$user' and Teach_FDP_Programme = '$FDP_Programme' and year='$year'";
+		$result = mysqli_query($con,$sql) or die('Error'.mysqli_error($con));
+		 $row = mysqli_fetch_array($result);
+
+		if($row>0){
+
+			$fdpupdateQuery = "UPDATE teach_fdp SET Teach_FDP_Duration='$FDP_Duration', Teach_FDP_Organized='$FDP_Organized', Teach_FDP_API='$FDP_API' where User_Id='$user' and year='$year' and Teach_FDP_Programme='$FDP_Programme'" ;
+			$fdpupdateresult = mysqli_query($con,$fdpupdateQuery);
+			if($fdpupdateresult){
+				header('location:fdp.php');
+			}
+			else{
+				die("error : ".mysqli_error($con));
+			}
+		}
+ 		else{
+
+			$fdpinsertquery = "Insert into `teach_fdp` (User_Id,Year,Teach_FDP_Programme,Teach_FDP_Duration,Teach_FDP_Organized,Teach_FDP_API) Values('$user','$year','$FDP_Programme','$FDP_Duration','$FDP_Organized','$FDP_API')";
+			$fdpinsertresult = mysqli_query($con,$fdpinsertquery) or die("error : ").mysqli_error($con);
+			if($fdpinsertresult){
+				header('Location:fdp.php');
+			}
+			else{
+				echo "Error".mysqli_error();
+			}
+		}
+	
 }
+
+
 
 if(!empty($_POST['fdp_delete'])){
 	$FDP_Programme = $_POST['FDP_Programme'];
@@ -443,6 +468,9 @@ if(!empty($_POST['fdp_delete'])){
 		}
 }
 
+
+
+
 if(!empty($_POST['ppc_save'])){
 	$PPC_TPP = $_POST['PPC_TPP'];
 	$PPC_TCS = $_POST['PPC_TCS'];
@@ -450,14 +478,34 @@ if(!empty($_POST['ppc_save'])){
 	$PPC_Organized = $_POST['PPC_Organized'];
 	$PPC_WINS = $_POST['PPC_WINS'];
 	$PPC_API = $_POST['PPC_API'];
-	$sql9 = "Insert into `teach_ppc` (User_Id,Year,Teach_PPC_TPP,Teach_PPC_TCS,Teach_PPC_DOE, Teach_PPC_Organized, Teach_PPC_WINS,Teach_PPC_API) Values('$user','$year','$PPC_TPP','$PPC_TCS','$PPC_DOE','$PPC_Organized','$PPC_WINS','$PPC_API')";
-	$result9 = mysqli_query($con,$sql9) or die("error : ").mysqli_error($con);
-	if($result9){
-		header('Location:ppc.php');
-	}
-	else{
-		echo "Error".mysqli_error();
-	}
+
+	$sql="SELECT * FROM teach_ppc WHERE User_Id='$user' and Teach_PPC_TPP = '$PPC_TPP' and year='$year'";
+		$result = mysqli_query($con,$sql) or die('Error'.mysqli_error($con));
+		 $row = mysqli_fetch_array($result);
+
+		if($row>0){
+
+			$ppcupdateQuery = "UPDATE teach_ppc SET Teach_PPC_TCS='$PPC_TCS', Teach_PPC_DOE='$PPC_DOE', Teach_PPC_Organized='$PPC_Organized', Teach_PPC_WINS='$PPC_WINS', Teach_PPC_API='$PPC_API' where User_Id='$user' and year='$year' and Teach_PPC_TPP='$PPC_TPP'" ;
+			$ppcupdateresult = mysqli_query($con,$ppcupdateQuery);
+			if($ppcupdateresult){
+				header('location:ppc.php');
+			}
+			else{
+				die("error : ".mysqli_error($con));
+			}
+		}
+ 		else{
+
+			$ppcinsertquery = "Insert into `teach_ppc` (User_Id,Year,Teach_PPC_TPP,Teach_PPC_TCS,Teach_PPC_DOE, Teach_PPC_Organized, Teach_PPC_WINS,Teach_PPC_API) Values('$user','$year','$PPC_TPP','$PPC_TCS','$PPC_DOE','$PPC_Organized','$PPC_WINS','$PPC_API')";
+			$ppcinsertresult = mysqli_query($con,$ppcinsertquery) or die("error : ").mysqli_error($con);
+			if($ppcinsertresult){
+				header('Location:ppc.php');
+			}
+			else{
+				echo "Error".mysqli_error();
+			}
+		}
+	
 }
 
 
@@ -485,15 +533,35 @@ if(!empty($_POST['ilc_save'])){
 	$ILC_DOE = $_POST['ILC_DOE'];
 	$ILC_Organized = $_POST['ILC_Organized'];
 	$ILC_WINS = $_POST['ILC_WINS'];
-	$IlC_API = $_POST['ILC_API'];
-	$sql10 = "Insert into `teach_ilc` (User_Id,Year,Teach_ILC_TOL,Teach_ILC_TCS,Teach_ILC_DOE,Teach_ILC_Organized,Teach_ILC_WINS,Teach_ILC_API) Values('$user','$year','$ILC_TOL','$ILC_TCS','$ILC_DOE','$ILC_Organized','$ILC_WINS','$IlC_API')";
-	$result10 = mysqli_query($con,$sql10) or die("error : ").mysqli_error($con);
-	if($result10){
-		header('Location:ilc.php');
-	}
-	else{
-		echo "Error".mysqli_error();
-	}
+	$ILC_API = $_POST['ILC_API'];
+
+	$sql="SELECT * FROM teach_ilc WHERE User_Id='$user' and Teach_ILC_TOL = '$ILC_TOL' and year='$year'";
+		$result = mysqli_query($con,$sql) or die('Error'.mysqli_error($con));
+		 $row = mysqli_fetch_array($result);
+
+		if($row>0){
+
+			$ilcupdateQuery = "UPDATE teach_ilc SET Teach_ILC_TCS='$ILC_TCS', Teach_ILC_DOE='$ILC_DOE', Teach_ILC_Organized='$ILC_Organized', Teach_ILC_WINS='$ILC_WINS', Teach_ILC_API='$ILC_API' where User_Id='$user' and year='$year' and Teach_ILC_TOL='$ILC_TOL'" ;
+			$ilcupdateresult = mysqli_query($con,$ilcupdateQuery);
+			if($ilcupdateresult){
+				header('location:ilc.php');
+			}
+			else{
+				die("error : ".mysqli_error($con));
+			}
+		}
+ 		else{
+
+			$ilcinsertquery = "Insert into `teach_ilc` (User_Id,Year,Teach_ILC_TOL,Teach_ILC_TCS,Teach_ILC_DOE,Teach_ILC_Organized,Teach_ILC_WINS,Teach_ILC_API) Values('$user','$year','$ILC_TOL','$ILC_TCS','$ILC_DOE','$ILC_Organized','$ILC_WINS','$IlC_API')";
+			$ilcinsertresult = mysqli_query($con,$ilcinsertquery) or die("error : ").mysqli_error($con);
+			if($ilcinsertresult){
+				header('Location:ilc.php');
+			}
+			else{
+				echo "Error".mysqli_error();
+			}
+		}
+	
 }
 
 if(!empty($_POST['ilc_delete'])){

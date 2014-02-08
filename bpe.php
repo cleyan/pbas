@@ -84,7 +84,7 @@
 						 <input type="radio" name="BPE_YN" />Yes <input type="radio" name="BPE_YN"/>No<br /> 
 					   <label>API Score</label>  <input class="form-control" type="text" name="BPE_API" /> 
 					 </div><br />
-						<input class="btn btn-md btn-primary" type="submit" value="Save" name="bps_save" />
+						<input class="btn btn-md btn-primary" type="submit" value="Save" name="bpe_save" />
 						<select name="bp" onChange="showUser(this.value, this.name)">
 							<option>--Title--</option>
 							<?php 
