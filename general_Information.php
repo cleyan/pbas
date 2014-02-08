@@ -59,8 +59,12 @@
 			
 			</div>
 			<div class="col-sm-7">
-				<form id="genInfo" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post">
+				<form id="genInfo" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post" class="panel panel-primary" style="padding:3px 3px 3px 3px; ">
+						
 					<div id="userInfo">
+
+						<button  type="button" class="btn btn-md btn-primary" name="infoEdit" onClick="showInfo(this.name)" value="show"/>Edit</button>
+						
 						<table border="0" class="table" cellpadding="3" cellspacing="3">
 							<tr>
 								<td>Name</td>
@@ -129,7 +133,7 @@
 					</div><!--End of id userInfo for ajax -->
 					
 						<button class="btn btn-md btn-primary" type="submit" name="infoSave">Save</button>
-						<input  type="button" class="btn btn-md btn-primary" name="infoEdit" onClick="showInfo(this.name)" value="show"/>
+						<button  type="button" class="btn btn-md btn-primary" name="infoEdit" onClick="showInfo(this.name)" value="show"/>Edit</button>
 						<button class="btn btn-md btn-primary" type="reset" name="infoReset">Reset</button><br><br>
 			    </form>
 

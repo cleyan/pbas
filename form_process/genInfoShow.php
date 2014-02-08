@@ -30,8 +30,10 @@
 
 ?>
 		
-
-        <label>Name(in Block Letters)</label> 
+						<button class="btn btn-md btn-primary" type="submit" name="infoSave">Save</button>
+						
+						<button class="btn btn-md btn-primary" type="reset" name="infoReset">Reset</button><br><br>
+        					<label>Name(in Block Letters)</label> 
 				    		<input type="text" class="form-control required" name="name"  value="<?php echo $uname; ?>">
                   		<br><label>Father's Name</label>
 				    		<input type="text" class="form-control required" name="fatherName" title="Please Enter Your Father's Name " value="<?php echo $fatherName; ?>"/>
@@ -53,6 +55,8 @@
 				   		   <input type="text" class="form-control required" name="telePhone" title="Please Enter Your Telephone No." value="<?php echo $telephone; ?>"/>
 		   		  		<br><label>Email</label>
 				    		<input type="email" class="form-control required" name="email" title="Please Enter Your Email" value="<?php echo $email; ?>"/><br>
+				    		<button class="btn btn-md btn-primary" type="submit" name="infoSave">Save</button>
+						<button class="btn btn-md btn-primary" type="reset" name="infoReset">Reset</button><br><br>
 								<?php   }
 							?>
 

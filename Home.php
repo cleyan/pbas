@@ -28,7 +28,7 @@
 
 </head>
 
-<body>
+<body >
 <?php 
 	if(isset($_SESSION['username'])){
 	    echo '<div id="wrap">';
@@ -50,7 +50,7 @@
 		  					</div>
 		  					 Manage Your PBAS Account</b><br>
 		  					
-						PBAS Year - <?php if(isset($_SESSION['pbasYear'])){ echo $_SESSION['pbasYear']; } ?> &nbsp <a data-toggle="modal" href="#yearModal">Change</a><br>
+						<div class="text-danger"><b>PBAS Year - <?php if(isset($_SESSION['pbasYear'])){ echo $_SESSION['pbasYear']; } ?> &nbsp <a data-toggle="modal" href="#yearModal"  class="text-alert"><b>Change</a><br></div>
 							</div>
 						
 						
