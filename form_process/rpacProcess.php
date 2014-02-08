@@ -77,7 +77,7 @@ if(!empty($_POST['acpb_save'])){
 	$APB_ISSN = $_POST['APB_ISSN'];
 	$APB_WPR = $_POST['APB_WPR'];
 	$APB_NOC = $_POST['APB_NOC'];
-	$ACPB_Yes = $_POST['ACPB_Yes'];
+	$ACPB_Yes = $_POST['ACPB_YN'];
 	$APB_API = $_POST['APB_API'];
 	$sql="SELECT * FROM teach_apb  WHERE User_Id='$user' and Teach_APB_TNO = '$APB_TNO' and year='$year'";
 		$result = mysqli_query($con,$sql) or die('Error'.mysqli_error($con));
@@ -332,10 +332,10 @@ if(!empty($_POST['cpc_save'])){
 		$cpcinsertresult = mysqli_query($con,$cpcinsertquery) or die("error : ").mysqli_error($con);
 		if($cpcinsertresult){
 			header('Location: cpc.php');
-		}
+			}
 		else{
 			echo "Error".mysqli_error();
-		}
+			}
 	}
 
 	
