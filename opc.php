@@ -133,7 +133,7 @@
 		  if (xmlhttp.readyState==4 && xmlhttp.status==200)
 			{  
 				if(name == 'op'){
-					document.getElementById("ongoingForm").innerHTML=xmlhttp.responseText;
+					document.getElementById("ongoingFields").innerHTML=xmlhttp.responseText;
 				}
 				if(name == 'pp'){
 					document.getElementById("ppij").innerHTML=xmlhttp.responseText;

@@ -140,7 +140,7 @@ $sqlilc="SELECT * from teach_ilc where user_id='$user' and year='$year'";
 
 
 
-//Calculation of API.
+//Calculation of Summary of API.
 
 
             $get1 = mysqli_query($con, "select sum(Teach_LSTP_CTAPI) as value_sum  from Teach_LSTP where user_id='$user' and year='$year'");
@@ -435,7 +435,7 @@ $sqlilc="SELECT * from teach_ilc where user_id='$user' and year='$year'";
         $html.='</table><br/><br/>'.
 
 
-/*Calculation of summary of API*/
+/*Table of API summary */
 
         '<h3>IV. SUMMARY OF API SCORES</h3>'.
         '<table width="100%" border="1px">'.

@@ -263,14 +263,37 @@ if(!empty($_POST['opc_save'])){
 	$OPC_API = $_POST['OPC_API'];
 	$user=$_SESSION['username'];
 	$year = $_SESSION['pbasYear'];
-	$sql5 = "Insert into teach_opc (user_id,year,Teach_OPC_Title,Teach_OPC_Agency,Teach_OPC_Period,Teach_OPC_Gam,Teach_OPC_API) Values('$user','$year','$OPC_Title','$OPC_Agency','$OPC_Period','$OPC_Gam','$OPC_API')";
-	$result5 = mysqli_query($con,$sql5) or die("error : ").mysqli_error($con);
-	if($result5){
-		header('Location:opc.php');
+
+
+	$sql="SELECT * FROM teach_opc WHERE User_Id='$user' and Teach_OPC_Title = '$OPC_Title' and year='$year'";
+		$result = mysqli_query($con,$sql) or die('Error'.mysqli_error($con));
+		 $row = mysqli_fetch_array($result);
+
+		if($row>0){
+
+			$opcupdateQuery = "UPDATE teach_opc SET Teach_OPC_Agency='$OPC_Agency', Teach_OPC_Period='$OPC_Period', Teach_OPC_Gam='$OPC_Gam', Teach_OPC_API='$OPC_API' where User_Id='$user' and year='$year' and Teach_OPC_Title='$OPC_Title'" ;
+			$opcupdateresult = mysqli_query($con,$opcupdateQuery);
+			if($opcupdateresult){
+				header('location:opc.php');
+			}
+			else{
+				die("error : ".mysqli_error($con));
+			}
+		}
+ 		else{
+
+		$opcinsertquery = "Insert into teach_opc (user_id,year,Teach_OPC_Title,Teach_OPC_Agency,Teach_OPC_Period,Teach_OPC_Gam,Teach_OPC_API) Values('$user','$year','$OPC_Title','$OPC_Agency','$OPC_Period','$OPC_Gam','$OPC_API')";
+		$opcinsertresult = mysqli_query($con,$opcinsertquery) or die("error : ").mysqli_error($con);
+		if($opcinsertresult){
+			header('Location:opc.php');
+		}
+		else{
+			echo "Error".mysqli_error();
+		}
 	}
-	else{
-		echo "Error".mysqli_error();
-	}
+
+
+	
 }
 
 
@@ -299,17 +322,40 @@ if(!empty($_POST['cpc_save'])){
 	$CPC_Agency = $_POST['CPC_Agency'];
 	$CPC_Period = $_POST['CPC_Period'];
 	$CPC_Gam = $_POST['CPC_GAM'];
+	$CPC_WPD = $_POST['CPC_WPD'];
 	$CPC_API = $_POST['CPC_API'];
 	$user=$_SESSION['username'];
 	$year = $_SESSION['pbasYear'];
-	$sql6 = "Insert into `teach_cpc` (user_id,year,Teach_CPC_Title,Teach_CPC_Agency,Teach_CPC_Period,Teach_CPC_Gam,Teach_CPC_API) Values('$user','$year','$CPC_Title','$CPC_Agency','$CPC_Period','$CPC_Gam','$CPC_API')";
-	$result6 = mysqli_query($con,$sql6) or die("error : ").mysqli_error($con);
-	if($result6){
-		header('Location: cpc.php');
+
+	$sql="SELECT * FROM teach_cpc WHERE User_Id='$user' and Teach_CPC_Title = '$CPC_Title' and year='$year'";
+		$result = mysqli_query($con,$sql) or die('Error'.mysqli_error($con));
+		 $row = mysqli_fetch_array($result);
+
+		if($row>0){
+
+			$cpcupdateQuery = "UPDATE teach_cpc SET Teach_CPC_Agency='$CPC_Agency', Teach_CPC_Period='$CPC_Period', Teach_CPC_Gam='$CPC_Gam', Teach_CPC_WPD='$CPC_WPD', Teach_CPC_API='$CPC_API' where User_Id='$user' and year='$year' and Teach_CPC_Title='$CPC_Title'" ;
+			$cpcupdateresult = mysqli_query($con,$cpcupdateQuery);
+			if($cpcupdateresult){
+				header('location:cpc.php');
+			}
+			else{
+				die("error : ".mysqli_error($con));
+			}
+		}
+ 		else{
+
+		$cpcinsertquery = "Insert into `teach_cpc` (user_id,year,Teach_CPC_Title,Teach_CPC_Agency,Teach_CPC_Period,Teach_CPC_Gam,Teach_CPC_WPD,Teach_CPC_API) Values('$user','$year','$CPC_Title','$CPC_Agency','$CPC_Period','$CPC_Gam','$CPC_WPD',$CPC_API')";
+		$cpcinsertresult = mysqli_query($con,$cpcinsertquery) or die("error : ").mysqli_error($con);
+		if($cpcinsertresult){
+			header('Location: cpc.php');
+		}
+		else{
+			echo "Error".mysqli_error();
+		}
 	}
-	else{
-		echo "Error".mysqli_error();
-	}
+
+
+	
 }
 
 

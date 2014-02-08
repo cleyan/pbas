@@ -218,7 +218,7 @@
         <h3>Ongoing Projects / Consultancies</h3>
             
 			
-			 <div class="form-group">
+			<div class="form-group">
 								<label>Title</label>
 							  <input class="form-control" type="text" name="OPC_Title" value="<?php echo $OPC_Title ?>"> 
 							<label>Agency</label>
@@ -230,7 +230,7 @@
 						   <label>API Score</label>  <input class="form-control" type="text" name="OPC_API" value="<?php echo $OPC_API ?>"/>  
 					  </div>
 						<br>
-							</div>
+			</div>
 
 
 <?php

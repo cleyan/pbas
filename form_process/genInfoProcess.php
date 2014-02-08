@@ -17,7 +17,7 @@
 	}
 ?>
 <?php
-	if(isset($_POST['info_save']))
+	if(isset($_POST['infoSave']))
 	{
 		$user_id = $_SESSION['username'];
 		$Name = $_POST['name'];
@@ -34,8 +34,9 @@
 		//Query for Updating general inforamtion
 		if(!empty($row['User_Id']) and !empty($row['Gen_Info_Name']))
 		{
+
 		$updateQuery = $sql = "UPDATE Gen_Info SET Gen_Info_Name='$Name', Gen_Info_Fname='$fatherName' , Gen_Info_Mname='$motherName', Gen_Info_Department='$department', Gen_Info_CD='$designation', Gen_Info_GP='$gradePay', Gen_Info_DLP='$lastPromotion', Gen_Info_AFC='$addressCorrespondece', Gen_Info_PA='$addressPermanant', Gen_Info_TNO='$telePhone', Gen_Info_Email='$email' WHERE User_Id='$user_id' " ;
-		$result1 = mysqli_query($con,$updateQuery); 
+		$result1 = mysqli_query($con,$updateQuery) or die("erro  : ".mysqli_error($con)); 
 		if($result1){
 			unset($_POST['info_save']);
 			$_SESSION['infoUpdated'] = "<h5 align='center' class='alert alert-success'>Information Updated Successfully ! ";
