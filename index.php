@@ -115,26 +115,27 @@
         				<div class="modal-body ">
            					<form class="form-horizontal" role="form" action="<?php echo htmlentities($_SERVER['PHP_SELF']) ?>" method="post" id="signUp">
   								<div class="form-group">
-    								<label for="inputEmail1" class="col-lg-2 control-label">User ID</label>
-   						 			<div class="col-lg-10">
+    								<label for="inputEmail1" class="col-lg-3 control-label">User ID</label>
+   						 			<div class="col-lg-8">
       									<input type="text" class="form-control" placeholder="User ID" name="userID" >
     								</div>
  					    		</div>
  								<div class="form-group">
-    								<label for="inputPassword1" class="col-lg-2 control-label">Password</label>
-    								<div class="col-lg-10">
+    								<label for="inputPassword1" class="col-lg-3 control-label">Password</label>
+    								<div class="col-lg-8">
       									<input type="password" class="form-control" id="inputPassword1" name="regPass" placeholder="Password" id="password">
     								</div>
   								</div>
 								<div class="form-group">
-    								<label for="inputPassword1" class="col-lg-2 control-label">Re-Type Password</label>
-    								<div class="col-lg-10">
+    								<label for="inputPassword1" class="col-lg-3 control-label">Re-Type Password</label>
+    								<div class="col-lg-8">
       									<input type="password" class="form-control" id="inputPassword1" placeholder="Password" name="confirmPass">
     								</div>
   								</div>
   								<div class="form-group">
-   									 <div class="col-lg-offset-2 col-lg-10">
+   									 <div class="col-lg-offset-4 col-lg-8">
       									<button type="submit" name="signUp" class="btn btn-primary">Sign in</button>
+      									<button type="button" class="btn btn-large btn-primary" data-dismiss="modal">Close</button>
     								</div>
   					    		</div>
 							</form>

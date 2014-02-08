@@ -1,4 +1,34 @@
 <?php
+
+if(isset($_POST['save'])){
+    unset($_POST['save']);
+    include('DBConnect.php');
+    $user=$_SESSION['username'];
+    $old_pass = $_POST['old_pass'];
+    $new_pass = $_POST['new_pass'];
+    $retype_pass = $_POST['retype_pass'];
+
+    $Query = mysqli_query($con, "Select * FROM userinfo WHERE User_Id = '$user' and Pwd='$old_pass'");
+    $row = mysqli_fetch_array($Query);
+    if($row>0){ 
+      
+      $updateQuery = "update userinfo set Pwd='$retype_pass' WHERE User_Id = '$user'" ;
+      $result = mysqli_query($con,$updateQuery);
+
+      if($result){
+        $_SESSION['success'] = "<h5 class='alert alert-success' align='center'>Registration Successfull !!</h5>";
+        //header('location:home.php');
+      }
+      else{
+        die("error : ".mysqli_error($con));
+      }
+
+    }
+    else{
+      $_SESSION['failure'] = "<h5 class='alert alert-danger' align='center'><strong>OOPS !!</strong> Please Enter Valid Information !!</h5>";
+    }
+  }
+
  	if(isset($_SESSION['username'])){
 		include('DBConnect.php');
 		$sql = "SELECT DISTINCT path FROM image WHERE name = 'Default'";
@@ -66,7 +96,7 @@
           <h4 class="modal-title"><center>Change Password </center></h4>
         </div>
         <div class="modal-body">
-          <form class="form-horizontal" role="form" action="<?php echo htmlentities($_SERVER['PHP_SELF']) ?>" method="post" id="signUp">
+          <form class="form-horizontal" role="form" action="<?php echo htmlentities($_SERVER['PHP_SELF']) ?>" method="post" id="changePassword">
                   <div class="form-group">
                     <label for="inputpassword1" class="col-lg-4 control-label">Current Password</label>
                     <div class="col-lg-7">
