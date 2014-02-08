@@ -79,7 +79,8 @@
 						<label>No. of Co-authors </label>
 							<input class="form-control" type="text" name="FCP_NOC" /> 
 						 <label> Whether you are the main Author</label>
-							<input type="radio" name="FCP_YN" />Yes <input type="radio" name="FCP_YN" />No<br /> 
+						 <input type="radio" name="FCP_YN" />Yes <input type="radio" name="FCP_YN"/>No<br /> 
+							
 						<label>API Score </label>
 							<input class="form-control" type="text" name="FCP_API" /> 
 					  </div>

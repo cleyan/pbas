@@ -44,7 +44,8 @@
               <li class="dropdown active">
                 <a href="#" class="dropdown-toggle icon-wrench" data-toggle="dropdown"> Setting <b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                  <li><a class="icon-cog" href="#">  Change Passoward</a></li>
+                  <li><a href="#changePasswordModal" role="button" class="btn" data-toggle="modal">Change Password</a></li>
+                  
                   <li><a class="icon-trash" href="#">  Delete Account</a></li>
                   <li class="divider"></li>
                   <li><a  class="icon-signout" href="logout.php"> LogOut</a></li>
@@ -55,6 +56,47 @@
           </div><!--/.nav-collapse -->
         </div>
       </div>
+
+      <!-- Modal -->
+  <div class="modal fade" id="changePasswordModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title"><center>Change Password </center></h4>
+        </div>
+        <div class="modal-body">
+          <form class="form-horizontal" role="form" action="<?php echo htmlentities($_SERVER['PHP_SELF']) ?>" method="post" id="signUp">
+                  <div class="form-group">
+                    <label for="inputpassword1" class="col-lg-4 control-label">Current Password</label>
+                    <div class="col-lg-7">
+                        <input type="password" class="form-control" placeholder="Current Password" name="old_pass" >
+                    </div>
+                  </div>
+                <div class="form-group">
+                    <label for="inputPassword1" class="col-lg-4 control-label">New Password</label>
+                    <div class="col-lg-7">
+                        <input type="password" class="form-control" id="inputPassword1" name="new_pass" placeholder="New Password" id="password">
+                    </div>
+                  </div>
+                <div class="form-group">
+                    <label for="inputPassword1" class="col-lg-4 control-label">Re-Type Password</label>
+                    <div class="col-lg-7">
+                        <input type="password" class="form-control" id="inputPassword1" placeholder="Re-Type Password" name="retype_pass">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                     <div class="col-lg-offset-4 col-lg-8">
+                        <button type="submit" name="save" class="btn btn-large btn-primary">Save</button>
+                        <button type="button" class="btn btn-large btn-primary" data-dismiss="modal">Close</button>
+                    </div>
+                    </div>
+              </form>
+        </div>
+        
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
 
 <?php
 	}

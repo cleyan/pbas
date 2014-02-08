@@ -47,20 +47,19 @@
 			<label>Whether you are the main Author</label>
 
 			  <!-- <input type="radio" name="PPIJ_YN" >Yes <input type="radio" name="PPIJ_YN">NO<br /> -->
-			  <?php if($PPIJ_YN == "Yes"){
-
+			  <?php if($PPIJ_YN == "yes"){
 							?>
-
-				    		Yes<input type="radio" name="PPIJ_YN" id="optionsRadios1" value="yes" <?php echo "checked" ?>>
-						    No<input type="radio" name="PPIJ_YN" id="optionsRadios2" value="no"><br><br>
+				    		Yes<input type="radio" name="degree" id="optionsRadios1" value="yes" <?php echo "checked" ?>>
+						    No<input type="radio" name="degree" id="optionsRadios2" value="no"><br><br>
 							<?php 
 							   }
 							   else{ 
 							?>
-							   		Yes<input type="radio" name="PPIJ_YN" id="optionsRadios1" value="yes" >
-						    No<input type="radio" name="PPIJ_YN" id="optionsRadios2" value="no" <?php echo "checked" ?>><br><br>
+							   		Yes<input type="radio" name="degree" id="optionsRadios1" value="yes" >
+						    No<input type="radio" name="degree" id="optionsRadios2" value="no" <?php echo "checked" ?>><br><br>
 							 <?php   }
 							?>
+
 			<label>API Score</label>
 			  <input type="text" class="form-control" name="PPIJ_API" value="<?php echo $PPIJ_API; ?>"/><br />
 			  <input class="btn btn-primary" type="submit" value="Save" name="ppij_save" />
@@ -113,8 +112,19 @@
 								<label>No. of Co-authors </label>
 								   <input type="text" class="form-control" name="APB_NOC" value="<?php echo $APB_NOC; ?>"/>
 								<label>Whether you are the main Author</label> 
-								  <input type="radio" name="ACPB_Yes" />Yes 
-								  <input type="radio" name="ACPB_No" />No<br />
+							<?php if($APB_YN == "yes"){
+							?>
+				    		Yes<input type="radio" name="degree" id="optionsRadios1" value="yes" <?php echo "checked" ?>>
+						    No<input type="radio" name="degree" id="optionsRadios2" value="no"><br><br>
+							<?php 
+							   }
+							   else{ 
+							?>
+							   		Yes<input type="radio" name="degree" id="optionsRadios1" value="yes" >
+						    No<input type="radio" name="degree" id="optionsRadios2" value="no" <?php echo "checked" ?>><br><br>
+							 <?php   }
+							?>
+
 								<label>API Score</label> <input type="text" class="form-control required" placeholder="API Score" name="APB_API" value="<?php echo $APB_API; ?>"/><br />
 								
 							</div>
