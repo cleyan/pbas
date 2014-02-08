@@ -149,8 +149,7 @@
 						<label>API Score </label>
 							<input class="form-control" type="text" name="FCP_API" value=" <?php echo $FCP_API ?>"/> 
 					  </div>
-						<br>
-							</div>
+						
 
 
 
@@ -191,8 +190,7 @@
 						 <input type="radio" name="BPSA_Yes" />Yes <input type="radio" name="BPSA_No"/>No<br /> 
 					   <label>API Score</label>  <input class="form-control" type="text" name="BPE_API" value="<?php echo $BPE_API ?>"/>  
 					  </div>
-						<br>
-							</div>
+						
 
 
 <?php
@@ -225,8 +223,7 @@
 							  <input class="form-control" type="text" name="OPC_GAM" value="<?php echo $OPC_GAM ?>"/> 
 						   <label>API Score</label>  <input class="form-control" type="text" name="OPC_API" value="<?php echo $OPC_API ?>"/>  
 					  </div>
-						<br>
-			</div>
+					
 
 
 <?php
@@ -263,8 +260,7 @@
 						 <label>API Score</label>
 							 <input class="form-control" type="text" name="CPC_API" value="<?php echo $CPC_API ?>"/> 
 					  </div>
-						<br>
-							</div>
+						
 
 
 <?php
@@ -296,8 +292,7 @@
 						  <label>API Score </label> 
 							 <input class="form-control" type="text" name="RG_API" value="<?php echo $RG_API ?>"/>
 					  </div>
-						<br>
-							</div>
+						
 
 
 <?php
@@ -329,8 +324,7 @@
 							<label>API Score </label>
 							 <input class="form-control" type="text" name="FDP_API" value="<?php echo $FDP_API ?>"/> 
 					  </div>
-						<br>
-							</div>
+					
 
 
 <?php
@@ -367,8 +361,7 @@
 						   <label>API Score</label>
 							 <input class="form-control" type="text" name="PPC_API" value="<?php echo $PPC_API ?>"/> 
 					  </div>
-						<br>
-							</div>
+						
 
 
 <?php
@@ -406,9 +399,7 @@
 						   <label>API Score</label>
 							 <input class="form-control" type="text" name="ILC_API" value="<?php echo $ILC_API ?>"/> 
 					  </div>
-						<br>
-							</div>
-
+						
 
 <?php
   }

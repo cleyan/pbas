@@ -51,16 +51,16 @@
         <br><br>
         <div class="panel panel-primary" >
             <ul class="nav nav-tabs nav-stacked"  data-offset-top="190" style="width:100%;">
-                <li><a href="ppij.php">Published Papers in Journals</a>
+                <li><a href="ppij.php">Published Papers in Journals<div class="pull-right"><i class="icon-chevron-right" ></i></div></a>
                 
-                <li><a href="apb.php" >Articles/ Chapters published in Books </a></li>
-                <li><a href="fcp.php">Full papers in Conference Proceedings </a></li>
-                <li><a href="bpe.php">Books published as single author or as editor </a></li>
-                <li><a href="opc.php">Ongoing Projects/ Consultancies</a></li>
-				<li><a href="cpc.php">Completed Projects/ Consultancies</a></li>
-				<li><a href="rg.php">Research Guidance </a></li>
-				<li><a href="fdp.php">Training Courses, Teaching-Learning-Evaluation Technology, Faculty Development Programmes</a></li>
-				<li><a href="ppc.php">Papers presented in Conferences, Seminars, Workshops, Symposia</a></li>
+                <li><a href="apb.php" >Articles/ Chapters published in Books <div class="pull-right"><i class="icon-chevron-right" ></i></div></a></li>
+                <li><a href="fcp.php">Full papers in Conference Proceedings <div class="pull-right"><i class="icon-chevron-right" ></i></div></a></li>
+                <li><a href="bpe.php">Books published as single author or as editor <div class="pull-right"><i class="icon-chevron-right" ></i></div></a></li>
+                <li><a href="opc.php">Ongoing Projects/ Consultancies<div class="pull-right"><i class="icon-chevron-right" ></i></div></a></li>
+				<li><a href="cpc.php">Completed Projects/ Consultancies<div class="pull-right"><i class="icon-chevron-right" ></i></div></a></li>
+				<li><a href="rg.php">Research Guidance <div class="pull-right"><i class="icon-chevron-right" ></i></div></a></li>
+				<li><a href="fdp.php">Training Courses, Teaching-Learning-Evaluation Technology, Faculty Development Programmes<div class="pull-right"><i class="icon-chevron-right" ></i></div></a></li>
+				<li><a href="ppc.php">Papers presented in Conferences, Seminars, Workshops, Symposia<div class="pull-right"><i class="icon-chevron-right" ></i></div></a></li>
 				<li class="active"><a href="ilc.php" > Invited Lectures and Chairmanship at National or International Conference/ Seminar<div class="pull-right"><i class="icon-chevron-right" ></i></div></a></li>
             </ul>
             </div>
