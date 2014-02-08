@@ -41,34 +41,52 @@
 		include('header.php');
    ?>
 <div class="container">
-	
-	<center><h3><b>Research Publication And Academic Contribution</b></h3></center>
+	<div style="box-shadow:5px 5px 5px 5px #888888; padding:3px 3px 3px 3px;" class="text-primary">
+	<center><h4><b>Research Publication And Academic Contribution</b></h4></center>
+	</div><!--end of box-shadow-->
     <div class="row-fluid">
         <div class="col-md-4" id="myNav">
         <br><br>
-            <ul style="box-shadow:5px 5px 5px #888888" data-spy="affix" data-offset-top="190">
-                <li class="active"><a href="ppij.php">Published Papers in Journals</a> <br><br></li>
-                
-                <a href="apb.php">Articles/ Chapters published in Books </a><br><br>
-                <a href="fcp.php">Full papers in Conference Proceedings </a><br><br>
-                <a href="bpe.php">Books published as single author or as editor </a><br><br>
-                <a href="opc.php">Ongoing Projects/ Consultancies</a><br><br>
-				<a href="cpc.php">Completed Projects/ Consultancies</a><br><br>
-				<a href="rg.php">Research Guidance </a><br><br>
-				<a href="fdp.php">Training Courses, Teaching-Learning-Evaluation Technology, Faculty Development Programmes</a><br><br>
-				<a href="ppc.php">Papers presented in Conferences, Seminars, Workshops, Symposia</a><br><br>
-				<a href="ilc.php"> Invited Lectures and Chairmanship at National or International Conference/ Seminar</a><br><br>
+        <div class="panel panel-primary" >
+            <ul class="nav nav-tabs nav-stacked"  data-offset-top="190" style="width:100%;">
+                <li class="active"><a href="ppij.php">Published Papers in Journals<div class="pull-right"><i class="icon-chevron-right" ></i></div></a></li>
+               <li> <a href="apb.php">Articles/ Chapters published in Books </a></li>
+                <li><a href="fcp.php">Full papers in Conference Proceedings </a></li>
+                <li><a href="bpe.php">Books published as single author or as editor </a></li>
+                <li><a href="opc.php">Ongoing Projects/ Consultancies</a></li>
+				<li><a href="cpc.php">Completed Projects/ Consultancies</a></li>
+				<li><a href="rg.php">Research Guidance </a></li>
+				<li><a href="fdp.php">Training Courses, Teaching-Learning-Evaluation Technology, Faculty Development Programmes</a></li>
+				<li><a href="ppc.php">Papers presented in Conferences, Seminars, Workshops, Symposia</a></li>
+				<li><a href="ilc.php"> Invited Lectures and Chairmanship at National or International Conference/ Seminar</a></li>
             </ul>
+            </div><!--end of panel-->
         </div>
-        <div class="col-sm-1"></div>
-        <div class="col-md-7">
+       <br>
+        <div class="col-md-8">
             <!--Published Papers Panel started --><br>
-			
+				<div class="panel panel-primary" style="padding:3px 3px 3px 3px;">
+				<div class="panel-heading">
 				  <h3  id="papers" class="panel-title" align="center">Published Papers in Journals</h3>
+				</div><!--end of panel heading-->
 				
-				
-					  <form role="form" name="ppij" id="ppij" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post">
-						<div id="ppij"><br />
+					  <form role="form" name="ppij"  action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post">
+						<br>
+						<input class="btn btn-primary" type="submit" value="Save" name="ppij_save" />
+						<select name="pp" onChange="showUser(this.value, this.name)">
+							<option>--Title--</option>
+							<?php 
+								include('DBConnect.php');
+								$uname=$_SESSION['username'];
+								$year=$_SESSION['pbasYear'];
+								$query = mysqli_query($con,"SELECT * from teach_ppij where user_id='$uname' and year='$year'");
+								while($row = mysqli_fetch_assoc($query)){
+							?><option><?php echo $row['Teach_PPIJ_TNO']; ?></option>
+							<?php } ?>
+						</select>
+						<input type="submit" class="btn btn-primary"  value="Delete" name="ppij_delete" />
+						<input type="reset" class="btn btn-primary" value="Reset" name="reset" />
+						<div id="ppij">
 							<div class="form-group">
 								<br><label>Title With Page Numbers</label> 
 								  <input type="text" class="form-control required" name="PPIJ_TNO" autofocus>
@@ -101,11 +119,7 @@
 						<input type="submit" class="btn btn-primary"  value="Delete" name="ppij_delete" />
 						<input type="reset" class="btn btn-primary" value="Reset" name="reset" />
 					</form>
-								
-			
-			 
-			 
-		
+						</div><!--end of panel div-->		
 		
     </div><!--End Of row-fluid Class --> 
 </div>

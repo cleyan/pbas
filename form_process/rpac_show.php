@@ -61,21 +61,7 @@
 							?>
 
 			<label>API Score</label>
-			  <input type="text" class="form-control" name="PPIJ_API" value="<?php echo $PPIJ_API; ?>"/><br />
-			  <input class="btn btn-primary" type="submit" value="Save" name="ppij_save" />
-						<select name="pp" onChange="showUser(this.value, this.name)">
-							<option>--Title--</option>
-							<?php 
-								include('DBConnect.php');
-								$uname=$_SESSION['username'];
-								$year=$_SESSION['pbasYear'];
-								$query = mysqli_query($con,"SELECT * from teach_ppij where user_id='$user' and year='$year'");
-								while($row = mysqli_fetch_assoc($query)){
-							?><option><?php echo $row['Teach_PPIJ_TNO']; ?></option>
-							<?php } ?>
-						</select>
-						<input type="submit" class="btn btn-primary"  value="Delete" name="ppij_delete" />
-						<input type="reset" class="btn btn-primary" value="Reset" name="reset" />
+			  
 		</div>
 
 

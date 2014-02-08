@@ -44,7 +44,7 @@
    ?>
 <div class="container">
 	<div style="box-shadow:5px 5px 5px 5px #888888; padding:3px 3px 3px 3px;" class="text-primary">
-	<center><h3><b>Research Publication And Academic Contribution</b></h3></center>
+	<center><h4><b>Research Publication And Academic Contribution</b></h4></center>
 	</div>
     <div class="row-fluid">
         <div class="col-md-4" id="myNav">
