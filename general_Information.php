@@ -40,13 +40,20 @@
 	?>
   <div id="wrap">
 	<div class="container" style="background-color:#FFFFFF;">
+		<div class="row">
+			<div class="col-sm-12">
+		   		<div  style="box-shadow:5px 5px 5px 5px #888888; padding:3px 3px 3px 3px;" >
+	  	<h4 align="center" class="text-primary"><b>Welocome <?php  echo $_SESSION['username']."";?>, This is your profile </b></h4>
+	  	</div></div></div>
+	  	<div>
 	    <?php
 			if(isset($_SESSION['infoUpdated'])){
 				echo $_SESSION['infoUpdated'];
 			}
 
 		?>
-	  	<h4 align="center" class="text-primary"><b><?php  echo $_SESSION['username']."'s ";?>General Information </b></h4>
+		</div>
+	
 		<div class="row">	
 			<div class="col-sm-1">
 			

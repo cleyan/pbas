@@ -91,9 +91,9 @@
 					 		 <h3 class="panel-title"><i class="icon-pushpin" >  Part-B : Academic Performance Indicator</i></h3>
 						</div>
 						<div class="panel-body">
-					 	<a class="btn btn-default btn-md" style="color:#428bca; width:100%;" href="teachingLearningActivities.php"><i class="icon-book" >  Teaching Learning & Evalution Related Activities</i></a></br></br>
-						<a class="btn btn-default btn-md" style="color:#428bca; width:100%;" href="professionalDevelopmentActivity.php"><i class="icon-briefcase" > Co-Curricular, Extension,Professional </i><br>Development Related Activity</a></br></br>
-						<a class="btn btn-default btn-md" style="color:#428bca; width:100%;" href="ppij.php"><i class="icon-pencil" > Research Publication & Academic Contribution</i></a> </br></br>
+					 	<a class="btn btn-default btn-md" style="color:#428bca; width:100%;" href="teachingLearningActivities.php"><i class="icon-book" >  Teaching Learning & Evalution Related<br> Activities</i></a></br></br>
+						<a class="btn btn-default btn-md" style="color:#428bca; width:100%;" href="professionalDevelopmentActivity.php"><i class="icon-briefcase" > Co-Curricular, Extension,Professional <br>Development Related Activity</i></a></br></br>
+						<a class="btn btn-default btn-md" style="color:#428bca; width:100%;" href="ppij.php"><i class="icon-pencil" > Research Publication & Academic<br> Contribution</i></a> </br></br>
 						<a class="btn btn-default btn-md" style="color:#428bca; width:100%;" href="API_Summary.php"><i class="icon-check" > Summary Of API Score</i></a></br>
 						</div> 
 					</div>

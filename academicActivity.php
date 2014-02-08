@@ -41,16 +41,36 @@ document.getElementById('nametxt').disabled='Click on the Yes above';
 		include('header.php');
 	?>
 		<div class="container" style="background-color:#FFFFFF;">
-			<h3 align="center"> Academic Activity </h3>
+		<div class="row">
+			<div class="col-sm-12">
+		   		<div  style="box-shadow:5px 5px 5px 5px #888888; padding:3px 3px 3px 3px;" >
+			<h3 align="center" class="text-primary"> Academic Activity </h3>
+			</div></div></div>
 			<div class="row">
 				<div class="col-sm-1">
-				</div>
+				</div><br>
+				<div class="col-md-1"></div>
 				<div class="col-sm-7">
-					<form role="form" name="academic" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post" id="acadActivity">
+					<form role="form" name="academic" class="panel panel-primary" style="padding:3px 3px 3px 3px; " action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post" id="acadActivity">
 			    		<div class="form-group" >
+			    		<button class="btn btn-primary icon-save" type="submit" name="activitySave"> Save</button>
+							<select name="activity" style="width:200px;" onChange="showUser(this.value, this.name)">
+								<option>--Courses--</option>
+								<?php 
+									#include('DBConnect.php');
+									$user_id = $_SESSION['username'];
+									$year=$_SESSION['pbasYear'];
+									$query = mysqli_query($con,"SELECT * from acad_act WHERE User_Id='$user_id' and year='$year'");
+									while($row = mysqli_fetch_assoc($query)){
+								?>
+										<option><?php echo $row['Gen_Info_Noc']; ?></option>
+								<?php } ?>
+							</select>
+							<button class="btn btn-primary icon-trash" type="submit" name="activityDelete"> Delete</button>
+							<button type="reset" class="btn btn-primary" value="Reset" name="reset" >Reset</button>
 						   <div id="academic">
 		          			
-							<br /><label>Academic Staff College Orientation / Refresher
+							<label>Academic Staff College Orientation / Refresher
 Course Attended During The Year : </label> 
 				    			Yes  <input type="radio" name="course" id="optionsRadios1" onChange="disablefield();"  value="yes">
 								No  <input type="radio" name="course" id="optionsRadios2" onChange="disablefield();" value="no"><br><br>
@@ -90,17 +110,17 @@ Course Attended During The Year : </label>
 				 </div><!--End of col-sm6 class -->
 			 
 			 	<div class="col-sm-3">
-					<div class="panel panel-primary" style="position:fixed;" class="quicklinks">
+					<div class="panel panel-primary"  class="quicklinks">
       		 			<div class="panel-heading">
-         					<h3 class="panel-title">QuickLinks</h3>
+         					<h3 class="panel-title"><i class=" icon-list">  QuickLinks</i></h3>
  	  			 		</div>
  	   					<div class="panel-body">
-						 	<a href="general_Information.php">General Category</a><br><br>		 
-							<a href="teachingLearningActivitiesaddnew.php">Teaching Learning and Evalution Related Activities</a> <br><br>
-							<a href="professionalDevelopmentActivity.php">Co-Curricular, Extension,Professional Development Related Activity</a><br><br>
-							<a href="ppij.php">Research, publication And Academic Contribution</a><br><br>
-   			 				<a href="API_Summary.php">API Summary</a><br><br>
-							<a href="otherInfo.php">Other Relevent Information<br> And Closures</a><br><br>
+						 	<a href="general_Information.php"><i class="icon-hand-right" >  Profile</i></a><br><br>		 
+							<a href="teachingLearningActivitiesaddnew.php"><i class="icon-hand-right" >  Teaching Learning and Evalution Related Activities</i></a> <br><br>
+							<a href="professionalDevelopmentActivity.php"><i class="icon-hand-right" >  Co-Curricular, Extension,Professional Development Related Activity</i></a><br><br>
+							<a href="ppij.php"><i class="icon-hand-right" >  Research, publication And Academic Contribution</i></a><br><br>
+   			 				<a href="API_Summary.php"><i class="icon-hand-right" >  API Summary</i></a><br><br>
+							<a href="otherInfo.php"><i class="icon-hand-right" >  Other Relevent Information<br> And Closures</i></a><br><br>
   	  					</div>	
    		 			</div>
 			 	</div>

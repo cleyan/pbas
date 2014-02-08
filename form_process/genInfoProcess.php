@@ -39,7 +39,7 @@
 		$result1 = mysqli_query($con,$updateQuery) or die("erro  : ".mysqli_error($con)); 
 		if($result1){
 			unset($_POST['info_save']);
-			$_SESSION['infoUpdated'] = "<h5 align='center' class='alert alert-success'>Information Updated Successfully ! ";
+			$_SESSION['infoUpdated'] = "<h5 align='center' >Information Updated Successfully ! ";
 			header('location:general_Information.php');
 		}
 		else{
