@@ -23,27 +23,35 @@
 			include('header.php');
      ?>
 	 	<div class="container" style="background-color:#FFFFFF;">
-	 		<h3 align="center">Teaching Learning And Evaluation Related Activities</h3>
-			 <div class="row" style=" margin-bottom:50px;">
 
-			 	<div class="col-sm-4" style="box-shadow:5px 5px 5px #888888; padding-bottom:55px;">
-			 		<br><br><br><br>
-			 		<li class="active"><a href="teachingLearningActivities.php">Lectures, Seminar,Tutorial, Practical, Contact Hours</a><br><br></li>
-					<a href="rimc.php">Reading/Instructional material consulted and additional knowledge resources provided to students</a><br><br>
-	   			 	<a href="tlm.php">Use of participatory and innovative Teaching-Learning Methodologies, Updating of subject contents</a><br><br>
-					<a href="edap.php">Examination Duties Assigned and Performed</a><br><br>
-				 		
-			 	</div>
+	 	<div style="box-shadow:5px 5px 5px 5px #888888; padding:3px 3px 3px 3px;" class="text-primary">
+			<center><h4><b>Teaching Learning And Evaluation Related Activities</b></h4></center>
+		</div>
+    	<div class="row-fluid">
 
-			 	<!-- <div class="col-sm-1"></div> -->
-			 	<!-- <div class="col-sm-1"></div> -->
-	   		 	<div class="col-sm-7">
+    	<div class="col-md-4" id="myNav">
+        <br><br>
+          <div class="panel panel-primary" >
+            <ul class="nav nav-tabs nav-stacked"  data-offset-top="190" style="width:100%;">
+                <li class="active"><a href="teachingLearningActivities.php">Lectures, Seminar,Tutorial, Practical, Contact Hours<div class="pull-right"><i class="icon-chevron-right" ></i></div></a></li>
+                <li><a href="rimc.php">Reading/Instructional material consulted and additional knowledge resources provided to students<div class="pull-right"><i class="icon-chevron-right" ></i></div></a></li>
+                <li><a href="tlm.php">Use of participatory and innovative Teaching-Learning Methodologies, Updating of subject contents<div class="pull-right"><i class="icon-chevron-right" ></i></div></a></li>
+                <li><a href="edap.php">Examination Duties Assigned and Performed<div class="pull-right"><i class="icon-chevron-right" ></i></div></a></li>
+                
+            </ul>
+           </div>
+        </div>
+
+        <br>
+	   		<div class="col-sm-7">
 	   		 		<br>
-					<div class="panel panel-primary" style="box-shadow:5px 5px 5px #888888; ">
+					<div class="panel panel-primary" style="padding:3px 3px 3px 3px;">
 						
-						<div class="panel-body">
-					<h5 align="center">  Lectures, Seminar,Tutorial, Practical, Contact Hours</h5>
-			   		<form role="form" name="lectures" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post" id="lectureForm">
+						
+						<div class="panel-heading" >
+				  			<h4 align="center" >Lectures, Seminar,Tutorial, Practical, Contact Hours</h4>			
+						</div><br>
+			   			<form role="form" name="lectures" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post" id="lectureForm">
 			   			<div class="form-group">
 							<div id="lect"><br />
 		          				<label>Course / Paper </label>
