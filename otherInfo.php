@@ -27,16 +27,26 @@
 		    <div class="col-sm-1">
 			</div>
 			<div class="col-sm-7">
-					<h4 align="center">Please give details of any other credential, significant contribution, 
-                                        awards recieved etc., not mentioned earlier.</h4><br>
+
+				<div style="box-shadow:5px 5px 5px 5px #888888; padding:3px 3px 3px 3px;" class="text-primary">
+					<center><h4><b>Please give details of any other credential, significant contribution, 
+                                        awards recieved etc., not mentioned earlier.</b></h4></center>
+				</div>	
+
+				<br/><br/>
+				<div class="panel panel-primary" style="padding:3px 3px 3px 3px;">
+					
 					<ul class="nav nav-tabs" id="myTab">
-  		 				<li class="active"><a href="#otherAct">Other Activity</a></li>
- 	     				<li><a href="#enclosures">Enclosures</a></li>
+						
+  		 				<li class="active"><a href="#otherAct"><b>Other Activity</b></a></li>
+ 	     				<li><a href="#enclosures"><b>Enclosures</b></a></li>
 	 	 			</ul>
 					<div class="tab-content">
 		   				<div class="tab-pane active"  id="otherAct">
-						     <h5 align="center">Other Relevant Activity
-</h5><br>
+						    <div class="panel-heading">
+				 				 <h3 align="center" class="panel-title" align="center"><b>Other Relevant Activity</b></h3>
+							</div><!--end of panel heading-->
+						     <br>
 			   					<form role="form" name="other" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post" id="otherActivityForm">
 			   					 <div class="form-group">
 								   <div id="oth">
@@ -60,9 +70,10 @@
 	         
 		 				</div><!--End of curricular id -->
 						<div class="tab-pane"  id="enclosures">
-		     			  
-						     <h5 align="center">Contribution To Corporate Life And Management Of The Institution
-</h5><br>
+		     			  	<div class="panel-heading">
+				 				 <h3 align="center" class="panel-title" align="center"><b><b>Contribution To Corporate Life And Management Of The Institution</b></b></h3>
+							</div><!--end of panel heading-->
+						     <br>
 			   					<form role="form" name="enclosures" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post" id="enclosureForm">
 			   					  <div class="form-group">
 								    <div id="enc">
@@ -87,8 +98,8 @@
 		 				</div><!--End of contribution id -->
 						
 						
-					</div><!--End of tab-content class -->
-
+						</div><!--End of tab-content class -->
+					</div>
 			</div>
 			<div class="col-sm-3">
 					<div class="panel panel-primary">

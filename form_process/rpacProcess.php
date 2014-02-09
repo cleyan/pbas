@@ -141,16 +141,17 @@ if(!empty($_POST['fpcp_save'])){
 	$user=$_SESSION['username'];
 	$year=$_SESSION['pbasYear'];
 
-	$sql="SELECT * FROM teach_fcp  WHERE User_Id='$user' and Teach_FCP_TNO = '$FCP_TNO' and Year='$year'";
+	$sql= " SELECT * FROM teach_fcp WHERE User_Id =  '$user' AND YEAR ='$year' AND Teach_FCP_TNO = '$FCP_TNO' ";
 	$result = mysqli_query($con,$sql) or die('Error'.mysqli_error($con));
 	$row = mysqli_fetch_array($result);
 
-		if($row>0){
+		if($row  > 0){
 
-			$updateQuery = "UPDATE teach_fcp SET Teach_FCP_BEP='$FCP_BEP', Teach_FCP_ISSN='$FCP_ISSN', Teach_FCP_NOC='$FCP_NOC', Teach_FCP_MA='$FCP_YN', Teach_FCP_API='$FCP_API' " ;
+			$updateQuery = " UPDATE teach_fcp SET Teach_FCP_BEP='$FCP_BEP', Teach_FCP_ISSN='$FCP_ISSN', Teach_FCP_NOC='$FCP_NOC', Teach_FCP_MA='$FCP_YN', Teach_FCP_API='$FCP_API' " ;
 			$result1 = mysqli_query($con,$updateQuery);
 			if($result1){
 				header('location:fcp.php');
+				
 			}
 			else{
 				die("error : ".mysqli_error($con));
@@ -159,13 +160,14 @@ if(!empty($_POST['fpcp_save'])){
  		else{
 				$sql2 = "INSERT into teach_fcp (User_Id,year,Teach_FCP_TNO,Teach_FCP_BEP,Teach_FCP_ISSN,Teach_FCP_NOC, Teach_FCP_MA,Teach_FCP_API) Values('$user','$year','$FCP_TNO','$FCP_BEP','$FCP_ISSN','$FCP_NOC','$FCP_YN','$FCP_API')";
 				$result2 = mysqli_query($con,$sql2) or die("error : ").mysqli_error($con);
-			}
+			
 		if($result2){
 			header('Location:fcp.php');
 		}
 		else{
 			echo "Error".mysqli_error();
 		}
+	}
 
 }
 
@@ -175,7 +177,7 @@ if(!empty($_POST['fcp_delete'])){
 	$FCP_BEP = $_POST['FCP_BEP'];
 	$FCP_ISSN = $_POST['FCP_ISSN'];
 	$FCP_NOC = $_POST['FCP_NOC'];
-	$FCP_Yes = $_POST['FCP_YN'];
+	$FCP_YN = $_POST['FCP_YN'];
 	$FCP_API = $_POST['FCP_API'];
 	$user=$_SESSION['username'];
 	$year=$_SESSION['pbasYear'];

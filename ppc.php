@@ -68,11 +68,11 @@
         </div>
         
         <div class="col-md-8">
-            			 
+            		<br/>	 
 			 <!--"Papers Presented in Conferences" Panel started --><br>			 
 				<div class="panel panel-primary" style="padding:3px 3px 3px 3px;">
 				<div class="panel-heading">
-				  <h3 id="papersPresented" class="panel-title" align="center">Papers Presented in Conferences, Seminars, Workshops, Symposia</h3><br>
+				  <h4 id="papersPresented" class="panel-title" align="center">Papers Presented in Conferences, Seminars, Workshops, Symposia</h3>
 				</div><br>
 				  <form id="presentedForm" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post">
 					   
