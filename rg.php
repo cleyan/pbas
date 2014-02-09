@@ -69,6 +69,7 @@
         <div class="col-md-8">
             			<br> 
 			 <!--"Research Guidance" Panel started --><br>
+			 
 			 		<div class="panel panel-primary" style="padding:3px 3px 3px 3px;">
 				<div class="panel-heading">			
 				  <h3 class="panel-title" align="center">Research Guidance</h3>				
