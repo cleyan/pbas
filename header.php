@@ -12,7 +12,7 @@ if(isset($_POST['save'])){
     $row = mysqli_fetch_array($Query);
     if($row>0){ 
 
-      if ($new_pass==$old_pass)
+      if ($new_pass==$retype_pass)
       {
           $updateQuery = "update userinfo set Pwd='$retype_pass' WHERE User_Id = '$user'" ;
           $result = mysqli_query($con,$updateQuery);
