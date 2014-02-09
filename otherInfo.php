@@ -102,19 +102,20 @@
 					</div>
 			</div>
 			<div class="col-sm-3">
-					<div class="panel panel-primary">
-      		 		<div class="panel-heading">
-         				<h3 class="panel-title">QuickLinks</h3>
- 	  			 	</div>
- 	   				<div class="panel-body">
-						<a href="general_Information.php">General Category</a><br><br>
-						 <a href="academicActivity.php">Academic Activity </a><br><br>		 
-						<a href="teachingLearning.php">Teaching Learning and Evalution Related Activities</a> <br><br>
-						<a href="curricularActivities.php">Co-Curricular, Extension,Professional Development Related Activity</a><br><br>
-						<a href="researchPublication.php">Research, publication And Academic Contribution</a><br><br>
-   			 			<a href="API_Summary.php">API Summary</a><br><br>
-  	  				</div>	
-   		 		</div>
+					<div class="panel panel-primary"  class="quicklinks">
+      		 			<div class="panel-heading">
+         					<h3 class="panel-title"><i class=" icon-list">  QuickLinks</i></h3>
+ 	  			 		</div>
+ 	   					<div class="panel-body">
+						 	<a href="general_Information.php"><i class="icon-hand-right" >  Profile</i></a><br><br>	
+						 	<a href="academicActivity.php"><i class="icon-hand-right" > Academic Activity</i></a><br><br>	 
+							<a href="teachingLearningActivitiesaddnew.php"><i class="icon-hand-right" >  Teaching Learning and Evalution Related Activities</i></a> <br><br>
+							<a href="professionalDevelopmentActivity.php"><i class="icon-hand-right" >  Co-Curricular, Extension,Professional Development Related Activity</i></a><br><br>
+							<a href="ppij.php"><i class="icon-hand-right" >  Research, publication And Academic Contribution</i></a><br><br>
+   			 				<a href="API_Summary.php"><i class="icon-hand-right" >  API Summary</i></a><br><br>
+							
+  	  					</div>	
+   		 			</div>
 			</div>
 			<div class="col-sm-1">
 			</div>
