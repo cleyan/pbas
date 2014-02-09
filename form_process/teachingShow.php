@@ -34,8 +34,10 @@
 
 ?>
         <label>Course / Paper</label> 
-				   <input type="text" class="form-control required" name="course" title="Please Enter Course Name" value="<?php echo $courseName; ?>">
-         <br /><label>Level</label>
+        	<div class="panel panel-primary"><label>
+				  <?php echo $courseName; ?></label></div>
+				   
+         <label>Level</label>
 				    <input type="text" class="form-control required" name="level" title="Please Enter The Level"value="<?php echo $level; ?>"/>
 		 <br /><label>Mode Of Teaching</label>
 				    <input type="text" class="form-control required" name="teachingModes" title="Please Enter Teaching Mode" value="<?php echo $modes; ?>"/>

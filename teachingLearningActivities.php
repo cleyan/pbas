@@ -52,8 +52,25 @@
 				  			<h4 align="center" >Lectures, Seminar,Tutorial, Practical, Contact Hours</h4>			
 						</div><br>
 			   			<form role="form" name="lectures" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post" id="lectureForm">
+			   			
+			   				<input class="btn btn-primary" type="submit" value="Save" name="lectSave" />
+									<select name="lect" onChange="showUser(this.value, this.name)">
+										<option>--Title--</option>
+										<?php 
+											include('DBConnect.php');
+											$user_id = $_SESSION['username'];
+											echo $year=$_SESSION['pbasYear'];
+											$query = mysqli_query($con,"SELECT * from Teach_LSTP WHERE User_Id='$user_id' and Year='$year'");
+											while($row = mysqli_fetch_assoc($query)){
+										?>		<option><?php echo $row['Teach_LSTP_Course']; ?></option>
+										<?php } ?>
+									</select>
+									<input type="submit" class="btn btn-primary"  value="Delete" name="lectDelete" />
+									<input type="reset" class="btn btn-primary" value="Reset" name="reset" /><br/><br/>
+									
 			   			<div class="form-group">
-							<div id="lect"><br />
+							<div id="lect">
+								
 		          				<label>Course / Paper </label>
 				    			<input type="text" class="form-control required" name="course" title="Please Enter Course Name">
                   				<br /><label>Level</label>
