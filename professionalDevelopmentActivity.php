@@ -45,8 +45,24 @@
 					 <h4 align="center">Extension, Co-curricular & Field based activities.</h4>
 					 </div><br>
 			   					<form role="form" name="curricular" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post" id="curricularForm">
+
+			   					<input class="btn btn-primary" type="submit" value="Save" name="curricularSave" />
+									<select name="curr" onChange="showUser(this.value, this.name)">
+										<option>--Activity--</option>
+										<?php 
+											include('DBConnect.php');
+											$userId = $_SESSION['username'];
+											$year=$_SESSION['pbasYear'];
+											$query = mysqli_query($con,"SELECT * from teach_ecfa WHERE User_Id = '$userId' and year='$year'");
+											while($row = mysqli_fetch_assoc($query)){
+										?>		<option><?php echo $row['Teach_ECFA_TOA']; ?></option>
+										<?php } ?>
+									</select>
+									<input type="submit" class="btn btn-primary"  value="Delete" name="curricularDelete" />
+									<input type="reset" class="btn btn-primary" value="Reset" name="reset" />	
+			   					
 			   					 <div class="form-group">
-								   <div id="curr">
+								   <div id="curr"><br/>
 		          					 <label>Type of Activity</label> 
 				    					<input type="text" class="form-control required" name="typeOfActivity" title="Please Enter The Type of Activity">
                   					<br><label>Average Hrs/Week</label>

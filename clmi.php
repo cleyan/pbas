@@ -59,7 +59,7 @@
 									<input type="submit" class="btn btn-primary"  value="Delete" name="contributionDelete" />
 									<input type="reset" class="btn btn-primary" value="Reset" name="reset" />
 			   					<div class="form-group">
-								   <div id="cont">
+								   <div id="cont"><br/>
 		          					<label>Type of Activity</label> 
 				    					<input type="text" class="form-control required" name="typeOfActivity" title="Please Enter Type of Activity">
                   					<br><label>Yearly/Semester wise responsibility</label>
