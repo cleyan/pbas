@@ -65,14 +65,27 @@
             </ul>
             </div><!--end of panel-->
         </div>
-        <div class="col-sm-1"></div>
-        <div class="col-md-7">
-            			 
+        
+        <div class="col-md-8">
+            		<br>	 
 			 <!--"Ongoing Projects" Panel started --><br>			 
-				
-				  <h3 id="ongoing" class="panel-title" align="center">Ongoing Projects / Consultancies</h3><br>				
-				
+				<div class="panel panel-primary" style="padding:3px 3px 3px 3px;">
+				<div class="panel-heading">
+				  <h4 id="ongoing" class="panel-title" align="center">Ongoing Projects / Consultancies</h4>			
+				</div><br>
 				  <form id="ongoingForm" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post">
+					  <input class="btn btn-md btn-primary" type="submit" value="Save" name="opc_save" />
+							<select name="op" onchange="showUser(this.value,this.name)">
+								<option>--Title--</option>
+								<?php 
+									include('DBConnect.php');
+									$query = mysqli_query($con,"SELECT * from teach_opc where User_Id='$user' and year='$year'");
+									while($row = mysqli_fetch_assoc($query)){
+								?><option><?php echo $row['Teach_OPC_Title']; ?></option>
+								<?php } ?>
+							</select>
+							<input class="btn btn-md btn-primary" type="submit" value="Delete" name="opc_delete" />
+							<input class="btn btn-md btn-primary" type="reset" value="Reset" name="reset" /> 
 					  <div id="ongoingFields">
 							<label>Title</label>
 							  <input class="form-control" type="text" name="OPC_Title"> 
@@ -97,7 +110,7 @@
 							<input class="btn btn-md btn-primary" type="submit" value="Delete" name="opc_delete" />
 							<input class="btn btn-md btn-primary" type="reset" value="Reset" name="reset" /> 
 				  </form>
-				
+				</div><!--end of panel-->
         </div><!--End Of col-md-6 --> 
 		
 		

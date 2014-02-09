@@ -43,33 +43,49 @@
 		$year=$_SESSION['pbasYear'];
    ?>
 <div class="container">
-	
-	<center><h3><b>Research Publication And Academic Contribution</b></h3></center>
+	<div style="box-shadow:5px 5px 5px 5px #888888; padding:3px 3px 3px 3px;" class="text-primary">
+	<center><h4><b>Research Publication And Academic Contribution</b></h4></center>
+	</div><!--end of box-shadow-->
     <div class="row-fluid">
         <div class="col-md-4" id="myNav">
         <br><br>
-            <ul style="box-shadow:5px 5px 5px #888888" data-spy="affix" data-offset-top="190">
-                <a href="ppij.php">Published Papers in Journals</a> <br><br>
+        <div class="panel panel-primary" >
+            <ul class="nav nav-tabs nav-stacked"  data-offset-top="190" style="width:100%;">
+            <li><a href="ppij.php">Published Papers in Journals<div class="pull-right"><i class="icon-chevron-right" ></i></div></a> </li>
                 
-                <a href="apb.php">Articles/ Chapters published in Books </a><br><br>
-                <a href="fcp.php">Full papers in Conference Proceedings </a><br><br>
-                <a href="bpe.php">Books published as single author or as editor </a><br><br>
-                <a href="opc.php">Ongoing Projects/ Consultancies</a><br><br>
-				<a href="cpc.php">Completed Projects/ Consultancies</a><br><br>
-				<li class="active"><a href="rg.php">Research Guidance </a><br><br></li>
-				<a href="fdp.php">Training Courses, Teaching-Learning-Evaluation Technology, Faculty Development Programmes</a><br><br>
-				<a href="ppc.php">Papers presented in Conferences, Seminars, Workshops, Symposia</a><br><br>
-				<a href="ilc.php"> Invited Lectures and Chairmanship at National or International Conference/ Seminar</a><br><br>
+            <li><a href="apb.php">Articles/ Chapters published in Books <div class="pull-right"><i class="icon-chevron-right" ></i></div></a></li>
+            <li><a href="fcp.php">Full papers in Conference Proceedings <div class="pull-right"><i class="icon-chevron-right" ></i></div></a></li>
+            <li><a href="bpe.php">Books published as single author or as editor<div class="pull-right"><i class="icon-chevron-right" ></i></div> </a></li>
+            <li><a href="opc.php">Ongoing Projects/ Consultancies<div class="pull-right"><i class="icon-chevron-right" ></i></div></a></li>
+			<li><a href="cpc.php">Completed Projects/ Consultancies<div class="pull-right"><i class="icon-chevron-right" ></i></div></a></li>
+				<li class="active"><a href="rg.php">Research Guidance<div class="pull-right"><i class="icon-chevron-right" ></i></div> </a></li>
+				<li><a href="fdp.php">Training Courses, Teaching-Learning-Evaluation Technology, Faculty Development Programmes<div class="pull-right"><i class="icon-chevron-right" ></i></div></a></li>
+			<li><a href="ppc.php">Papers presented in Conferences, Seminars, Workshops, Symposia<div class="pull-right"><i class="icon-chevron-right" ></i></div></a></li>
+			<li><a href="ilc.php"> Invited Lectures and Chairmanship at National or International Conference/ Seminar<div class="pull-right"><i class="icon-chevron-right" ></i></div></a></li>
             </ul>
+            </div><!--end of panel-->
         </div>
-        <div class="col-sm-1"></div>
-        <div class="col-md-6">
-            			 
+        
+        <div class="col-md-8">
+            			<br> 
 			 <!--"Research Guidance" Panel started --><br>
-			 				
-				  <h3 class="panel-title" align="center">Research Guidance</h3>	<br>			
-				
+			 		<div class="panel panel-primary" style="padding:3px 3px 3px 3px;">
+				<div class="panel-heading">			
+				  <h3 class="panel-title" align="center">Research Guidance</h3>				
+				</div><br>
 				  <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post">
+					   <input class="btn btn-md btn-primary" type="submit" value="Save" name="rg_save" />
+							<select name="rg" onchange="showUser(this.value,this.name)">
+								<option>--Title--</option>
+								<?php 
+									include('DBConnect.php');
+									$query = mysqli_query($con,"SELECT * from teach_rg where user_id='$user' and year='$year'");
+									while($row = mysqli_fetch_assoc($query)){
+								?><option><?php echo $row['Teach_RG_NE']; ?></option>
+								<?php } ?>
+							</select>
+							<input class="btn btn-md btn-primary" type="submit" value="Delete" name="rg_delete" />
+							<input class="btn btn-md btn-primary" type="reset" value="Reset" name="guidanceReset" /> 
 					   <div id="GuidanceFields">
 						   <label>Number Enrolled</label>
 							<input class="form-control" type="text" name="RG_NE"> 
@@ -94,7 +110,7 @@
 							<input class="btn btn-md btn-primary" type="submit" value="Delete" name="rg_delete" />
 							<input class="btn btn-md btn-primary" type="reset" value="Reset" name="guidanceReset" /> 
 				  </form>
-				
+				</div><!--end of panel-->
         </div><!--End Of col-md-6 --> 
 		
 		
