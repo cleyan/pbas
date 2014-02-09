@@ -43,24 +43,27 @@
 		$year=$_SESSION['pbasYear'];
    ?>
 <div class="container">
-	
-	<center><h3><b>Research Publication And Academic Contribution</b></h3></center>
+	<div style="box-shadow:5px 5px 5px 5px #888888; padding:3px 3px 3px 3px;" class="text-primary">
+	<center><h4><b>Research Publication And Academic Contribution</b></h4></center>
+	</div><!--end of box-shadow-->
     <div class="row-fluid">
         <div class="col-md-4" id="myNav">
         <br><br>
-            <ul style="box-shadow:5px 5px 5px #888888" data-spy="affix" data-offset-top="190">
-                <a href="ppij.php">Published Papers in Journals</a> <br><br>
+        <div class="panel panel-primary" >
+            <ul class="nav nav-tabs nav-stacked"  data-offset-top="190" style="width:100%;">
+                <li><a href="ppij.php">Published Papers in Journals<div class="pull-right"><i class="icon-chevron-right" ></i></div></a> </li>
                 
-                <a href="apb.php">Articles/ Chapters published in Books </a><br><br>
-                <a href="fcp.php">Full papers in Conference Proceedings </a><br><br>
-                <a href="bpe.php">Books published as single author or as editor </a><br><br>
-                <li class="active"><a href="opc.php">Ongoing Projects/ Consultancies</a><br><br></li>
-				<a href="cpc.php">Completed Projects/ Consultancies</a><br><br>
-				<a href="rg.php">Research Guidance </a><br><br>
-				<a href="fdp.php">Training Courses, Teaching-Learning-Evaluation Technology, Faculty Development Programmes</a><br><br>
-				<a href="ppc.php">Papers presented in Conferences, Seminars, Workshops, Symposia</a><br><br>
-				<a href="ilc.php"> Invited Lectures and Chairmanship at National or International Conference/ Seminar</a><br><br>
+                <li><a href="apb.php">Articles/ Chapters published in Books<div class="pull-right"><i class="icon-chevron-right" ></i></div> </a</li>
+                <li><a href="fcp.php">Full papers in Conference Proceedings<div class="pull-right"><i class="icon-chevron-right" ></i></div> </a</li>
+                <li><a href="bpe.php">Books published as single author or as editor <div class="pull-right"><i class="icon-chevron-right" ></i></div></a></li>
+                <li class="active"><a href="opc.php">Ongoing Projects/ Consultancies<div class="pull-right"><i class="icon-chevron-right" ></i></div></a></li>
+				<li><a href="cpc.php">Completed Projects/ Consultancies<div class="pull-right"><i class="icon-chevron-right" ></i></div></a></li>
+				<li><a href="rg.php">Research Guidance <div class="pull-right"><i class="icon-chevron-right" ></i></div></a></li>
+				<li><a href="fdp.php">Training Courses, Teaching-Learning-Evaluation Technology, Faculty Development Programmes<div class="pull-right"><i class="icon-chevron-right" ></i></div></a></li>
+				<li><a href="ppc.php">Papers presented in Conferences, Seminars, Workshops, Symposia<div class="pull-right"><i class="icon-chevron-right" ></i></div></a></li>
+				<li><a href="ilc.php"> Invited Lectures and Chairmanship at National or International Conference/ Seminar<div class="pull-right"><i class="icon-chevron-right" ></i></div></a></li>
             </ul>
+            </div><!--end of panel-->
         </div>
         <div class="col-sm-1"></div>
         <div class="col-md-7">

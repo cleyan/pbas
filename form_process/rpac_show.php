@@ -83,7 +83,7 @@
  		$APB_YN = $row['Teach_APB_MA'];
 	    $APB_API = $row['Teach_APB_API'];
 ?>
-        <h3>Articles / Chapters published in Books</h3>
+        
             
 			
 			 <div class="form-group">
@@ -132,8 +132,7 @@
 	    $FCP_API = $row['Teach_FCP_API'];
 
 ?>
-        <h3>Full Papers in Conference Proceedings</h3>
-            
+       
 			
 			 <div class="form-group">
 								<label> Title With Page Numbers</label>
@@ -172,7 +171,7 @@
 	    
 
 ?>
-        <h3>Books published as single author or as editor </h3>
+       
             
 			
 			 <div class="form-group">
@@ -209,7 +208,7 @@
 	    
 
 ?>
-        <h3>Ongoing Projects / Consultancies</h3>
+        
             
 			
 			<div class="form-group">
@@ -243,7 +242,7 @@
 	    
 
 ?>
-        <h3>Completed Projects / Consultancies</h3>
+       
             
 			
 			 <div class="form-group">

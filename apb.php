@@ -43,34 +43,50 @@
 		include('header.php');
    ?>
 <div class="container">
-	
-	<center><h3><b>Research Publication And Academic Contribution</b></h3></center>
+	<div style="box-shadow:5px 5px 5px 5px #888888; padding:3px 3px 3px 3px;" class="text-primary">
+	<center><h4><b>Research Publication And Academic Contribution</b></h4></center>
+	</div><!--end of box-shadow-->
     <div class="row-fluid">
         <div class="col-md-4" id="myNav">
         <br><br>
-            <ul style="box-shadow:5px 5px 5px #888888" data-spy="affix" data-offset-top="190">
-                <a href="ppij.php">Published Papers in Journals</a> <br><br>
+        <div class="panel panel-primary" >
+            <ul class="nav nav-tabs nav-stacked"  data-offset-top="190" style="width:100%;">
+                <li><a href="ppij.php">Published Papers in Journals<div class="pull-right"><i class="icon-chevron-right" ></i></div> </a> </li>
                 
-                <li class="active"><a href="apb.php">Articles/ Chapters published in Books </a><br><br></li>
-                <a href="fcp.php">Full papers in Conference Proceedings </a><br><br>
-                <a href="bpe.php">Books published as single author or as editor </a><br><br>
-                <a href="opc.php">Ongoing Projects/ Consultancies</a><br><br>
-				<a href="cpc.php">Completed Projects/ Consultancies</a><br><br>
-				<a href="rg.php">Research Guidance </a><br><br>
-				<a href="fdp.php">Training Courses, Teaching-Learning-Evaluation Technology, Faculty Development Programmes</a><br><br>
-				<a href="ppc.php">Papers presented in Conferences, Seminars, Workshops, Symposia</a><br><br>
-				<a href="ilc.php"> Invited Lectures and Chairmanship at National or International Conference/ Seminar</a><br><br>
+                <li class="active"><a href="apb.php">Articles/ Chapters published in Books <div class="pull-right"><i class="icon-chevron-right" ></i></div> </a></li>
+                <li><a href="fcp.php">Full papers in Conference Proceedings <div class="pull-right"><i class="icon-chevron-right" ></i></div> </a></li>
+                <li><a href="bpe.php">Books published as single author or as editor <div class="pull-right"><i class="icon-chevron-right" ></i></div> </a></li>
+                <li><a href="opc.php">Ongoing Projects/ Consultancies<div class="pull-right"><i class="icon-chevron-right" ></i></div> </a></li>
+				<li><a href="cpc.php">Completed Projects/ Consultancies<div class="pull-right"><i class="icon-chevron-right" ></i></div> </a></li>
+				<li><a href="rg.php">Research Guidance <div class="pull-right"><i class="icon-chevron-right" ></i></div> </a></li>
+				<li><a href="fdp.php">Training Courses, Teaching-Learning-Evaluation Technology, Faculty Development Programmes<div class="pull-right"><i class="icon-chevron-right" ></i></div> </a></li>
+				<li><a href="ppc.php">Papers presented in Conferences, Seminars, Workshops, Symposia<div class="pull-right"><i class="icon-chevron-right" ></i></div> </a></li>
+				<li><a href="ilc.php"> Invited Lectures and Chairmanship at National or International Conference/ Seminar<div class="pull-right"><i class="icon-chevron-right" ></i></div> </a></li>
             </ul>
+            </div><!--end of panel-->
         </div>
-        <div class="col-sm-1"></div>
-        <div class="col-md-7">
-            
+        
+        <div class="col-md-8">
+            <br>
 			<!--Articles/Chapters Section Started --><br>
-						
-				  <h3 id="articles" class="panel-title" align="center">Articles / Chapters published in Books</h3><br>
-				
+					<div class="panel panel-primary" style="padding:3px 3px 3px 3px;">
+				<div class="panel-heading">	
+				  <h4 id="articles" class="panel-title" align="center">Articles / Chapters published in Books</h4><br>
+				</div><br>
 				
 				  <form role="form" method="post" name="apb" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post">
+						<input class="btn btn-md btn-primary" type="submit" value="Save" name="acpb_save" />
+						<select name="apb" onChange="showUser(this.value, this.name)">
+						<option value="">Select Article:</option>
+						 <?php
+							 include('DBConnect.php');
+							$sql2 = mysqli_query($con,"Select * from teach_apb where user_id='$user' and year='$year'");
+							while($row = mysqli_fetch_assoc($sql2)){ ?>
+							<option><?php echo $row['Teach_APB_TNO']; ?></option>		
+						<?php } ?>
+						</select>
+						<input type="submit" class="btn btn-primary"  value="Delete" name="apb_delete" />
+						<input type="reset" class="btn btn-primary" value="Reset" name="reset" />
 						<div id="apb">
 							<div class="form-group">
 								<label>Title With Page Numbers </label>
@@ -103,7 +119,7 @@
 						<input type="submit" class="btn btn-primary"  value="Delete" name="apb_delete" />
 						<input type="reset" class="btn btn-primary" value="Reset" name="reset" />
 				   </form>			
-		
+		</div>
         </div><!--End Of col-md-6 --> 
 			
     </div><!--End Of row-fluid Class --> 
