@@ -71,7 +71,7 @@
 		<!--"Full Papers in Conference" form started -->
 		<div class="panel panel-primary" style="padding:3px 3px 3px 3px;">
 				<div class="panel-heading">						
-				  <h4 id="fullPapers" class="panel-title" align="center">Full Papers in Conference Proceedings</h4><br>
+				  <h4 id="fullPapers" class="panel-title" align="center">Full Papers in Conference Proceedings</h4>
 				</div><br>
 				  <form method="post" name="fpcp" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post">
 					  <input class="btn btn-md btn-primary" type="submit" value="Save" name="fpcp_save" />
@@ -93,9 +93,9 @@
 						<label>ISSN / ISBN No. </label>
 							<input class="form-control" type="text" name="FCP_ISSN" /> 
 						<label>No. of Co-authors </label>
-							<input class="form-control" type="text" name="FCP_NOC" /> 
+							<input class="form-control" type="text" name="FCP_NOC" /> <br/>
 						 <label> Whether you are the main Author</label>
-						 <input type="radio" name="FCP_YN" />Yes <input type="radio" name="FCP_YN"/>No<br /> 
+						 <input type="radio" name="FCP_YN" />Yes <input type="radio" name="FCP_YN"/>No<br /> <br/>
 							
 						<label>API Score </label>
 							<input class="form-control" type="text" name="FCP_API" /> 

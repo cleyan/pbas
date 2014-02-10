@@ -71,7 +71,7 @@
 			<!--Articles/Chapters Section Started --><br>
 					<div class="panel panel-primary" style="padding:3px 3px 3px 3px;">
 				<div class="panel-heading">	
-				  <h4 id="articles" class="panel-title" align="center">Articles / Chapters published in Books</h4><br>
+				  <h4 id="articles" class="panel-title" align="center">Articles / Chapters published in Books</h4>
 				</div><br>
 				
 				  <form role="form" method="post" name="apb" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post">

@@ -90,18 +90,18 @@
 							<div class="form-group">
 								<br><label>Title With Page Numbers</label> 
 								  <input type="text" class="form-control required" name="PPIJ_TNO" autofocus>
-								<br><label>Journal</label>
+								<label>Journal</label>
 								  <input type="text" class="form-control required" name="PPIJ_Journal"/>
-								<br><label>ISSN / ISBN No. </label>
+								<label>ISSN / ISBN No. </label>
 								  <input type="text" class="form-control required" name="PPIJ_ISBN"/>
-								<br><label> Whether peer reviewed? Impact factor, if any</label>
+								<label> Whether peer reviewed? Impact factor, if any</label>
 								  <input type="text" class="form-control required" name="PPIJ_PR"/>
-								<br><label>No. of Co-authors</label>
+								<label>No. of Co-authors</label>
 								  <input type="text" class="form-control required" name="PPIJ_NCA"/>
-								<br><label>Whether you are the main Author</label>
+								<br/><label>Whether you are the main Author</label>
 								  <input type="radio" value="Yes" name="PPIJ_YN" >Yes <input type="radio" value="No" name="PPIJ_YN">NO<br />
-								<br><label>API Score</label>
-								  <input type="text" class="form-control required" name="PPIJ_API"/><br />
+								<br/><label>API Score</label>
+								  <input type="text" class="form-control required" name="PPIJ_API"/>
 							</div>
 						</div>
 						<input class="btn btn-primary" type="submit" value="Save" name="ppij_save" />
