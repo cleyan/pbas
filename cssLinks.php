@@ -25,6 +25,10 @@
 		  top: auto;
 		  bottom: 200px;  //height of the footer
 		}
+	    .shadows{
+			box-shadow:5px 5px 5px 5px #888888; 
+			padding:3px 3px 3px 3px;
+		}
 	  .top-margin{
 	    margin-top:50px;
 	  }
