@@ -30,7 +30,7 @@
 		   	   <div class="col-md-4" id="myNav">
         <br>
         <div class="panel panel-primary" >
-        <ul class="nav nav-tabs nav-stacked"  data-offset-top="190" style="width:100%;">
+        <ul class="nav nav-tabs nav-pills nav-stacked"  data-offset-top="190" style="width:100%;">
 			 		<li><a href="professionalDevelopmentActivity.php">Extension, Co-curricular & Field based activities<div class="pull-right"><i class="icon-chevron-right" ></i></div></a></li>
 					<li><a href="clmi.php">Contribution to Corporate Life and Management of the Institution<div class="pull-right"><i class="icon-chevron-right" ></i></div></a></li>
 	   			 	<li class="active"><a href="pda.php">Professional Development Activities<div class="pull-right"><i class="icon-chevron-right" ></i></div></a></li>						 		
@@ -40,7 +40,7 @@
 		  		<div class="col-md-8">						
 							  <div class="panel panel-primary" style="padding:3px 3px 3px 3px;">
 							<div class="panel-heading">   			  
-						     <h4 align="center">Professional Development Activities</h4>
+						     <h4 align="center"><b>Professional Development Activities</b></h4>
 			   					</div><br>
 			   					<form role="form" name="development" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post" id="developmentForm">
 			   					<input class="btn btn-primary" type="submit" value="Save" name="developmentSave" />

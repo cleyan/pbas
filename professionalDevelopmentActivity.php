@@ -24,13 +24,13 @@
      ?>
 	 <div class="container" >
 	 	<div style="box-shadow:5px 5px 5px 5px #888888; padding:3px 3px 3px 3px;" class="text-primary">
-	 	<h4 align="center">Co-Curricular, Extension,Professional Development Related Activity</h4>
+	 	<h4 align="center"><b>Co-Curricular, Extension,Professional Development Related Activity</b></h4>
 	 	</div><br>
 	  	  <div class="row">
 	  	  	<div class="col-md-4" id="myNav">
 
 		   	    <div class="panel panel-primary">
-		   	    <ul class="nav nav-tabs nav-stacked"  data-offset-top="190" style="width:100%;">
+		   	    <ul class="nav nav-tabs nav-pills nav-stacked"  data-offset-top="190" style="width:100%;">
 		   	    	
 			 		<li class="active"><a href="professionalDevelopmentActivity.php">Extension, Co-curricular & Field based activities<div class="pull-right"><i class="icon-chevron-right" ></i></div></a></li>
 					<li><a href="clmi.php">Contribution to Corporate Life and Management of the Institution<div class="pull-right"><i class="icon-chevron-right" ></i></div></a></li>

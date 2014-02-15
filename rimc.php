@@ -26,9 +26,9 @@
 	 		<div class="col-md-4" id="myNav">
         <br><br>
         <div class="panel panel-primary" >
-            <ul class="nav nav-tabs nav-stacked"  data-offset-top="190" style="width:100%;">
+            <ul class="nav nav-tabs nav-pills"  data-offset-top="190" style="width:100%;">
                 <li><a href="teachingLearningActivities.php">Lectures, Seminar,Tutorial, Practical, Contact Hours<div class="pull-right"><i class="icon-chevron-right" ></i></div></a></li>
-                <li class="active"><a href="rimc.php">Reading/Instructional material consulted and additional knowledge resources provided to students<div class="pull-right"><i class="icon-chevron-right" ></i></div></a></li>
+                <li><li class="active"><a href="rimc.php">Reading/Instructional material consulted and additional knowledge resources provided to students<div class="pull-right"><i class="icon-chevron-right" ></i></div></a></li>
                 <li><a href="tlm.php">Use of participatory and innovative Teaching-Learning Methodologies, Updating of subject contents<div class="pull-right"><i class="icon-chevron-right" ></i></div></a></li>
                 <li><a href="edap.php">Examination Duties Assigned and Performed<div class="pull-right"><i class="icon-chevron-right" ></i></div></a></li>
                 

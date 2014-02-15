@@ -50,11 +50,11 @@
     <br><br>
         <div class="col-md-4" id="myNav">
         <div class="panel panel-primary" >
-            <ul class="nav nav-tabs nav-stacked"  data-offset-top="190" style="width:100%;">
+            <ul class="nav nav-tabs nav-stacked"  style="width:100%;">
                <li> <a href="ppij.php">Published Papers in Journals<div class="pull-right"><i class="icon-chevron-right" ></i></div></a> </li>
                 
                 <li><a href="apb.php">Articles/ Chapters published in Books <div class="pull-right"><i class="icon-chevron-right" ></i></div></a></li>
-               <li> <li class="active"><a href="fcp.php">Full papers in Conference Proceedings<div class="pull-right"><i class="icon-chevron-right" ></i></div> </a></li>
+               <li class="active"><a href="fcp.php">Full papers in Conference Proceedings<div class="pull-right"><i class="icon-chevron-right" ></i></div> </a></li>
                <li> <a href="bpe.php">Books published as single author or as editor<div class="pull-right"><i class="icon-chevron-right" ></i></div> </a></li>
                <li> <a href="opc.php">Ongoing Projects/ Consultancies<div class="pull-right"><i class="icon-chevron-right" ></i></div></a></li>
 				<li><a href="cpc.php">Completed Projects/ Consultancies<div class="pull-right"><i class="icon-chevron-right" ></i></div></a></li>
