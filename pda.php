@@ -23,69 +23,71 @@
 			include('header.php');
      ?>
 	 <div class="container" style="background-color:#FFFFFF;">
-	 <div style="box-shadow:5px 5px 5px 5px #888888; padding:3px 3px 3px 3px;" class="text-primary">
-	 	<h4 align="center">Co-Curricular, Extension,Professional Development Related Activity</h4>
-	 	</div><br>
-	  	  <div class="row">
-		   	   <div class="col-md-4" id="myNav">
-        <br>
-        <div class="panel panel-primary" >
-        <ul class="nav nav-tabs nav-pills nav-stacked"  data-offset-top="190" style="width:100%;">
-			 		<li><a href="professionalDevelopmentActivity.php">Extension, Co-curricular & Field based activities<div class="pull-right"><i class="icon-chevron-right" ></i></div></a></li>
-					<li><a href="clmi.php">Contribution to Corporate Life and Management of the Institution<div class="pull-right"><i class="icon-chevron-right" ></i></div></a></li>
-	   			 	<li class="active"><a href="pda.php">Professional Development Activities<div class="pull-right"><i class="icon-chevron-right" ></i></div></a></li>						 		
-			</ul></div> 	
-				</div>
+	 
+		<div class="text-primary shadows">
+			<h4 align="center">Co-Curricular, Extension,Professional Development Related Activity</h4>
+	 	</div> <br>
+		
+	  	<div class="row">
+		   	<div class="col-md-4" id="myNav"><br>
+				<div class="panel panel-primary" >
+					<ul class="nav nav-tabs nav-pills nav-stacked"  data-offset-top="190" style="width:100%;">
+						<li><a href="professionalDevelopmentActivity.php">Extension, Co-curricular & Field based activities<div class="pull-right"><i class="icon-chevron-right" ></i></div></a></li>
+						li><a href="clmi.php">Contribution to Corporate Life and Management of the Institution<div class="pull-right"><i class="icon-chevron-right" ></i></div></a></li>
+						<li class="active"><a href="pda.php">Professional Development Activities<div class="pull-right"><i class="icon-chevron-right" ></i></div></a></li>
+					</ul>
+				</div> 	
+			</div>
 				
-		  		<div class="col-md-8">						
-							  <div class="panel panel-primary" style="padding:3px 3px 3px 3px;">
-							<div class="panel-heading">   			  
-						     <h4 align="center"><b>Professional Development Activities</b></h4>
-			   					</div><br>
-			   					<form role="form" name="development" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post" id="developmentForm">
-			   					<input class="btn btn-primary" type="submit" value="Save" name="developmentSave" />
-									<select name="dev" onChange="showUser(this.value, this.name)">
-										<option>--Activity--</option>
-										<?php 
-											include('DBConnect.php');
-											$userId = $_SESSION['username'];
-											$year=$_SESSION['pbasYear'];
-											$query = mysqli_query($con,"SELECT * from Teach_PDA WHERE User_Id = '$userId' and year='$year'");
-											while($row = mysqli_fetch_assoc($query)){
-										?>		<option><?php echo $row['Teach_PDA_TOA']; ?></option>
-										<?php } ?>
-									</select>
-									<input type="submit" class="btn btn-primary"  value="Delete" name="developmentDelete" />
-									<input type="reset" class="btn btn-primary" value="Reset" name="reset" onClick="this.form.reset()" />
-			   					<div class="form-group">
-								  <div id="dev"><br/>
-		          					<label>Type of Activity</label> 
-				    					<input type="text" class="form-control required" name="typeOfActivity" title="Please Enter Type of Activity">
-                  					<br><label>Yearly/Semester wise responsibility</label>
-				    					<input type="text" class="form-control required" name="responsibility" title="Please Enter The Responsibility"/>
-		          					<br><label>API Score</label>
-				    					<input type="text" class="form-control required" name="devApi" title="Please Enter API Score"/><br>
-			 					 </div><!--End dev Id for Ajax -->
-			 				</div>
-							       <input class="btn btn-primary" type="submit" value="Save" name="developmentSave" />
-									<select name="dev" onChange="showUser(this.value, this.name)">
-										<option>--Activity--</option>
-										<?php 
-											include('DBConnect.php');
-											$userId = $_SESSION['username'];
-											$year=$_SESSION['pbasYear'];
-											$query = mysqli_query($con,"SELECT * from Teach_PDA WHERE User_Id = '$userId' and year='$year'");
-											while($row = mysqli_fetch_assoc($query)){
-										?>		<option><?php echo $row['Teach_PDA_TOA']; ?></option>
-										<?php } ?>
-									</select>
-									<input type="submit" class="btn btn-primary"  value="Delete" name="developmentDelete" />
-									<input type="reset" class="btn btn-primary" value="Reset" name="reset" onClick="this.form.reset()" />
-		    					</form>
-	         		 		</div><!--end of panel-->					
-	  			</div>
+		  	<div class="col-md-8">						
+				<div class="panel panel-primary" style="padding:3px 3px 3px 3px;">
+					<div class="panel-heading">   			  
+						 <h4 align="center"><b>Professional Development Activities</b></h4>
+					</div><br>
+					<form role="form" name="development" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post" id="developmentForm">
+						<input class="btn btn-primary" type="submit" value="Save" name="developmentSave" />
+						<select name="dev" onChange="showUser(this.value, this.name)">
+							<option>--Activity--</option>
+							<?php 
+								include('DBConnect.php');
+								$userId = $_SESSION['username'];
+								$year=$_SESSION['pbasYear'];
+								$query = mysqli_query($con,"SELECT * from Teach_PDA WHERE User_Id = '$userId' and year='$year'");
+								while($row = mysqli_fetch_assoc($query)){
+							?>		<option><?php echo $row['Teach_PDA_TOA']; ?></option>
+							<?php } ?>
+						</select>
+						<input type="submit" class="btn btn-primary"  value="Delete" name="developmentDelete" />
+						<input type="reset" class="btn btn-primary" value="Reset" name="reset" onClick="clear()" />
+						<div class="form-group">
+						  <div id="dev"><br/>
+							<label>Type of Activity</label> 
+								<input type="text" class="form-control required" name="typeOfActivity" title="Please Enter Type of Activity">
+							<br><label>Yearly/Semester wise responsibility</label>
+								<input type="text" class="form-control required" name="responsibility" title="Please Enter The Responsibility"/>
+							<br><label>API Score</label>
+								<input type="text" id="pd" class="form-control required" name="devApi" title="Please Enter API Score"/><br>
+						 </div><!--End dev Id for Ajax -->
+						</div>
+					   <input class="btn btn-primary" type="submit" value="Save" name="developmentSave" />
+						<select name="dev" onChange="showUser(this.value, this.name)">
+							<option>--Activity--</option>
+							<?php 
+								include('DBConnect.php');
+								$userId = $_SESSION['username'];
+								$year=$_SESSION['pbasYear'];
+								$query = mysqli_query($con,"SELECT * from Teach_PDA WHERE User_Id = '$userId' and year='$year'");
+								while($row = mysqli_fetch_assoc($query)){
+							?>		<option><?php echo $row['Teach_PDA_TOA']; ?></option>
+							<?php } ?>
+						</select>
+						<input type="submit" class="btn btn-primary"  value="Delete" name="developmentDelete" />
+						<input type="reset" class="btn btn-primary" value="Reset" name="reset"/>
+					</form>
+	         	</div><!--end of panel-->					
+	  		</div>
 				
-	 	  </div><!--end of row class -->
+	 	</div><!--end of row class -->
 	 </div><!--end of container class -->
   </div><!--end of wrap id -->
 	 <?php
@@ -98,12 +100,34 @@
  			$('#curricularForm').validate();
 			$('#contributionForm').validate();
 			$('#developmentForm').validate();
+			
+			//javascript code for clearing inputbox
+			$('form').on('reset', function (evt) {
+				evt.preventDefault();
+				$(this).find('input, select, textarea').each(function () {
+					if ($(this).is('input[type="radio"], input[type="checkbox"]')) {
+						if ($(this).is(':checked') !== $(this)[0].defaultChecked) {
+							$(this).val($(this)[0].defaultChecked);
+							$(this).trigger('click');
+							$(this).trigger('change');
+						}
+					} else {
+						if ($(this).val() !== $(this)[0].defaultValue) {
+							$(this).val($(this)[0].defaultValue);
+							$(this).change();
+						}
+					}
+				});
+			});//End for clearing inputbox code
 		}); // end ready()
 
 
 	</script>
 	
 	<script>
+		function clearInput(){
+				document.getElementById("pd").value="";
+		}	
 		function showUser(value, name)
 		{
 			if (value=="")
