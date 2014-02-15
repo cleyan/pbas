@@ -35,9 +35,7 @@
         
 		<br><div class="form-group">
 			<label>Title With Page Numbers</label>
-			<div class="panel panel-primary"><label>
-				  <?php echo $PPIJ_TNO; ?></label></div> 
-			  
+			  <input type="text" class="form-control" name="PPIJ_TNO" disabled value="<?php echo $PPIJ_TNO; ?>"/>
 			<label>Journal</label>
 			  <input type="text" class="form-control" name="PPIJ_Journal" value="<?php echo $PPIJ_Journal; ?>"/>
 			<label>ISSN / ISBN No. </label>
@@ -90,8 +88,7 @@
 			
 			 <div class="form-group">
 								<label>Title With Page Numbers </label>
-								  <div class="panel panel-primary"><label>
-				  <?php echo $APB_TNO; ?></label></div>
+								  <input type="text" class="form-control" name="APB_TNO" disabled value="<?php echo $APB_TNO; ?>"/>
 								<label>Book Title, Editor And Publisher </label>
 								  <input type="text" class="form-control" name="APB_BEP"  value="<?php echo $APB_BEP; ?>"/>
 								<label>ISSN / ISBN No.</label> 
@@ -138,9 +135,8 @@
        
 			
 			 <div class="form-group">
-								<label> Title With Page Numbers</label>
-							<div class="panel panel-primary"><label>
-				  <?php echo $FCP_TNO; ?></label></div>
+						<label> Title With Page Numbers</label>
+							<input class="form-control" type="text" name="FCP_TNO" disabled value=" <?php echo $FCP_TNO ?>"/> 
 						<label>Details of Conference publications</label>  
 							<input class="form-control" type="text" name="FCP_BEP"  value=" <?php echo $FCP_BEP ?>"/> 
 						<label>ISSN / ISBN No. </label>
@@ -148,7 +144,21 @@
 						<label>No. of Co-authors </label>
 							<input class="form-control" type="text" name="FCP_NOC" value=" <?php echo $FCP_NOC ?>"/> 
 						 <label> Whether you are the main Author</label>
-							<input type="radio" name="FPCP_Yes" />Yes <input type="radio" name="FPCP_No" />No<br /> 
+
+						 <?php if($FCP_MA == "yes"){
+							?>
+				    		Yes<input type="radio" name="degree" id="optionsRadios1" value="yes" <?php echo "checked" ?>>
+						    No<input type="radio" name="degree" id="optionsRadios2" value="no"><br><br>
+							<?php 
+							   }
+							   else{ 
+							?>
+							   		Yes<input type="radio" name="degree" id="optionsRadios1" value="yes" >
+						    No<input type="radio" name="degree" id="optionsRadios2" value="no" <?php echo "checked" ?>><br><br>
+							 <?php   }
+							?>
+
+							
 						<label>API Score </label>
 							<input class="form-control" type="text" name="FCP_API" value=" <?php echo $FCP_API ?>"/> 
 					  </div>
@@ -179,11 +189,10 @@
             
 			
 			 <div class="form-group">
-								<label>Title With Page Numbers</label>
-						  <div class="panel panel-primary"><label>
-				  <?php echo $BPE_TPN; ?></label></div>
+						<label>Title With Page Numbers</label>
+						<input class="form-control"  type="text" name="BPE_TPN" disabled value="<?php echo $BPE_TPN ?>"> 
 						<label>Type of Book And Authorship</label>
-						  <input class="form-control" type="text" name="BPE_TBA" value="<?php echo $BPE_TBA ?>"> 
+						  <input class="form-control" type="text" name="BPE_TBA"  value="<?php echo $BPE_TBA ?>"> 
 						<label>Publisher And ISSN / ISBN No</label>
 						  <input class="form-control" type="text" name="BPE_PISSN" value="<?php echo $BPE_PISSN ?>"/> 
 						<label> Whether Peer Reviewed</label>
@@ -191,7 +200,20 @@
 						<label>No. of Co-authors</label>
 						  <input class="form-control" type="text" name="BPE_NOC" value="<?php echo $BPE_NOC ?>"/> 
 					   <label>Whether you are the main Author</label>
-						 <input type="radio" name="BPSA_Yes" />Yes <input type="radio" name="BPSA_No"/>No<br /> 
+
+					   <?php if($BPE_MA == "yes"){
+							?>
+				    		Yes<input type="radio" name="degree" id="optionsRadios1" value="yes" <?php echo "checked" ?>>
+						    No<input type="radio" name="degree" id="optionsRadios2" value="no"><br><br>
+							<?php 
+							   }
+							   else{ 
+							?>
+							   		Yes<input type="radio" name="degree" id="optionsRadios1" value="yes" >
+						    No<input type="radio" name="degree" id="optionsRadios2" value="no" <?php echo "checked" ?>><br><br>
+							 <?php   }
+							?>
+						 
 					   <label>API Score</label>  <input class="form-control" type="text" name="BPE_API" value="<?php echo $BPE_API ?>"/>  
 					  </div>
 						
@@ -217,10 +239,9 @@
             
 			
 			<div class="form-group">
-								<label>Title</label>
-								<div class="panel panel-primary"><label>
-				  <?php echo $OPC_Title; ?></label></div>
-							  
+							<label>Title</label>
+								
+							  <input class="form-control" type="text" name="OPC_Title" disabled value="<?php echo $OPC_Title ?>"/> 
 							<label>Agency</label>
 							  <input class="form-control" type="text" name="OPC_Agency" value="<?php echo $OPC_Agency ?>"/> 
 							<label>Period</label>
@@ -253,10 +274,8 @@
             
 			
 			 <div class="form-group">
-								<label>Title</label>
-								<div class="panel panel-primary"><label>
-				  <?php echo $CPC_Title; ?></label></div>
-						   
+						<label>Title</label>
+							<input class="form-control" type="text" name="CPC_Title" disabled value="<?php echo $CPC_Title ?>"/> 							   
 						 <label>Agency</label>
 						   <input class="form-control" type="text" name="CPC_Agency" value="<?php echo $CPC_Agency ?>"/> 
 						 <label>Period</label>
@@ -291,10 +310,8 @@
             
 			
 			 <div class="form-group">
-								<label>Number Enrolled</label>
-								<div class="panel panel-primary"><label>
-				  <?php echo $RG_NE; ?></label></div>
-							
+							<label>Number Enrolled</label>
+							<input class="form-control" type="text" name="RG_NE" disabled value="<?php echo $RG_NE ?>"/> 							
 						   <label>Thesis Submitted</label>
 							<input class="form-control" type="text" name="RG_TS" value="<?php echo $RG_TS ?>"/> 
 						   <label>Degree Awarded</label>  
@@ -325,10 +342,8 @@
             
 			
 			 <div class="form-group">
-								<label>Programme </label>
-								<div class="panel panel-primary"><label>
-				  				<?php echo $FDP_Programme; ?></label></div>
-							 
+							<label>Programme </label>
+							<input class="form-control" type="text" name="FDP_Programme" disabled value="<?php echo $FDP_Programme ?>"/> 	
 						   <label> Duration </label>
 							<input class="form-control" type="text" name="FDP_Duration" value="<?php echo $FDP_Duration ?>"/> 
 							<label>Organized By </label>
@@ -360,10 +375,8 @@
             
 			
 			 <div class="form-group">
-								<label>Title of the Paper Presented</label>
-								<div class="panel panel-primary"><label>
-				  				<?php echo $PPC_TPP; ?></label></div>
-							
+							<label>Title of the Paper Presented</label>
+							 <input class="form-control" type="text" name="PPC_TPP" disabled value="<?php echo $PPC_TPP ?>"/>  	
 						   <label>Title Conference / Seminar etc.</label> 
 							 <input class="form-control" type="text" name="PPC_TCS" value="<?php echo $PPC_TCS ?>"/>  
 						   <label>Date (s) of the Event </label>
@@ -400,10 +413,8 @@
             
 			
 			 <div class="form-group">
-								<label>Title of the Lecture / Academic Session</label>
-								<div class="panel panel-primary"><label>
-				  				<?php echo $ILC_TOL; ?></label></div>
-							
+							<label>Title of the Lecture / Academic Session</label>
+							 <input class="form-control" type="text" name="ILC_TOL" disabled value="<?php echo $ILC_TOL ?>"/> 	
 						   <label>Title Conference / Seminar etc.</label>
 							<input class="form-control" type="text" name="ILC_TCS" value="<?php echo $ILC_TCS ?>"/> 
 							<label>Date (s) of the Event</label>
@@ -414,7 +425,7 @@
 							<input class="form-control" type="text" name="ILC_WINS" value="<?php echo $ILC_WINS ?>"/> 
 						   <label>API Score</label>
 							 <input class="form-control" type="text" name="ILC_API" value="<?php echo $ILC_API ?>"/> 
-					  </div>
+			</div>
 						
 
 <?php

@@ -24,11 +24,10 @@
 		$apiScore = $row['Teach_ECFA_API'];
 ?>
 	      <br/> <label>Type of Activity</label> <br/>
-				<div class="panel panel-primary"><label>
-				  <?php echo $type; ?></label></div>
-           <label>Average Hrs/Week</label>
+				<input type="text" class="form-control required" name="average" disabled value="<?php echo $type; ?>"/>
+           <br/><label>Average Hrs/Week</label>
 				<input type="text" class="form-control required" name="average" title="Please Enter Average Hrs/Week" value="<?php echo $avgHours; ?>"/>
-		   <br><label>API Score</label>
+		   <br/><label>API Score</label>
 			<input type="text" class="form-control required" name="api" title="Please Enter API Score" value="<?php echo $apiScore; ?>"/><br>
 	
  <?php
@@ -43,10 +42,8 @@
 		$apiScore = $row['Teach_CLMI_API'];	
  ?>
  		<br/><label>Type of Activity</label> <br/>
- 			<div class="panel panel-primary"><label>
-				  <?php echo $type; ?></label></div>
-			
-        	<label>Yearly/Semester wise responsibility</label>
+ 			<input type="text" class="form-control required" name="type" title="Please Enter Type" disabled value="<?php echo $type; ?>"/>
+        	<br/><label>Yearly/Semester wise responsibility</label>
 			<input type="text" class="form-control required" name="responsibility" title="Please Enter Responsibility" value="<?php echo $responsibility; ?>"/>
 		 <br><label>API Score</label>
 			<input type="text" class="form-control required" name="contApi" title="Please Enter API Score" value="<?php echo $apiScore; ?>"/><br>
@@ -62,10 +59,8 @@
 		$apiScore = $row['Teach_PDA_API'];	
 ?>
  		<br/><label>Type of Activity</label> 
- 				<div class="panel panel-primary"><label>
-				  <?php echo $type; ?></label></div>
-				
-         <label>Yearly/Semester wise responsibility</label>
+ 				<input type="text" class="form-control required" name="type" disabled value="<?php echo $type; ?>"/>	
+         <br/><label>Yearly/Semester wise responsibility</label>
 				<input type="text" class="form-control required" name="responsibility" title="Please Enter The Responsibility" value="<?php echo $responsibility; ?>"/>
 		 <br><label>API Score</label>
 			  <input type="text" class="form-control required" name="devApi" title="Please Enter API Score" value="<?php echo $apiScore; ?>"/><br>

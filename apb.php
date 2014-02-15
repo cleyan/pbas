@@ -86,7 +86,7 @@
 						<?php } ?>
 						</select>
 						<input type="submit" class="btn btn-primary"  value="Delete" name="apb_delete" />
-						<input type="reset" class="btn btn-primary" value="Reset" name="reset" />
+						<input type="reset" class="btn btn-primary" value="Reset" name="reset" /><br/><br/>
 						<div id="apb">
 							<div class="form-group">
 								<label>Title With Page Numbers </label>

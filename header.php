@@ -18,7 +18,7 @@ if(isset($_POST['save'])){
           $result = mysqli_query($con,$updateQuery);
 
           if($result){
-            $_SESSION['success'] = "<h5 class='alert alert-success' align='center'>Registration Successfull !!</h5>";
+        
             //header('location:home.php');
             }
             else{
@@ -27,7 +27,10 @@ if(isset($_POST['save'])){
       }    
       else
       {
-        die("password not match".mysqli_error($con));
+        echo '<div class="alert">';
+        echo '<button type="button" class="close" data-dismiss="alert">&times;</button>';
+        echo '<strong>Password not matched.</strong>'; 
+        echo '</div>';
       }
 
     }

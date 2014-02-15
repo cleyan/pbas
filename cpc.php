@@ -85,7 +85,7 @@
 							<?php } ?>
 						</select>
 						<input class="btn btn-md btn-primary" type="submit" value="Delete" name="cpc_delete" />
-						<input class="btn btn-md btn-primary" type="reset" value="Reset" name="reset" /> 
+						<input class="btn btn-md btn-primary" type="reset" value="Reset" name="reset" /> <br/><br/>
 					   <div id="completedFields">
 						 <label>Title</label>
 						   <input class="form-control" type="text" name="CPC_Title"> 

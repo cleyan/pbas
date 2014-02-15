@@ -84,7 +84,7 @@
 								<?php } ?>
 							</select>
 							<input class="btn btn-md btn-primary" type="submit" value="Delete" name="fdp_delete" />
-							<input class="btn btn-md btn-primary" type="reset" value="Reset" name="trainingReset" />
+							<input class="btn btn-md btn-primary" type="reset" value="Reset" name="trainingReset" /><br/><br/>
 					   <div id="trainingFields">
 
 							<label>Programme </label>

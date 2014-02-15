@@ -84,7 +84,7 @@
 							<?php } ?>
 						</select>
 						<input class="btn btn-md btn-primary" type="button" value="Delete" name="fcp_delete" /> 
-						<input type="reset" class="btn btn-primary" value="Reset" name="reset" />
+						<input type="reset" class="btn btn-primary" value="Reset" name="reset" /> <br/><br/>
 					  <div id="fullPapersConf">
 						<label> Title With Page Numbers</label>
 							<input class="form-control" type="text" name="FCP_TNO"> 

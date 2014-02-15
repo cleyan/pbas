@@ -80,15 +80,15 @@
 		   		  					<br /><label> No. of Classes/per Week Allocated</label>
 				    					<input type="text" class="form-control required" name="classAllocated" title="Please Enter No. Of Class Allocated"/>
 		      	  					<br /><label>Total Number of Classes Conducted</label>
-				    					<input type="text" class="form-control required" name="classConducted" title="Please Enter Total No. of Conducted Classes"/>
+				    					<input type="text" class="form-control required" name="classConducted"  title="Please Enter Total No. of Conducted Classes"/>
 				  					<br /><label>Practicals</label> 
 				    					<input type="text" class="form-control required" name="practicals" title="Please Enter Practicles">
                   					<br /><label>% of Classes Taken AS Per Documented Record</label>
 				    					<input type="text" class="form-control required" name="classTakenRecord" title="Please Enter the % value"/>
 		          					<br /><label>Classes Taken (max 50 for 100% Performance and Proportionate Score upto 80% Performance, below which no Score may be given)</label>
 				    					<input type="text" class="form-control required" name="classTaken" title="Please Enter Classes Taken"/>
-		   		 					<br /><label>Teaching Load in Excess of UGC norm(max score : 10)</label>
-				    					<input type="text" class="form-control required" name="teachingLoads" title="Please Enter Teaching Load"/>
+		   		 					<br /><label>Teaching Load in Excess of UGC norm(API Score)</label>
+				    					<input type="text" class="form-control required" name="teachingLoads" id="lstptooltip" />
 			 					 </div><!--End of lect id -->
 			 				
 							       <br><input class="btn btn-primary" type="submit" value="Save" name="lectSave" />
@@ -118,6 +118,12 @@
 	        include('jsLinks.php');
 	?>
 <script>
+
+		 	$(document).ready(function () {
+
+   			 $('#lstptooltip').tooltip({'trigger':'focus', 'title': 'Maximum Score : 10'});
+});
+
 		$(document).ready(function() {
  			$('#lectureForm').validate();
 			$('#resourceForm').validate();

@@ -86,7 +86,7 @@
 							<?php } ?>
 						</select>
 						<input class="btn btn-md btn-primary" type="submit" value="Delete" name="bpe_delete" />
-						<input type="reset" class="btn btn-primary" value="Reset" name="reset" />
+						<input type="reset" class="btn btn-primary" value="Reset" name="reset" /> <br/><br/>
 					 <div id="bookPublished">
 						<label>Title With Page Numbers</label>
 						  <input class="form-control" type="text" name="BPE_TPN"> 
@@ -97,10 +97,10 @@
 						<label> Whether Peer Reviewed</label>
 						 <input class="form-control" type="text" name="BPE_WPR" /> 
 						<label>No. of Co-authors</label>
-						  <input class="form-control" type="text" name="BPE_NOC" /> 
+						  <input class="form-control" type="text" name="BPE_NOC" /> <br/>
 					   <label>Whether you are the main Author</label>
-						 <input type="radio" name="BPE_YN" />Yes <input type="radio" name="BPE_YN"/>No<br /> 
-					   <label>API Score</label>  <input class="form-control" type="text" name="BPE_API" /> 
+						 <input type="radio" name="BPE_YN" />Yes <input type="radio" name="BPE_YN"/>No<br /> <br/>
+					   <label>API Score</label>  <input class="form-control" type="text" name="BPE_API" id="bpetooltip" /> 
 					 </div><br />
 						<input class="btn btn-md btn-primary" type="submit" value="Save" name="bpe_save" />
 						<select name="bp" onChange="showUser(this.value, this.name)">
@@ -135,6 +135,12 @@
 	 
 	 <!--JavaScript code for dynamically showing records using AJAX-->
 	 <script>
+
+	 	$(document).ready(function () {
+
+    $('#bpetooltip').tooltip({'trigger':'focus', 'title': 'Put the API on tooltip accordingly'});
+});
+
 		function showUser(value, name)
 		{
 		if (value=="")

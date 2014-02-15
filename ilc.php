@@ -85,7 +85,7 @@
 								<?php } ?>
 							</select>
 							<input class="btn btn-md btn-primary" type="submit" value="Delete" name="ilc_delete" />
-							<input class="btn btn-md btn-primary" type="reset" value="Reset" name="reset" />
+							<input class="btn btn-md btn-primary" type="reset" value="Reset" name="reset" /> <br/><br/>
 					   <div id="invitedFields">
 						   <label>Title of the Lecture / Academic Session</label>
 							<input class="form-control" type="text" name="ILC_TOL" > 

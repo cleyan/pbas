@@ -87,7 +87,7 @@
 								<?php } ?>
 							</select>
 							<input class="btn btn-md btn-primary" type="submit" value="Delete" name="ppc_delete" />
-							<input class="btn btn-md btn-primary" type="reset" value="Reset" name="reset" /> 
+							<input class="btn btn-md btn-primary" type="reset" value="Reset" name="reset" /> <br/><br/>
 					   <div id="presentedFields">
 						   <label>Title of the Paper Presented</label>
 							<input class="form-control"t type="text" name="PPC_TPP">  

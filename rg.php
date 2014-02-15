@@ -86,7 +86,7 @@
 								<?php } ?>
 							</select>
 							<input class="btn btn-md btn-primary" type="submit" value="Delete" name="rg_delete" />
-							<input class="btn btn-md btn-primary" type="reset" value="Reset" name="guidanceReset" /> 
+							<input class="btn btn-md btn-primary" type="reset" value="Reset" name="guidanceReset" /> <br/><br/> 
 					   <div id="GuidanceFields">
 						   <label>Number Enrolled</label>
 							<input class="form-control" type="text" name="RG_NE"> 
