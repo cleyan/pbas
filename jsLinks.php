@@ -12,6 +12,27 @@
   			$(this).tab('show')
 		})
 	</script>
+  <script>
+      //javascript code for clearing inputbox
+      $('form').on('reset', function (evt) {
+        evt.preventDefault();
+        $(this).find('input, select, textarea').each(function () {
+          if ($(this).is('input[type="radio"], input[type="checkbox"]')) {
+            if ($(this).is(':checked') !== $(this)[0].defaultChecked) {
+              $(this).val($(this)[0].defaultChecked);
+              $(this).trigger('click');
+              $(this).trigger('change');
+            }
+          } else {
+            if ($(this).val() !== $(this)[0].defaultValue) {
+              $(this).val($(this)[0].defaultValue);
+              $(this).change();
+            }
+          }
+        });
+      });//End for clearing inputbox code
+    }); // end ready()
+  </script>
 
   
 
