@@ -25,15 +25,15 @@
 	 <div class="container" style="background-color:#FFFFFF;">
 	 
 		<div class="text-primary shadows">
-			<h4 align="center">Co-Curricular, Extension,Professional Development Related Activity</h4>
+			<h4 align="center"><b>Co-Curricular, Extension,Professional Development Related Activity</b></h4>
 	 	</div> <br>
 		
 	  	<div class="row">
-		   	<div class="col-md-4" id="myNav"><br>
+		   	<div class="col-md-4" id="myNav">
 				<div class="panel panel-primary" >
 					<ul class="nav nav-tabs nav-pills nav-stacked"  data-offset-top="190" style="width:100%;">
 						<li><a href="professionalDevelopmentActivity.php">Extension, Co-curricular & Field based activities<div class="pull-right"><i class="icon-chevron-right" ></i></div></a></li>
-						li><a href="clmi.php">Contribution to Corporate Life and Management of the Institution<div class="pull-right"><i class="icon-chevron-right" ></i></div></a></li>
+						<li><a href="clmi.php">Contribution to Corporate Life and Management of the Institution<div class="pull-right"><i class="icon-chevron-right" ></i></div></a></li>
 						<li class="active"><a href="pda.php">Professional Development Activities<div class="pull-right"><i class="icon-chevron-right" ></i></div></a></li>
 					</ul>
 				</div> 	

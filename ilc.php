@@ -71,7 +71,7 @@
 			 <!--"Invited Lectures and Chairmanship" Panel started --><br>			 
 				<div class="panel panel-primary" style="padding:3px 3px 3px 3px;">
 				<div class="panel-heading">
-				  <h4 id="invitedLectures"  align="center" >Invited Lectures and Chairmanship at National or International Conference/ Seminar</h4>			
+				  <h4 id="invitedLectures"  align="center" >Invited Lectures and Chairmanship at National or International Conference/ Seminar</h4>
 				</div><br>
 				  <form id="invitedForm" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post"  >
 				  	<input class="btn btn-md btn-primary" type="submit" value="Save" name="ilc_save" />
