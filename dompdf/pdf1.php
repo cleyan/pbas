@@ -252,8 +252,8 @@ $sqlilc="SELECT * from teach_ilc where user_id='$user' and year='$year'";
     $acrow = mysqli_fetch_array($acresult);
     $html.=
 
-    '<br><B>Whether acquired any degree or fresh academic qualification during the year : '.$acrow['Gen_Info_AQ'].''.
-    '<br><B>Whether acquired any degree or fresh academic qualification during the year: '.$acno.''.
+    '<br><b>Whether acquired any degree or fresh academic qualification during the year : '.$acrow['Gen_Info_AQ'].'</b>'.
+    '<br><b>Whether acquired any degree or fresh academic qualification during the year: '.$acno.'</b>'.
     '<br><table width="100%" border="1px">'.
     '<tr><th>Name of Course</th><th>Place</th><th>Duration</th><th>Sponsoring Agency</th></tr>';
    while($acadrow = mysqli_fetch_array($acadresult)){
