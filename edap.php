@@ -23,24 +23,44 @@
 			include('header.php');
      ?>
 	 	<div class="container" style="background-color:#FFFFFF;">
-	 		<h3 align="center">Teaching Learning And Evaluation Related Activities</h3>
-			 <div class="row" style=" margin-bottom:50px;">
-
-			 	<div class="col-sm-3" style="box-shadow:5px 5px 5px #888888; padding-bottom:55px;">
-			 		<br><br><br><br>
-			 		<a href="teachingLearningActivities.php">Lectures, Seminar,Tutorial, Practical, Contact Hours</a><br><br>
-					<a href="rimc.php">Reading/Instructional material consulted and additional knowledge resources provided to students</a><br><br>
-	   			 	<a href="tlm.php">Use of participatory and innovative Teaching-Learning Methodologies, Updating of subject contents</a><br><br>
-					<li class="active"><a href="edap.php">Examination Duties Assigned and Performed</a><br><br></li>
-				 		
+	 	<div style="box-shadow:5px 5px 5px 5px #888888; padding:3px 3px 3px 3px;" class="text-primary">
+	 		<h4 align="center">Teaching Learning And Evaluation Related Activities</h4>
+	 	</div><!--end of box-shadow div-->
+			  <div class="col-md-4" id="myNav">
+        		<br><br>
+        		<div class="panel panel-primary" >
+			 		
+			 		<ul>
+			 		<li><a href="teachingLearningActivities.php">Lectures, Seminar,Tutorial, Practical, Contact Hours<div class="pull-right"><i class="icon-chevron-right" ></i></div></a></li><br>
+					<li><a href="rimc.php">Reading/Instructional material consulted and additional knowledge resources provided to students<div class="pull-right"><i class="icon-chevron-right" ></i></div></a></li><br>
+	   			 	<li><a href="tlm.php">Use of participatory and innovative Teaching-Learning Methodologies, Updating of subject contents<div class="pull-right"><i class="icon-chevron-right" ></i></div></a></li><br>
+					<li class="active"><a href="edap.php">Examination Duties Assigned and Performed<div class="pull-right"><i class="icon-chevron-right" ></i></div></a><br></li>
+				 	</ul>	
 			 	</div>
-			 	<div class="col-sm-1"></div>
-	   		 	<div class="col-sm-8">
-	   		 		<br>
-						
-						    <h5 align="center">Examination Duties Assigned and Performed</h5><br>
+			 </div>
+			 	<div class="col-md-8">		
+				  <br>
+				  		<div class="panel panel-primary" style="padding:3px 3px 3px 3px;">
+				  		<div class="panel-heading" >
+						    <h4 align="center">Examination Duties Assigned and Performed</h4>
+						 </div><!--end of panel heading div-->
+								<br>
 			   					<form role="form" name="duties" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post" id="dutiesForm">
 			   					<div class="form-group">
+			   					<input class="btn btn-primary" type="submit" value="Save" name="dutiesSave" />
+									<select name="dut" onChange="showUser(this.value, this.name)">
+										<option>--Duties--</option>
+										<?php 
+											include('DBConnect.php');
+											$user_id = $_SESSION['username'];
+											$year=$_SESSION['pbasYear'];
+											$query = mysqli_query($con,"SELECT * from Teach_EDAP WHERE User_Id='$user_id' and year='$year'");
+											while($row = mysqli_fetch_assoc($query)){
+										?>		<option><?php echo $row['Teach_EDAP_TED']; ?></option>
+										<?php } ?>
+									</select>
+									<input type="submit" class="btn btn-primary"  value="Delete" name="dutiesDelete" />
+									<input type="reset" class="btn btn-primary" value="Reset" name="reset" />
 								  <div id="duty">
 		          					<label>Type of Examination Duties</label> 
 				    					<input type="text" class="form-control required" name="typeDuties" title="Please Enter The Type">
@@ -67,7 +87,7 @@
 									<input type="submit" class="btn btn-primary"  value="Delete" name="dutiesDelete" />
 									<input type="reset" class="btn btn-primary" value="Reset" name="reset" />
 		    					</form>
-	         
+	         				</div><!--end of form panel-->
 				</div><!--End of col-sm-9 class -->
 				<!--End of col-sm-3 class -->
 			</div><!--End of row class -->
