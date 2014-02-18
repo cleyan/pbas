@@ -229,7 +229,23 @@ $sqlilc="SELECT * from teach_ilc where user_id='$user' and year='$year'";
 
  /*General Information Table */
   $html =
-    '<html><body>'.
+    '<html><head>
+     <style>
+     .center{
+       text-align:center;
+     }
+     .strong{
+       font-weight:bold;
+     }
+     table {
+       width: 100%;
+       border-collapse: collapse;
+     }
+     th, td {
+       border: 1px solid #333;
+     }
+     </style>
+      </head><body>'.
     '<h3><center>University of Indore</center></h3><br/>'.
     '<h3><center>Devi Ahilya University, Indore</center></h3><br/>'.
     '<h4><center>Annual Self-Assessment for the Performance Based Appraisal System (PBAS)</center></h4><br/>'.
