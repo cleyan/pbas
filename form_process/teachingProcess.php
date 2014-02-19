@@ -31,7 +31,7 @@
 			$insertQuery = "Insert Into teach_lstp values('$user_id','$year','$courseName','$level','$modes','$clsAllocated','$clsConducted','$practicals','$clsPercent','$clsTaken','$teachingLoad')";
 			$result2 = mysqli_query($con,$insertQuery);
 			if($result2){
-				header('location:teachingLearningActivities.php.php');
+				header('location:teachingLearningActivities.php');
 			}
 			else{
 				die("Insert error : ".mysqli_error($con));

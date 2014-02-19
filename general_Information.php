@@ -43,17 +43,19 @@
 		<div class="row">
 			<div class="col-sm-12">
 		   		<div  style="box-shadow:5px 5px 5px 5px #888888; padding:3px 3px 3px 3px;" >
-	  	<h4 align="center" class="text-primary"><b>Welocome <?php  echo $_SESSION['username']."";?>, This is your profile </b></h4>
-	  	</div></div></div>
-	  	<div>
+				  	<h4 align="center" class="text-primary"><b>Welocome <?php  echo $_SESSION['username']."";?>, This is your profile </b></h4>
+				</div>
+			</div>
+		</div>
+	<div>
 	    <?php
 			if(isset($_SESSION['infoUpdated'])){
 				echo $_SESSION['infoUpdated'];
 			}
 
 		?>
-		</div>
-	
+	</div>
+	<br/>
 		<div class="row">	
 			<div class="col-sm-1">
 			
@@ -64,7 +66,7 @@
 					<div id="userInfo">
 
 						<button  type="button" class="btn btn-md btn-primary" name="infoEdit" onClick="showInfo(this.name)" value="show"/>Edit</button>
-						
+						<br/><br/>
 						<table border="0" class="table" cellpadding="3" cellspacing="3">
 							<tr>
 								<td>Name</td>
@@ -132,9 +134,6 @@
 				    		<input type="email" class="form-control required" name="email" title="Please Enter Your Email"/><br>-->
 					</div><!--End of id userInfo for ajax -->
 					
-						<button class="btn btn-md btn-primary" type="submit" name="infoSave">Save</button>
-						<button  type="button" class="btn btn-md btn-primary" name="infoEdit" onClick="showInfo(this.name)" value="show"/>Edit</button>
-						<button class="btn btn-md btn-primary" type="reset" name="infoReset">Reset</button><br><br>
 			    </form>
 
 			 </div><!--End of col-sm-7 class -->

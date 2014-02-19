@@ -1,3 +1,4 @@
+
 <?php
 require_once("dompdf_config.inc.php");
 include('../DBConnect.php');
@@ -228,7 +229,23 @@ $sqlilc="SELECT * from teach_ilc where user_id='$user' and year='$year'";
 
  /*General Information Table */
   $html =
-    '<html><body>'.
+    '<html><head>
+     <style>
+     .center{
+       text-align:center;
+     }
+     .strong{
+       font-weight:bold;
+     }
+     table {
+       width: 100%;
+       border-collapse: collapse;
+     }
+     th, td {
+       border: 1px solid #333;
+     }
+     </style>
+      </head><body>'.
     '<h3><center>University of Indore</center></h3><br/>'.
     '<h3><center>Devi Ahilya University, Indore</center></h3><br/>'.
     '<h4><center>Annual Self-Assessment for the Performance Based Appraisal System (PBAS)</center></h4><br/>'.
@@ -252,8 +269,8 @@ $sqlilc="SELECT * from teach_ilc where user_id='$user' and year='$year'";
     $acrow = mysqli_fetch_array($acresult);
     $html.=
 
-    '<br><B>Whether acquired any degree or fresh academic qualification during the year : '.$acrow['Gen_Info_AQ'].''.
-    '<br><B>Whether acquired any degree or fresh academic qualification during the year: '.$acno.''.
+    '<br><b>Whether acquired any degree or fresh academic qualification during the year : '.$acrow['Gen_Info_AQ'].'</b>'.
+    '<br><b>Whether acquired any degree or fresh academic qualification during the year: '.$acno.'</b>'.
     '<br><table width="100%" border="1px">'.
     '<tr><th>Name of Course</th><th>Place</th><th>Duration</th><th>Sponsoring Agency</th></tr>';
    while($acadrow = mysqli_fetch_array($acadresult)){
@@ -470,3 +487,4 @@ $dompdf->render();
 $dompdf->stream("PBAS.pdf");
 
 ?>
+

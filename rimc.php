@@ -23,6 +23,9 @@
 			include('header.php');
      ?>
 	 	<div class="container" style="background-color:#FFFFFF;">
+	 		<div style="box-shadow:5px 5px 5px 5px #888888; padding:3px 3px 3px 3px;" class="text-primary">
+	 		<h4 align="center">Teaching Learning and Evaluation Related Activities</h4><br>
+             </div>
 	 		<div class="col-md-4" id="myNav">
         <br><br>
         <div class="panel panel-primary" >
@@ -35,12 +38,32 @@
             </ul>
         </div>
         </div>
+        <br>
 	   		 	<div class="col-sm-8">
 	   		 		<br>						
-						     <h5 align="center">Reading/Instructional material consulted and additional 
-                                                knowledge resources provided to students</h5><br>
+						     <div class="panel panel-primary" style="padding:3px 3px 3px 3px;">
+						
+						
+						<div class="panel-heading" >
+							<h4 align="center" >Reading/Instructional material consulted and additional knowledge resources provided to students</h4>
+						</div><!--end of panel heading div-->
+						<br>
 			   					<form role="form" name="resources" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post" id="resourceForm">
 			   					<div class="form-group">
+			   					<input class="btn btn-primary" type="submit" value="Save" name="resourceSave" />
+									<select name="course" onChange="showUser(this.value, this.name)">
+										<option>--Course--</option>
+										<?php 
+											include('DBConnect.php');
+											$user_id = $_SESSION['username'];
+											$year=$_SESSION['pbasYear'];
+											$query = mysqli_query($con,"SELECT * from Teach_RIMC WHERE User_Id='$user_id' and year='$year'");
+											while($row = mysqli_fetch_assoc($query)){
+										?>		<option><?php echo $row['Teach_RIMC_Course']; ?></option>
+										<?php } ?>
+									</select>
+									<input type="submit" class="btn btn-primary"  value="Delete" name="resourceDelete" />
+									<input type="reset" class="btn btn-primary" value="Reset" name="reset" />
 								   <div id="res"><br />
 		          					<label>Course / Paper</label>
 				    					<input type="text" class="form-control required" name="readingCourse" title="Please Enter Course Name">
@@ -69,7 +92,7 @@
 									<input type="submit" class="btn btn-primary"  value="Delete" name="resourceDelete" />
 									<input type="reset" class="btn btn-primary" value="Reset" name="reset" />
 		    					</form>
-	         
+	         			</div><!--end of form panel div-->
 		 										
 	         
 		 				
