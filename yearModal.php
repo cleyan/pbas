@@ -16,11 +16,11 @@
 						</div><br><br>
 						<form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" class="form-inline text-center" method="post">
 							<label>Enter The Year &nbsp</label>
-							<input type="text"  placeholder="Ex. 2013-14" class="form-control inputSmall" name="pbasYear" id="myInput" title="Please Enter the Year" autofocus><br><br><br>
+							<input type="text"  placeholder="Ex. 2013-14" class="form-control required" name="pbasYear" id="myInput" title="Please Enter the Year" autofocus><br><br><br>
 						
-							<div class="modal-footer">
+							<!-- <div class="modal-footer"> -->
 							<button type="submit" name="yearButton" class="btn btn-md btn-primary">Submit</button>
-							</div>
+							<!-- </div> -->
 						</form>
 					</div>
 					
