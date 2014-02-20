@@ -24,11 +24,11 @@
      ?>
 	 <div class="container" style="background-color:#FFFFFF;">
 	 <div style="box-shadow:5px 5px 5px 5px #888888; padding:3px 3px 3px 3px;" class="text-primary">
-	 	<h4 align="center">Co-Curricular, Extension,Professional Development Related Activity</h4>
+	 	<h4 align="center"><b>Co-Curricular, Extension,Professional Development Related Activity</b></h4>
 	 	</div><br>
 	  	  <div class="row">
 		   	   <div class="col-md-4" id="myNav">
-        <br>
+        
         <div class="panel panel-primary" >
         <ul class="nav nav-tabs nav-pills"  data-offset-top="190" style="width:100%;">
 			 		<li><a href="professionalDevelopmentActivity.php">Extension, Co-curricular & Field based activities<div class="pull-right"><i class="icon-chevron-right" ></i></div></a></li>
@@ -41,7 +41,7 @@
 		  		<div class="col-md-8">
 		  					<div class="panel panel-primary" style="padding:3px 3px 3px 3px;">
 							<div class="panel-heading">
-					 	     <h4 align="center">Contribution To Corporate Life And Management Of The Institution </h4>
+					 	     <h4 align="center"><b>Contribution To Corporate Life And Management Of The Institution </b> </h4>
 					 	     </div><br>
 			   					<form role="form" name="contribution" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post" id="contributionForm">
 			   					<input class="btn btn-primary" type="submit" value="Save" name="contributionSave" />

@@ -72,7 +72,7 @@
 			 <!--"Papers Presented in Conferences" Panel started --><br>			 
 				<div class="panel panel-primary" style="padding:3px 3px 3px 3px;">
 				<div class="panel-heading">
-				  <h4 id="papersPresented" class="panel-title" align="center">Papers Presented in Conferences, Seminars, Workshops, Symposia</h3>
+				  <h4 id="papersPresented" class="panel-title" align="center">Papers Presented in Conferences, Seminars, Workshops, Symposia</h4>
 				</div><br>
 				  <form id="presentedForm" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post">
 					   

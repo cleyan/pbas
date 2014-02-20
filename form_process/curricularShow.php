@@ -6,7 +6,7 @@
 	$userId = $_SESSION['username'];
 	$year=$_SESSION['pbasYear'];
 	#Database Connection
-	$con = mysqli_connect('localhost','root','','pbas_db');
+	$con = mysqli_connect('localhost','root','root','pbas_db');
 	if (!$con)
   	{
 		die('Could not connect: ' . mysqli_error($con));

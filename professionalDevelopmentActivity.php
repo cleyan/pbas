@@ -42,7 +42,7 @@
 		  		<div class="col-sm-8">
 		  			<div class="panel panel-primary" style="padding:3px 3px 3px 3px;">
 					<div class="panel-heading">
-					 <h4 align="center">Extension, Co-curricular & Field based activities.</h4>
+					 <h4 align="center"><b>Extension, Co-curricular & Field based activities.</b> </h4>
 					 </div><br>
 			   					<form role="form" name="curricular" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post" id="curricularForm">
 
