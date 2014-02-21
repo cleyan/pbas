@@ -31,7 +31,6 @@
           }
         });
       });//End for clearing inputbox code
-    }); // end ready()
   </script>
 
   
