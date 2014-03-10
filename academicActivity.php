@@ -116,7 +116,7 @@ Course Attended During The Year : </label>
  	  			 		</div>
  	   					<div class="panel-body">
 						 	<a href="general_Information.php"><i class="icon-hand-right" >  Profile</i></a><br><br>		 
-							<a href="teachingLearningActivitiesaddnew.php"><i class="icon-hand-right" >  Teaching Learning and Evalution Related Activities</i></a> <br><br>
+							<a href="teachingLearningActivities.php"><i class="icon-hand-right" >  Teaching Learning and Evalution Related Activities</i></a> <br><br>
 							<a href="professionalDevelopmentActivity.php"><i class="icon-hand-right" >  Co-Curricular, Extension,Professional Development Related Activity</i></a><br><br>
 							<a href="ppij.php"><i class="icon-hand-right" >  Research, publication And Academic Contribution</i></a><br><br>
    			 				<a href="API_Summary.php"><i class="icon-hand-right" >  API Summary</i></a><br><br>
