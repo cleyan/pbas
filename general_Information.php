@@ -78,7 +78,7 @@
 							</tr>
 							<tr>
 								<td>Mother's Name</td>
-								<td><?php echo $uname;?></td>
+								<td><?php echo $motherName;?></td>
 							</tr>
 							<tr>
 								<td>Department</td>
