@@ -7,11 +7,7 @@
 	$user=$_SESSION['username'];
 	$year=$_SESSION['pbasYear'];
 	#Database Connection
-	$con = mysqli_connect('localhost','root','root','pbas_db');
-	if (!$con)
-  	{
-		die('Could not connect: ' . mysqli_error($con));
- 	}
+	include('DBConnect.php');
 ?>
 
 <!-- Script for showing data for "Published Papers in Journal" tab -->
@@ -35,7 +31,7 @@
         
 		<br><div class="form-group">
 			<label>Title With Page Numbers</label>
-			  <input type="text" class="form-control" name="PPIJ_TNO" disabled value="<?php echo $PPIJ_TNO; ?>"/>
+			  <input type="text" class="form-control" name="PPIJ_TNO" value="<?php echo $PPIJ_TNO; ?>"/>
 			<label>Journal</label>
 			  <input type="text" class="form-control" name="PPIJ_Journal" value="<?php echo $PPIJ_Journal; ?>"/>
 			<label>ISSN / ISBN No. </label>
@@ -88,7 +84,7 @@
 			
 			 <div class="form-group">
 								<label>Title With Page Numbers </label>
-								  <input type="text" class="form-control" name="APB_TNO" disabled value="<?php echo $APB_TNO; ?>"/>
+								  <input type="text" class="form-control" name="APB_TNO" value="<?php echo $APB_TNO; ?>"/>
 								<label>Book Title, Editor And Publisher </label>
 								  <input type="text" class="form-control" name="APB_BEP"  value="<?php echo $APB_BEP; ?>"/>
 								<label>ISSN / ISBN No.</label> 
@@ -136,7 +132,7 @@
 			
 			 <div class="form-group">
 						<label> Title With Page Numbers</label>
-							<input class="form-control" type="text" name="FCP_TNO" disabled value=" <?php echo $FCP_TNO ?>"/> 
+							<input class="form-control" type="text" name="FCP_TNO" value=" <?php echo $FCP_TNO ?>"/> 
 						<label>Details of Conference publications</label>  
 							<input class="form-control" type="text" name="FCP_BEP"  value=" <?php echo $FCP_BEP ?>"/> 
 						<label>ISSN / ISBN No. </label>
@@ -190,7 +186,7 @@
 			
 			 <div class="form-group">
 						<label>Title With Page Numbers</label>
-						<input class="form-control"  type="text" name="BPE_TPN" disabled value="<?php echo $BPE_TPN ?>"> 
+						<input class="form-control"  type="text" name="BPE_TPN" value="<?php echo $BPE_TPN ?>"> 
 						<label>Type of Book And Authorship</label>
 						  <input class="form-control" type="text" name="BPE_TBA"  value="<?php echo $BPE_TBA ?>"> 
 						<label>Publisher And ISSN / ISBN No</label>
@@ -241,7 +237,7 @@
 			<div class="form-group">
 							<label>Title</label>
 								
-							  <input class="form-control" type="text" name="OPC_Title" disabled value="<?php echo $OPC_Title ?>"/> 
+							  <input class="form-control" type="text" name="OPC_Title" value="<?php echo $OPC_Title ?>"/> 
 							<label>Agency</label>
 							  <input class="form-control" type="text" name="OPC_Agency" value="<?php echo $OPC_Agency ?>"/> 
 							<label>Period</label>
@@ -275,7 +271,7 @@
 			
 			 <div class="form-group">
 						<label>Title</label>
-							<input class="form-control" type="text" name="CPC_Title" disabled value="<?php echo $CPC_Title ?>"/> 							   
+							<input class="form-control" type="text" name="CPC_Title" value="<?php echo $CPC_Title ?>"/> 							   
 						 <label>Agency</label>
 						   <input class="form-control" type="text" name="CPC_Agency" value="<?php echo $CPC_Agency ?>"/> 
 						 <label>Period</label>
@@ -311,7 +307,7 @@
 			
 			 <div class="form-group">
 							<label>Number Enrolled</label>
-							<input class="form-control" type="text" name="RG_NE" disabled value="<?php echo $RG_NE ?>"/> 							
+							<input class="form-control" type="text" name="RG_NE" value="<?php echo $RG_NE ?>"/> 							
 						   <label>Thesis Submitted</label>
 							<input class="form-control" type="text" name="RG_TS" value="<?php echo $RG_TS ?>"/> 
 						   <label>Degree Awarded</label>  
@@ -343,7 +339,7 @@
 			
 			 <div class="form-group">
 							<label>Programme </label>
-							<input class="form-control" type="text" name="FDP_Programme" disabled value="<?php echo $FDP_Programme ?>"/> 	
+							<input class="form-control" type="text" name="FDP_Programme" value="<?php echo $FDP_Programme ?>"/> 	
 						   <label> Duration </label>
 							<input class="form-control" type="text" name="FDP_Duration" value="<?php echo $FDP_Duration ?>"/> 
 							<label>Organized By </label>
@@ -376,7 +372,7 @@
 			
 			 <div class="form-group">
 							<label>Title of the Paper Presented</label>
-							 <input class="form-control" type="text" name="PPC_TPP" disabled value="<?php echo $PPC_TPP ?>"/>  	
+							 <input class="form-control" type="text" name="PPC_TPP" value="<?php echo $PPC_TPP ?>"/>  	
 						   <label>Title Conference / Seminar etc.</label> 
 							 <input class="form-control" type="text" name="PPC_TCS" value="<?php echo $PPC_TCS ?>"/>  
 						   <label>Date (s) of the Event </label>
@@ -414,7 +410,7 @@
 			
 			 <div class="form-group">
 							<label>Title of the Lecture / Academic Session</label>
-							 <input class="form-control" type="text" name="ILC_TOL" disabled value="<?php echo $ILC_TOL ?>"/> 	
+							 <input class="form-control" type="text" name="ILC_TOL" value="<?php echo $ILC_TOL ?>"/> 	
 						   <label>Title Conference / Seminar etc.</label>
 							<input class="form-control" type="text" name="ILC_TCS" value="<?php echo $ILC_TCS ?>"/> 
 							<label>Date (s) of the Event</label>

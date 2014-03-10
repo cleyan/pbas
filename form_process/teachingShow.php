@@ -6,11 +6,7 @@
 	$userId = $_SESSION['username'];
 	$year=$_SESSION['pbasYear'];
 	#Database Connection
-	$con = mysqli_connect('localhost','root','','pbas_db');
-	if (!$con)
-  	{
-		die('Could not connect: ' . mysqli_error($con));
- 	}
+	include('DBConnect.php');
 ?>
 
 <!-- Script for showing data for "lecture/seminar" -->
@@ -34,7 +30,7 @@
 
 ?>
         <label>Course / Paper</label> 
-        		   <input type="text" class="form-control required" name="courseName" disabled value="<?php echo $courseName; ?>"/>
+        		   <input type="text" class="form-control required" name="courseName" value="<?php echo $courseName; ?>"/>
          <br/><label>Level</label>
 				    <input type="text" class="form-control required" name="level" title="Please Enter The Level"value="<?php echo $level; ?>"/>
 		 <br /><label>Mode Of Teaching</label>
@@ -64,7 +60,7 @@
 			$resources = $row['Teach_RIMC_ARP'];
 	?>
 	        <br /><label>Course / Paper</label>
-			  <input type="text" class="form-control required" name="readingCourse" disabled value="<?php echo $courseName; ?>">
+			  <input type="text" class="form-control required" name="readingCourse" value="<?php echo $courseName; ?>">
          <br><label>Consulted</label>
 			  <input type="text" class="form-control required" name="consulted" title="Please Enter value" value="<?php echo $consulted; ?>"/>
 		  <br><label>Prescribed</label>
@@ -87,7 +83,7 @@
 
 	 ?>
 	        <br /><label>Short Description </label> 
-			    <input type="text" class="form-control required" name="description" disabled value="<?php echo $description; ?>">
+			    <input type="text" class="form-control required" name="description" value="<?php echo $description; ?>">
             <br /><label>API Score</label>
 				<input type="text" class="form-control required" name="api" title="Please Enter API Score" value="<?php echo $apiScore; ?>"/>
 	 <?php
@@ -105,7 +101,7 @@
 
 	 ?>
 	        						<label>Type of Examination Duties</label> 
-				    					<input type="text" class="form-control required" name="typeDuties" disabled value="<?php echo $dutyType; ?>">
+				    					<input type="text" class="form-control required" name="typeDuties" value="<?php echo $dutyType; ?>">
                   					<br><label>Duties Assigned</label>
 				    					<input type="text" class="form-control required" name="assignedDuties" title="Please Enter Assigned Duties" value="<?php echo $assignedDuties; ?>"/>
 									<br><label>Extent to which carried out(%)</label> 

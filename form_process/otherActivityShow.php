@@ -5,11 +5,7 @@
 	$name = $_GET['name'];
 	$userId = $_SESSION['username'];
 	#Database Connection
-	$con = mysqli_connect('localhost','root','','pbas_db');
-	if (!$con)
-  	{
-		die('Could not connect: ' . mysqli_error($con));
- 	}
+	include('DBConnect.php');
 ?>
 <!-- Script for showing data for "Other Activity" -->
 

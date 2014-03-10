@@ -2,11 +2,7 @@
    
 	
 	#Database Connection
-	$con = mysqli_connect('localhost','root','','pbas_db');
-	if (!$con)
-  	{
-		die('Could not connect: ' . mysqli_error($con));
- 	}
+	include('DBConnect.php');
 	if(isset($_SESSION['username']))
 	{	
 		$uname=$_SESSION['username'];

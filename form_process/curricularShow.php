@@ -6,11 +6,7 @@
 	$userId = $_SESSION['username'];
 	$year=$_SESSION['pbasYear'];
 	#Database Connection
-	$con = mysqli_connect('localhost','root','root','pbas_db');
-	if (!$con)
-  	{
-		die('Could not connect: ' . mysqli_error($con));
- 	}
+	include('DBConnect.php');
 ?>
 <!-- Script for showing data for "curricular" -->
 
@@ -24,7 +20,7 @@
 		$apiScore = $row['Teach_ECFA_API'];
 ?>
 	      <br/> <label>Type of Activity</label> <br/>
-				<input type="text" class="form-control required" name="average" disabled value="<?php echo $type; ?>"/>
+				<input type="text" class="form-control required" name="average" value="<?php echo $type; ?>"/>
            <br/><label>Average Hrs/Week</label>
 				<input type="text" class="form-control required" name="average" title="Please Enter Average Hrs/Week" value="<?php echo $avgHours; ?>"/>
 		   <br/><label>API Score</label>
@@ -42,7 +38,7 @@
 		$apiScore = $row['Teach_CLMI_API'];	
  ?>
  		<br/><label>Type of Activity</label> <br/>
- 			<input type="text" class="form-control required" name="type" title="Please Enter Type" disabled value="<?php echo $type; ?>"/>
+ 			<input type="text" class="form-control required" name="type" title="Please Enter Type" value="<?php echo $type; ?>"/>
         	<br/><label>Yearly/Semester wise responsibility</label>
 			<input type="text" class="form-control required" name="responsibility" title="Please Enter Responsibility" value="<?php echo $responsibility; ?>"/>
 		 <br><label>API Score</label>
@@ -59,7 +55,7 @@
 		$apiScore = $row['Teach_PDA_API'];	
 ?>
  		<br/><label>Type of Activity</label> 
- 				<input type="text" class="form-control required" name="type" disabled value="<?php echo $type; ?>"/>	
+ 				<input type="text" class="form-control required" name="type" value="<?php echo $type; ?>"/>	
          <br/><label>Yearly/Semester wise responsibility</label>
 				<input type="text" class="form-control required" name="responsibility" title="Please Enter The Responsibility" value="<?php echo $responsibility; ?>"/>
 		 <br><label>API Score</label>

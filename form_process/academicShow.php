@@ -6,11 +6,7 @@
 	$val=$_GET["val"];
 	$name = $_GET['name'];
 	#Database Connection
-	$con = mysqli_connect('localhost','root','','pbas_db');
-	if (!$con)
-  	{
-		die('Could not connect: ' . mysqli_error($con));
- 	}
+	include('DBConnect.php');
 ?>
 
 <!-- Script for showing data for "Academic Activity" -->

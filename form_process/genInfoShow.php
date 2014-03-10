@@ -6,11 +6,7 @@
 	ob_start();
 	$name = $_GET['name'];
 	#Database Connection
-	$con = mysqli_connect('localhost','root','','pbas_db');
-	if (!$con)
-  	{
-		die('Could not connect: ' . mysqli_error($con));
- 	}
+	include('DBConnect.php');
 	
 	if($name == 'infoEdit'){
 		$sql="SELECT * FROM gen_info WHERE User_Id = '".$_SESSION['username']."'";
